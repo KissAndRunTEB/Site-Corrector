@@ -1,0 +1,133 @@
+﻿<Controls:MetroWindow x:Class="Site_Corrector.Okna.DodajProjekt"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Site_Corrector.Okna"
+        mc:Ignorable="d"
+                      
+                      xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        
+                       GlowBrush="{DynamicResource AccentColorBrush}"   
+                      
+        Title="Dodaj projekt" Height="600" Width="800" WindowStyle="None" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" BorderThickness="1"
+        ShowTitleBar="False" ShowMinButton="False" ShowMaxRestoreButton="False" ShowCloseButton="False"
+     
+        
+                Style="{StaticResource Domyslny}"
+        >
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FFFEFCFE" Offset="0"/>
+            <GradientStop Color="#FFF7F5EC" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Background>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" VerticalAlignment="Top">
+            <Rectangle Fill="#FFDA2C1C" Height="40"/>
+            <TextBlock HorizontalAlignment="Left" Height="25" Margin="10,10,0,0" TextWrapping="Wrap" Text="Site Corrector" VerticalAlignment="Top" Width="228" Foreground="White" FontSize="14" FontStretch="SemiCondensed"/>
+            <Image Margin="0" MouseDown="TextBlock_MouseDown" Source="Icons/dark/appbar.close.png" Height="36" d:LayoutOverrides="LeftPosition, RightPosition" HorizontalAlignment="Right" ToolTip="Zamknij" Opacity="0.8"/>
+        </Grid>
+        <Grid Grid.Row="1"  VerticalAlignment="Top">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Height="80" Background="#FFE1493B">
+                <StackPanel Orientation="Vertical">
+                    <TextBlock HorizontalAlignment="Left" Height="25" Margin="10,0,0,0" TextWrapping="Wrap" Text="Dodaj nowy projekt" VerticalAlignment="Top" Width="228" Foreground="White" FontSize="13.333" FontStretch="SemiCondensed"/>
+
+                    <StackPanel Orientation="Horizontal" Margin="10,0,0,0"/>
+                </StackPanel>
+
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="2"  >
+
+            <StackPanel Orientation="Horizontal">
+
+                <StackPanel Orientation="Vertical" Width="380" Margin="10,10,0,0" >
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Dane strony internetowej" HorizontalAlignment="Left" Foreground="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}"/>
+
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Height="25"  TextWrapping="Wrap" Width="150" Text="Nazwa projektu" VerticalAlignment="Top" Foreground="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" FontSize="13.333" FontStretch="SemiCondensed"/>
+                        <TextBox x:Name="pole_nazwa_projektu" Height="23" Width="220" TextWrapping="Wrap" TextChanged="pole_jakiekolwiek_zmienione_TextChanged"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Height="25"  TextWrapping="Wrap" Width="150" Text="Adres strony" VerticalAlignment="Top" Foreground="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" FontSize="13.333" FontStretch="SemiCondensed"/>
+                        <TextBox x:Name="pole_adres_strony" Height="23" Width="220" TextWrapping="Wrap" TextChanged="pole_jakiekolwiek_zmienione_TextChanged" Text="" GotFocus="pole_adres_strony_GotFocus"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Height="25"  TextWrapping="Wrap" Width="150" Text="Słowa kluczowe" VerticalAlignment="Top" Foreground="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" FontSize="13.333" FontStretch="SemiCondensed"/>
+                        <TextBox x:Name="pole_slowa_kluczowe" Height="23" Width="220" TextWrapping="Wrap" TextChanged="pole_jakiekolwiek_zmienione_TextChanged"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Serwer FTP" HorizontalAlignment="Left" Foreground="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}"/>
+
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Height="25"  TextWrapping="Wrap" Width="150" Text="Adres serwera" VerticalAlignment="Top" Foreground="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" FontSize="13.333" FontStretch="SemiCondensed"/>
+                        <TextBox x:Name="pole_adres_serwera" Height="23" Width="220" TextWrapping="Wrap" TextChanged="pole_jakiekolwiek_zmienione_TextChanged" Text="" GotFocus="pole_adres_serwera_GotFocus"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Height="25"  TextWrapping="Wrap" Width="150" Text="Nazwa użytkownika" VerticalAlignment="Top" Foreground="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" FontSize="13.333" FontStretch="SemiCondensed"/>
+                        <TextBox x:Name="pole_uzytkownik_serwera" Height="23" Width="220" TextWrapping="Wrap" TextChanged="pole_jakiekolwiek_zmienione_TextChanged"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Height="25"  TextWrapping="Wrap" Width="150" Text="Hasło użytkownika" VerticalAlignment="Top" Foreground="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" FontSize="13.333" FontStretch="SemiCondensed"/>
+                        <TextBox x:Name="pole_haslo_serwera" Height="23" Width="220" TextWrapping="Wrap" TextChanged="pole_jakiekolwiek_zmienione_TextChanged"/>
+                    </StackPanel>
+
+
+
+                </StackPanel>
+
+                <StackPanel Orientation="Vertical" Width="400" Margin="4,10,0,0" >
+
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Baza danych [pola opcjonalne]" HorizontalAlignment="Left" Foreground="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}"/>
+
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Height="25"  TextWrapping="Wrap" Width="170" Text="Serwer bazy danych" VerticalAlignment="Top" Foreground="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" FontSize="13.333" FontStretch="SemiCondensed"/>
+                        <TextBox x:Name="pole_serwer_bazy" Height="23" Width="220" TextWrapping="Wrap" TextChanged="pole_jakiekolwiek_zmienione_TextChanged"/>
+                    </StackPanel>
+
+
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Height="25"  TextWrapping="Wrap" Width="170" Text="Nazwa bazy danych" VerticalAlignment="Top" Foreground="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" FontSize="13.333" FontStretch="SemiCondensed"/>
+                        <TextBox x:Name="pole_nazwa_bazy" Height="23" Width="220" TextWrapping="Wrap" TextChanged="pole_jakiekolwiek_zmienione_TextChanged"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Height="25"  TextWrapping="Wrap" Width="170" Text="Użytkownik bazy danych" VerticalAlignment="Top" Foreground="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" FontSize="13.333" FontStretch="SemiCondensed"/>
+                        <TextBox x:Name="pole_uzytkownik_bazy" Height="23" Width="220" TextWrapping="Wrap" TextChanged="pole_jakiekolwiek_zmienione_TextChanged"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Height="25"  TextWrapping="Wrap" Width="170" Text="Hasło bazy danych" VerticalAlignment="Top" Foreground="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" FontSize="13.333" FontStretch="SemiCondensed"/>
+                        <TextBox x:Name="pole_haslo_bazy" Height="23" Width="220" TextWrapping="Wrap" TextChanged="pole_jakiekolwiek_zmienione_TextChanged"/>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Height="100" Margin="0,100,0,0">
+
+                <Label Name="komunkat_o_bledzie" Content="" Margin="0 0 0 0" HorizontalAlignment="Center" Foreground="Red"/>
+
+                <Button x:Name="przycisk_dodaj_projekt" Content="Dodaj projekt" Width="150" Height="40" Margin="0 0 0 0" IsEnabled="False" Click="Button_Click"/>
+
+
+
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Controls:MetroWindow>
+
+

@@ -1,0 +1,623 @@
+﻿<Controls:MetroWindow x:Class="Site_Corrector.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Site_Corrector"
+        
+                      xmlns:p = "clr-namespace:Site_Corrector.Properties"
+                      
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        
+                       GlowBrush="{DynamicResource AccentColorBrushRamka}"
+                      
+        mc:Ignorable="d"
+        Title="Site Corrector" Height="850" Width="1200" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" BorderThickness="1" WindowStyle="None" KeyUp="Window_KeyUp"
+        
+        Style="{StaticResource Domyslny}" ShowTitleBar="False" ShowMinButton="False" ShowMaxRestoreButton="False" ShowCloseButton="False" Background="#FFFEFCFE"
+        >
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <local:StatusToColorConverter x:Key="konwerter_statusu_na_kolor"/>
+            <local:StatusPlikuToColorConverter x:Key="konwerter_statusu_pliku_na_kolor"/>
+            <local:StatusProjektuToColorConverter x:Key="konwerter_statusu_projektu_na_kolor"/>
+            <local:CzyMaUstawieniaToVisibilityConverter x:Key="konwerter_CzyMaUstawienia_na_widocznosc"/>
+            <local:CzyMoznaWylaczycToVisibilityConverter x:Key="konwerter_CzyMoznaWylaczyc_na_widocznosc"/>
+            <local:StatusToBooleanConverter x:Key="konwerter_statusu_na_wl_wyl"/>
+
+
+
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition  Height="720"/>
+            <RowDefinition  Height="50"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="350"/>
+            <ColumnDefinition Width="600"/>
+            <ColumnDefinition Width="250"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Row="0"  VerticalAlignment="Top" Grid.ColumnSpan="3">
+            <Rectangle Fill="{DynamicResource kolor_akcent_1}" Height="40" MouseLeftButtonDown="Rectangle_MouseLeftButtonDown"/>
+            <StackPanel Margin="10,10,60,5" Orientation="Horizontal" d:LayoutOverrides="Width">
+                <TextBlock TextWrapping="Wrap" Text="SITE CORRECTOR" VerticalAlignment="Center" Foreground="White" FontSize="16" MouseDown="TextBlock_MouseDown_1" d:LayoutOverrides="TopPosition, BottomPosition"/>
+
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Width="217" HorizontalAlignment="Right" Height="40" VerticalAlignment="Bottom">
+
+                <Image Margin="0" Source="Okna/Icons/dark/appbar.notification.star.png" Height="36" HorizontalAlignment="Right" d:LayoutOverrides="LeftPosition, RightPosition" ToolTip="Wsparcie" MouseDown="Image_MouseDown_4" Opacity="0.8"/>
+                <Image x:Name="etykieta_tryb" Margin="0" Opacity="0.2" MouseDown="etykieta_tryb_MouseDown"  Source="Okna/Icons/dark/appbar.tiles.plus.png" Height="36" HorizontalAlignment="Right" d:LayoutOverrides="LeftPosition, RightPosition" ToolTip="Tryb zaawansowany"/>
+                <Image Margin="0"  Source="Okna/Icons/dark/appbar.connection.wifi.variant.png" Height="36" HorizontalAlignment="Right" d:LayoutOverrides="LeftPosition, RightPosition" ToolTip="Połączenie z internetem" Opacity="0.8"/>
+                <Image Margin="0" Source="Okna/Icons/dark/appbar.settings.png" Height="36" HorizontalAlignment="Right" d:LayoutOverrides="LeftPosition, RightPosition" ToolTip="Ustawienia" Opacity="0.8" MouseDown="Image_MouseDown"/>
+                <Rectangle Fill="White" Width="1.333" d:LayoutOverrides="TopPosition, BottomPosition" Opacity="0.5" Height="34" />
+                <Image Margin="0"  Source="Okna/Icons/dark/appbar.window.minimize.png" Height="36" HorizontalAlignment="Right" d:LayoutOverrides="LeftPosition, RightPosition" ToolTip="Minimalizuj" MouseDown="Image_MouseDown_6" Opacity="0.8"/>
+                <Image Margin="0" Visibility="Collapsed" Source="Okna/Icons/dark/appbar.window.maximize.png" Height="40" d:LayoutOverrides="LeftPosition, RightPosition" HorizontalAlignment="Right" ToolTip="Maksymalizuj"/>
+                <Image Margin="0" MouseDown="TextBlock_MouseDown" Source="Okna/Icons/dark/appbar.close.png" Height="36" d:LayoutOverrides="LeftPosition, RightPosition" HorizontalAlignment="Right" ToolTip="Zamknij" Opacity="0.8"/>
+
+
+
+            </StackPanel>
+
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="0">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Background="{DynamicResource kolor_akcent_2}">
+                <Image x:Name="przycisk_menu" Width="40" Source="Okna/Icons/dark/appbar.lines.horizontal.3.png" ToolTip="Menu" MouseDown="przycisk_menu_MouseDown"/>
+
+                <StackPanel x:Name="menu" Visibility="Collapsed" Orientation="Horizontal">
+
+                    <Image Width="40" Source="Okna/Icons/dark/appbar.add.png" MouseDown="TextBlock_MouseDown_5" ToolTip="Dodaj nowy projekt"/>
+                    <Image Width="40" Source="Okna/Icons/dark/appbar.page.delete.png" MouseDown="TextBlock_MouseDown_4" ToolTip="Usuń zaznaczony projekt"/>
+
+                </StackPanel>
+
+                <Label x:Name="etykieta_nazwa_projektu_wybranego" Content="{x:Static p:Resources.etykieta_naglowek1}" Foreground="White" VerticalAlignment="Center" Margin="10,0,0,0" FontSize="16"/>
+
+                <Image x:Name="przycisk_start" Width="40" Source="Okna/Icons/dark/appbar.control.play.png" ToolTip="Start" MouseDown="przycisk_start_Click" />
+
+                <StackPanel x:Name="panel_zawansowane" Visibility="Collapsed" Orientation="Horizontal">
+
+                    <Rectangle Fill="White" Width="1.333" d:LayoutOverrides="TopPosition, BottomPosition" Opacity="0.5"/>
+
+                    <Image x:Name="przycisk_pobierz" Width="40" Source="Okna/Icons/dark/appbar.download.png" ToolTip="Pobierz aktualną wersje strony" MouseDown="przycisk_pobierz_MouseDown" />
+                    <Image x:Name="przycisk_optymalizuj" Width="40" Source="Okna/Icons/dark/appbar.monitor.play.png" ToolTip="Tylko zoptymalizuj pliki lokalnie" MouseDown="przycisk_optymalizuj_MouseDown"  />
+                    <Image x:Name="przycisk_wgraj" Width="40"  Source="Okna/Icons/dark/appbar.upload.png" ToolTip="Wgraj zoptymalizowaną wersje strony" MouseDown="przycisk_wgraj_MouseDown" />
+
+                </StackPanel>
+
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="1">
+            <StackPanel Orientation="Horizontal" Height="40" VerticalAlignment="Top" Background="{DynamicResource kolor_akcent_2}">
+                <Label Content="{x:Static p:Resources.etykieta_naglowek2}" Foreground="White" VerticalAlignment="Center" Margin="10,0,0,0" FontSize="16"/>
+
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="2">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Height="40" Background="{DynamicResource kolor_akcent_2}">
+                <Label Content="{x:Static p:Resources.etykieta_naglowek3}" Foreground="White" VerticalAlignment="Center" Margin="10,0,0,0" FontSize="16"/>
+
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Row="2" Grid.Column="0">
+
+            <StackPanel Orientation="Vertical" Margin="0" Background="#FFF6F5F1">
+                <StackPanel Height="120" Orientation="Horizontal" Margin="0,0,0,1">
+                    <StackPanel.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <LinearGradientBrush.RelativeTransform>
+                                <TransformGroup>
+                                    <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                                    <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                                    <RotateTransform Angle="135" CenterY="0.5" CenterX="0.5"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </LinearGradientBrush.RelativeTransform>
+                            <GradientStop Color="#FFF6F5F1"/>
+                            <GradientStop Color="#FF453E7D" Offset="1"/>
+                        </LinearGradientBrush>
+                    </StackPanel.Background>
+                    <StackPanel Width="100" Height="100"  Margin="0">
+                        <StackPanel.Background>
+                            <ImageBrush ImageSource="Okna/Zdjecia/avatar_tlov2.png" />
+                        </StackPanel.Background>
+                        <Image Source="Okna/Domyslne/avatar_test.png" Margin="0" >
+                            <Image.OpacityMask>
+                                <ImageBrush ImageSource="Okna/Zdjecia/maska.png"/>
+                            </Image.OpacityMask>
+                        </Image>
+                    </StackPanel>
+                    <StackPanel Margin="0,10" Orientation="Vertical" Width="250" d:LayoutOverrides="Height">
+                        <StackPanel Orientation="Horizontal" Height="30" Margin="0,10,0,0">
+                            <Label Content="Witaj," Foreground="White" Margin="0,3,0,0" HorizontalAlignment="Left"/>
+                            <Label Content="Testowy Użytkowniku" Foreground="White" FontWeight="Bold" FontSize="16" Margin="-8,0,0,0"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Height="24" Margin="0,-4,0,0">
+                            <Label Content="Konto " Foreground="#3FFFFFFF" HorizontalAlignment="Left"/>
+                            <Label Content="TESTOWE" Foreground="#3FFFFFFF" HorizontalAlignment="Left" FontWeight="ExtraBlack" Margin="-10,0"/>
+                            <Label Content=" ważne do 30.05.16" Foreground="#3FFFFFFF" HorizontalAlignment="Left"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Height="24" Margin="0,-4,0,0"/>
+                    </StackPanel>
+                </StackPanel>
+
+                <TextBlock HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" VerticalAlignment="Top" Width="230" Foreground="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}" FontSize="13.333" FontStretch="SemiCondensed" Margin="10,10,0,0"><Run Text="Lista projektów"/></TextBlock>
+
+
+                <ListBox x:Name="lista_projektow" ItemsSource="{Binding Source={StaticResource lista_projektow}}" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="330" Height="560" SelectionChanged="lista_projektow_SelectionChanged" Margin="10,0,0,0" Background="#FFF6F5F1">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="10"></ColumnDefinition>
+                                    <ColumnDefinition Width="80"></ColumnDefinition>
+                                    <ColumnDefinition Width="200"></ColumnDefinition>
+                                    <ColumnDefinition Width="10"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="10"/>
+                                    <RowDefinition Height="80"/>
+                                    <RowDefinition Height="10"/>
+                                </Grid.RowDefinitions>
+                                <StackPanel Orientation="Vertical" Width="80" Height="80" Grid.Row="1" Grid.Column="1">
+                                    <Image Source="{Binding Favicona, FallbackValue=Okna/Domyslne/Favicon.png}" Stretch="Fill" />
+                                </StackPanel>
+                                <StackPanel Orientation="Vertical" Width="Auto" Height="Auto" Grid.Row="1" Grid.Column="2" Margin="10,0,0,0">
+
+                                    <TextBlock Text="{Binding Nazwa, FallbackValue=Nazwa}" Foreground="#FF292826" Margin="0" FontSize="14.667" />
+                                    <TextBlock Text="{Binding AdresStrony, FallbackValue=Adres}" Width="190" Foreground="#FF646462" Margin="0" FontSize="10.667" HorizontalAlignment="Left" />
+
+                                    <TextBlock Text="{Binding KomunikatOStatusie}" Foreground="{Binding Status, Converter={StaticResource konwerter_statusu_projektu_na_kolor}}" Margin="0" FontSize="14.667" />
+
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,4,0,0">
+                                        <TextBlock Foreground="#FFA7A7A5" Margin="10,0,0,0" FontSize="9" ><Run Text="Pobrano"/><Run Text=" "/></TextBlock>
+                                        <TextBlock Text="{Binding DataPobrania, FallbackValue=Data}" Foreground="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}" Margin="10,0,0,0" FontSize="9" />
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,4,0,0">
+                                        <TextBlock Foreground="#FFA7A7A5" Margin="10,0,0,0" FontSize="9" ><Run Text="Zoptymalizowano "/></TextBlock>
+                                        <TextBlock Text="{Binding DataOptymalizacji, FallbackValue=Data}" Foreground="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}" Margin="10,0,0,0" FontSize="9" />
+
+                                    </StackPanel>
+                                </StackPanel>
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </StackPanel>
+            <Border BorderBrush="#e8e8e6" BorderThickness="0,0,1,0" HorizontalAlignment="Right" />
+        </Grid>
+        <Grid Grid.Row="2" Grid.Column="1">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
+
+                <StackPanel Orientation="Vertical" Margin="10,10,10,0" >
+                    <TextBlock HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" VerticalAlignment="Top" Width="230" Foreground="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}" FontSize="13.333" FontStretch="SemiCondensed"><Run Text="1. "/><Run Text="{x:Static p:Resources.etykieta_etap1}"/></TextBlock>
+
+
+
+                    <ListBox x:Name="lista_etapow_pobieranie" HorizontalAlignment="Left" Height="90" Width="580" VerticalAlignment="Top" Background="#FFFEFCFE" DataContext="{Binding}" SelectionChanged="lista_etapow_pobieranie_SelectionChanged">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="40"/>
+                                        <RowDefinition Height="50"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="60"/>
+                                        <ColumnDefinition Width="420"/>
+                                        <ColumnDefinition Width="80"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid  Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Margin="0,0,10,0" >
+                                        
+                                        <Ellipse Fill="{Binding Status, Converter={StaticResource konwerter_statusu_na_kolor}}" Height="48"  Width="48" Margin="2,2,0,0"/> 
+                                        <Image Height="50" Width="50" Source="Okna/Icons/light/appbar.base.png" Stretch="UniformToFill" Margin="0,0,0,0" />
+                                       
+                                        
+                                    </Grid>
+                                    <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="0" MouseDown="Ustawienia_MouseDown">
+                                        <TextBlock Text="{Binding Nazwa,FallbackValue=Nazwa Etapu}" Foreground="#FF292826" FontSize="21.333" HorizontalAlignment="Left" Margin="0,10,0,0"/>
+                                        <Image Height="30" Width="30" Source="Okna/Icons/light/appbar.settings.png" Visibility="{Binding CzyMaUstawienia, Converter={StaticResource konwerter_CzyMaUstawienia_na_widocznosc}}" Stretch="Fill"  VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                                    </StackPanel>
+                                    <StackPanel Grid.Column="1" Grid.Row="1">
+                                        <TextBlock Text="{Binding Opis, FallbackValue=Opis EtapuOpis EtapuOpis EtapuOpis EtapuOpis EtapuOpis EtapuOpis EtapuOpis EtapuOpis EtapuOpis EtapuOpis EtapuOpis EtapuOpis EtapuOpis EtapuOpis EtapuOpis EtapuOpis EtapuOpis EtapuOpis EtapuOpis Etapu}" Foreground="#FF646462" TextWrapping="Wrap" Height="31.214" />
+
+                                        <Controls:MetroProgressBar Width="420" Visibility="{Binding CzyPokazacPasekPostepu}" Value="{Binding ProcentPostepu,FallbackValue=50}" IsIndeterminate="{Binding CzyIndeterminate,FallbackValue=True}" ToolTip="{Binding KomunikatOPostepie,FallbackValue=postęp...}" />
+
+                                    </StackPanel>
+
+                                    <StackPanel Grid.Column="2" Grid.Row="1">
+                                        <Controls:ToggleSwitch OffLabel="" OnLabel="" IsChecked="true"  Visibility="{Binding CzyMoznaWylaczyc, Converter={StaticResource konwerter_CzyMoznaWylaczyc_na_widocznosc}}" IsCheckedChanged="ToggleSwitch_IsCheckedChanged" Loaded="ToggleSwitch_Loaded"/>
+
+                                    </StackPanel>
+                                </Grid>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                    <TextBlock HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" VerticalAlignment="Top" Width="230" Foreground="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}" FontSize="13.333" FontStretch="SemiCondensed" Margin="0,18,0,0"><Run Text="2. "/><Run Text="{x:Static p:Resources.etykieta_etap2}"/></TextBlock>
+
+                    <ListBox x:Name="lista_etapow" HorizontalAlignment="Left" Height="400" Width="580" VerticalAlignment="Top" Background="#FFFEFCFE" DataContext="{Binding}" SelectionChanged="lista_etapow_SelectionChanged">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="40"/>
+                                        <RowDefinition Height="50"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="60"/>
+                                        <ColumnDefinition Width="420"/>
+                                        <ColumnDefinition Width="80"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid  Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Margin="0,0,10,0" >
+
+                                        <Ellipse Fill="{Binding Status, Converter={StaticResource konwerter_statusu_na_kolor}}" Height="48"  Width="48" Margin="2,2,0,0"/>
+                                        <Image Height="50" Width="50" Source="Okna/Icons/light/appbar.base.png" Stretch="UniformToFill" Margin="0,0,0,0" />
+
+
+                                    </Grid>
+                                    <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="0" MouseDown="Ustawienia_MouseDown">
+                                        <TextBlock Text="{Binding Nazwa,FallbackValue=Nazwa Etapu}" Foreground="#FF292826" FontSize="21.333" HorizontalAlignment="Left" Margin="0,10,0,0"/>
+                                        <Image Height="30" Width="30" Source="Okna/Icons/light/appbar.settings.png" Visibility="{Binding CzyMaUstawienia, Converter={StaticResource konwerter_CzyMaUstawienia_na_widocznosc}}" Stretch="Fill"  VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                                    </StackPanel>
+                                    <StackPanel Grid.Column="1" Grid.Row="1">
+                                        <TextBlock Text="{Binding Opis, FallbackValue=Opis EtapuOpis EtapuOpis EtapuOpis EtapuOpis EtapuOpis EtapuOpis EtapuOpis EtapuOpis EtapuOpis EtapuOpis EtapuOpis EtapuOpis EtapuOpis EtapuOpis EtapuOpis EtapuOpis EtapuOpis EtapuOpis EtapuOpis Etapu}" Foreground="#FF646462" TextWrapping="Wrap" Height="31.214" />
+
+                                        <Controls:MetroProgressBar Width="420" Visibility="{Binding CzyPokazacPasekPostepu}" Value="{Binding ProcentPostepu,FallbackValue=50}" IsIndeterminate="{Binding CzyIndeterminate,FallbackValue=True}" ToolTip="{Binding KomunikatOPostepie,FallbackValue=postęp...}" />
+
+                                    </StackPanel>
+
+                                    <StackPanel Grid.Column="2" Grid.Row="1">
+                                        <Controls:ToggleSwitch OffLabel="" OnLabel="" IsChecked="true"  Visibility="{Binding CzyMoznaWylaczyc, Converter={StaticResource konwerter_CzyMoznaWylaczyc_na_widocznosc}}" IsCheckedChanged="ToggleSwitch_IsCheckedChanged" Loaded="ToggleSwitch_Loaded"/>
+
+                                    </StackPanel>
+                                </Grid>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+
+                    <TextBlock HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" VerticalAlignment="Top" Width="230" Foreground="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}" FontSize="13.333" FontStretch="SemiCondensed" Margin="0,18,0,0"><Run Text="3. "/><Run Text="{x:Static p:Resources.etykieta_etap3}"/></TextBlock>
+
+
+                    <ListBox x:Name="lista_etapow_wgrywanie" HorizontalAlignment="Left" Height="78" Width="580" VerticalAlignment="Top" Background="#FFFEFCFE" DataContext="{Binding}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="40"/>
+                                        <RowDefinition Height="50"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="60"/>
+                                        <ColumnDefinition Width="420"/>
+                                        <ColumnDefinition Width="80"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid  Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Margin="0,0,10,0" >
+
+                                        <Ellipse Fill="{Binding Status, Converter={StaticResource konwerter_statusu_na_kolor}}" Height="48"  Width="48" Margin="2,2,0,0"/>
+                                        <Image Height="50" Width="50" Source="Okna/Icons/light/appbar.base.png" Stretch="UniformToFill" Margin="0,0,0,0" />
+
+
+                                    </Grid>
+                                    <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="0" MouseDown="Ustawienia_MouseDown">
+                                        <TextBlock Text="{Binding Nazwa,FallbackValue=Nazwa Etapu}" Foreground="#FF292826" FontSize="21.333" HorizontalAlignment="Left" Margin="0,10,0,0"/>
+                                        <Image Height="30" Width="30" Source="Okna/Icons/light/appbar.settings.png" Visibility="{Binding CzyMaUstawienia, Converter={StaticResource konwerter_CzyMaUstawienia_na_widocznosc}}" Stretch="Fill"  VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                                    </StackPanel>
+                                    <StackPanel Grid.Column="1" Grid.Row="1">
+                                        <TextBlock Text="{Binding Opis, FallbackValue=Opis EtapuOpis EtapuOpis EtapuOpis EtapuOpis EtapuOpis EtapuOpis EtapuOpis EtapuOpis EtapuOpis EtapuOpis EtapuOpis EtapuOpis EtapuOpis EtapuOpis EtapuOpis EtapuOpis EtapuOpis EtapuOpis EtapuOpis Etapu}" Foreground="#FF646462" TextWrapping="Wrap" Height="31.214" />
+
+                                        <Controls:MetroProgressBar Width="420" Visibility="{Binding CzyPokazacPasekPostepu}" Value="{Binding ProcentPostepu,FallbackValue=50}" IsIndeterminate="{Binding CzyIndeterminate,FallbackValue=True}" ToolTip="{Binding KomunikatOPostepie,FallbackValue=postęp...}" />
+
+                                    </StackPanel>
+
+                                    <StackPanel Grid.Column="2" Grid.Row="1">
+                                        <Controls:ToggleSwitch OffLabel="" OnLabel="" IsChecked="true"  Visibility="{Binding CzyMoznaWylaczyc, Converter={StaticResource konwerter_CzyMoznaWylaczyc_na_widocznosc}}" IsCheckedChanged="ToggleSwitch_IsCheckedChanged" Loaded="ToggleSwitch_Loaded"/>
+
+                                    </StackPanel>
+                                </Grid>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                    
+                </StackPanel>
+
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="2" Grid.Column="2">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
+                <StackPanel Orientation="Vertical" Margin="10,10,0,0">
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" Text="Informacje" VerticalAlignment="Top" Width="230" Foreground="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}" FontSize="13.333" FontStretch="SemiCondensed"/>
+
+                        <Controls:MetroProgressBar Value="100" />
+
+                        <TextBlock HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" VerticalAlignment="Top" Width="230" Foreground="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" FontSize="13.333" FontStretch="SemiCondensed" Text="Rozmiar plików"/>
+                        <StackPanel Orientation="Horizontal">
+
+                            <TextBlock HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" Text="Przed: " VerticalAlignment="Top" Width="80" Foreground="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" FontSize="13.333" FontStretch="SemiCondensed"/>
+
+                            <TextBlock x:Name="etykia_przed_MB" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" Text="- KB" VerticalAlignment="Top" Width="80" Foreground="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" FontSize="13.333" FontStretch="SemiCondensed"/>
+
+
+                        </StackPanel>
+
+
+                        <StackPanel Orientation="Horizontal">
+
+
+                            <TextBlock HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" VerticalAlignment="Top" Width="80" Foreground="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" FontSize="13.333" FontStretch="SemiCondensed" Text="Po:"/>
+
+                            <TextBlock x:Name="etykia_po_MB" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" Text="- KB" VerticalAlignment="Top" Width="80" Foreground="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" FontSize="13.333" FontStretch="SemiCondensed"/>
+
+                        </StackPanel>
+
+                        <Controls:MetroProgressBar Value="100" />
+
+                        <TextBlock HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" VerticalAlignment="Top" Width="230" Foreground="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" FontSize="13.333" FontStretch="SemiCondensed" Text="Desktop"/>
+
+                        <StackPanel Orientation="Horizontal">
+
+
+                            <TextBlock HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" VerticalAlignment="Top" Width="80" Foreground="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" FontSize="13.333" FontStretch="SemiCondensed" Text="Wynik:"/>
+
+                            <TextBlock x:Name="etykia_PS_wynik_komp_przed" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Width="80" Foreground="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" FontSize="13.333" FontStretch="SemiCondensed"/>
+                            <TextBlock x:Name="etykia_PS_wynik_komp_po" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Width="80" Foreground="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" FontSize="13.333" FontStretch="SemiCondensed"/>
+
+
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal">
+
+
+                            <TextBlock HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" VerticalAlignment="Top" Width="80" Foreground="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" FontSize="13.333" FontStretch="SemiCondensed" Text="Css:"/>
+
+                            <TextBlock x:Name="etykia_PS_wynik_komp_przed_CSS" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Width="80" Foreground="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" FontSize="13.333" FontStretch="SemiCondensed"/>
+                            <TextBlock x:Name="etykia_PS_wynik_komp_po_CSS" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Width="80" Foreground="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" FontSize="13.333" FontStretch="SemiCondensed"/>
+
+
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal">
+
+
+                            <TextBlock HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" VerticalAlignment="Top" Width="80" Foreground="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" FontSize="13.333" FontStretch="SemiCondensed" Text="Js:"/>
+
+                            <TextBlock x:Name="etykia_PS_wynik_komp_przed_JS" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Width="80" Foreground="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" FontSize="13.333" FontStretch="SemiCondensed"/>
+                            <TextBlock x:Name="etykia_PS_wynik_komp_po_JS" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Width="80" Foreground="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" FontSize="13.333" FontStretch="SemiCondensed"/>
+
+
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal">
+
+
+                            <TextBlock HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" VerticalAlignment="Top" Width="80" Foreground="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" FontSize="13.333" FontStretch="SemiCondensed" Text="Html:"/>
+
+                            <TextBlock x:Name="etykia_PS_wynik_komp_przed_HTML" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Width="80" Foreground="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" FontSize="13.333" FontStretch="SemiCondensed"/>
+                            <TextBlock x:Name="etykia_PS_wynik_komp_po_HTML" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Width="80" Foreground="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" FontSize="13.333" FontStretch="SemiCondensed"/>
+
+
+                        </StackPanel>
+
+
+                        <StackPanel Orientation="Horizontal">
+
+                            <TextBlock HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" VerticalAlignment="Top" Width="80" Foreground="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" FontSize="13.333" FontStretch="SemiCondensed" Text="Tekst:"/>
+
+                            <TextBlock x:Name="etykia_PS_wynik_komp_przed_Tekst" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Width="80" Foreground="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" FontSize="13.333" FontStretch="SemiCondensed"/>
+
+                            <TextBlock x:Name="etykia_PS_wynik_komp_po_Tekst" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Width="80" Foreground="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" FontSize="13.333" FontStretch="SemiCondensed"/>
+
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal">
+
+
+                            <TextBlock HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" VerticalAlignment="Top" Width="80" Foreground="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" FontSize="13.333" FontStretch="SemiCondensed" Text="Zdjęcia:"/>
+
+                            <TextBlock x:Name="etykia_PS_wynik_komp_przed_Zdjecia" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Width="80" Foreground="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" FontSize="13.333" FontStretch="SemiCondensed"/>
+                            <TextBlock x:Name="etykia_PS_wynik_komp_po_Zdjecia" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Width="80" Foreground="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" FontSize="13.333" FontStretch="SemiCondensed"/>
+
+
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal">
+
+
+                            <TextBlock HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" VerticalAlignment="Top" Width="80" Foreground="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" FontSize="13.333" FontStretch="SemiCondensed" Text="Flash:"/>
+
+                            <TextBlock x:Name="etykia_PS_wynik_komp_przed_FLASH" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Width="80" Foreground="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" FontSize="13.333" FontStretch="SemiCondensed"/>
+                            <TextBlock x:Name="etykia_PS_wynik_komp_po_FLASH" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Width="80" Foreground="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" FontSize="13.333" FontStretch="SemiCondensed"/>
+
+
+                        </StackPanel>
+
+
+                        <StackPanel Orientation="Horizontal">
+
+
+                            <TextBlock HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" VerticalAlignment="Top" Width="80" Foreground="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" FontSize="13.333" FontStretch="SemiCondensed" Text="Inne:"/>
+
+                            <TextBlock x:Name="etykia_PS_wynik_komp_przed_Inne" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Width="80" Foreground="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" FontSize="13.333" FontStretch="SemiCondensed"/>
+                            <TextBlock x:Name="etykia_PS_wynik_komp_po_Inne" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Width="80" Foreground="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" FontSize="13.333" FontStretch="SemiCondensed"/>
+
+
+                        </StackPanel>
+
+                        <Controls:MetroProgressBar Value="100" />
+
+                        <TextBlock HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" VerticalAlignment="Top" Width="230" Foreground="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" FontSize="13.333" FontStretch="SemiCondensed" Text="Mobile"/>
+
+                        <StackPanel Orientation="Horizontal">
+
+
+                            <TextBlock HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" VerticalAlignment="Top" Width="80" Foreground="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" FontSize="13.333" FontStretch="SemiCondensed" Text="Wynik:"/>
+
+                            <TextBlock x:Name="etykia_PS_wynik_mobile_przed" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Width="80" Foreground="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" FontSize="13.333" FontStretch="SemiCondensed"/>
+
+                            <TextBlock x:Name="etykia_PS_wynik_mobile_po" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Width="80" Foreground="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" FontSize="13.333" FontStretch="SemiCondensed"/>
+
+                        </StackPanel>
+
+
+                        <StackPanel Orientation="Horizontal">
+
+
+                            <TextBlock HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" VerticalAlignment="Top" Width="80" Foreground="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" FontSize="13.333" FontStretch="SemiCondensed" Text="Css:"/>
+
+                            <TextBlock x:Name="etykia_PS_wynik_mobile_przed_CSS" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Width="80" Foreground="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" FontSize="13.333" FontStretch="SemiCondensed"/>
+
+                            <TextBlock x:Name="etykia_PS_wynik_mobile_po_CSS" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Width="80" Foreground="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" FontSize="13.333" FontStretch="SemiCondensed"/>
+
+                        </StackPanel>
+
+
+                        <StackPanel Orientation="Horizontal">
+
+
+                            <TextBlock HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" VerticalAlignment="Top" Width="80" Foreground="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" FontSize="13.333" FontStretch="SemiCondensed" Text="Js:"/>
+
+                            <TextBlock x:Name="etykia_PS_wynik_mobile_przed_JS" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Width="80" Foreground="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" FontSize="13.333" FontStretch="SemiCondensed"/>
+
+                            <TextBlock x:Name="etykia_PS_wynik_mobile_po_JS" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Width="80" Foreground="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" FontSize="13.333" FontStretch="SemiCondensed"/>
+
+                        </StackPanel>
+
+
+                        <StackPanel Orientation="Horizontal">
+
+
+                            <TextBlock HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" VerticalAlignment="Top" Width="80" Foreground="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" FontSize="13.333" FontStretch="SemiCondensed" Text="HTML:"/>
+
+                            <TextBlock x:Name="etykia_PS_wynik_mobile_przed_HTML" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Width="80" Foreground="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" FontSize="13.333" FontStretch="SemiCondensed"/>
+
+                            <TextBlock x:Name="etykia_PS_wynik_mobile_po_HTML" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Width="80" Foreground="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" FontSize="13.333" FontStretch="SemiCondensed"/>
+
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal">
+
+                            <TextBlock HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" VerticalAlignment="Top" Width="80" Foreground="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" FontSize="13.333" FontStretch="SemiCondensed" Text="Tekst:"/>
+
+                            <TextBlock x:Name="etykia_PS_wynik_mobile_przed_Tekst" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Width="80" Foreground="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" FontSize="13.333" FontStretch="SemiCondensed"/>
+
+                            <TextBlock x:Name="etykia_PS_wynik_mobile_po_Tekst" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Width="80" Foreground="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" FontSize="13.333" FontStretch="SemiCondensed"/>
+
+                        </StackPanel>
+
+
+                        <StackPanel Orientation="Horizontal">
+
+
+                            <TextBlock HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" VerticalAlignment="Top" Width="80" Foreground="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" FontSize="13.333" FontStretch="SemiCondensed" Text="Zdjecia:"/>
+
+                            <TextBlock x:Name="etykia_PS_wynik_mobile_przed_Zdjecia" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Width="80" Foreground="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" FontSize="13.333" FontStretch="SemiCondensed"/>
+
+                            <TextBlock x:Name="etykia_PS_wynik_mobile_po_Zdjecia" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Width="80" Foreground="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" FontSize="13.333" FontStretch="SemiCondensed"/>
+
+                        </StackPanel>
+
+
+                        <StackPanel Orientation="Horizontal">
+
+
+                            <TextBlock HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" VerticalAlignment="Top" Width="80" Foreground="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" FontSize="13.333" FontStretch="SemiCondensed" Text="Flash:"/>
+
+                            <TextBlock x:Name="etykia_PS_wynik_mobile_przed_FLASH" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Width="80" Foreground="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" FontSize="13.333" FontStretch="SemiCondensed"/>
+
+                            <TextBlock x:Name="etykia_PS_wynik_mobile_po_FLASH" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Width="80" Foreground="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" FontSize="13.333" FontStretch="SemiCondensed"/>
+
+                        </StackPanel>
+
+
+                        <StackPanel Orientation="Horizontal">
+
+
+                            <TextBlock HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" VerticalAlignment="Top" Width="80" Foreground="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" FontSize="13.333" FontStretch="SemiCondensed" Text="Inne:"/>
+
+                            <TextBlock x:Name="etykia_PS_wynik_mobile_przed_Inne" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Width="80" Foreground="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" FontSize="13.333" FontStretch="SemiCondensed"/>
+
+                            <TextBlock x:Name="etykia_PS_wynik_mobile_po_Inne" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Width="80" Foreground="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" FontSize="13.333" FontStretch="SemiCondensed"/>
+
+                        </StackPanel>
+
+
+
+                    </StackPanel>
+
+                    <StackPanel Name="panel_plikow" Orientation="Vertical" Height="300" Visibility="Collapsed">
+                        <TextBlock HorizontalAlignment="Left" Height="25" Margin="0" TextWrapping="Wrap" Text="Pliki" VerticalAlignment="Top" Width="228" Foreground="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" FontSize="13.333" FontStretch="SemiCondensed"/>
+
+                        <ListBox x:Name="lista_plikow" HorizontalAlignment="Left" Height="220" Width="360" Background="WhiteSmoke">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid>
+                                        <StackPanel Orientation="Horizontal" Width="300" Height="30" ToolTip="{Binding RozmiarStatystykaNapis, FallbackValue= - }">
+
+                                            <TextBlock Text="{Binding Typ, FallbackValue=.PNG}" Foreground="White" Background="{Binding Status_Pliku, Converter={StaticResource konwerter_statusu_pliku_na_kolor}}" Width="60" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="26" TextAlignment="Center" Padding="0,5,0,0" />
+                                            <StackPanel Orientation="Vertical" Width="240.04">
+                                                <StackPanel Height="15">
+                                                    <TextBlock Text="{Binding Nazwa, FallbackValue=Nazwa pliku.png}" Foreground="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" VerticalAlignment="Top" Margin="10,0,0,0"  />
+
+                                                </StackPanel>
+                                                <StackPanel  Height="15" Orientation="Horizontal">
+                                                    <TextBlock Text="{Binding ProcentRozmiar, FallbackValue=100%}" Foreground="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" VerticalAlignment="Top" Margin="10,0,0,0"  />
+
+                                                </StackPanel>
+
+                                            </StackPanel>
+
+
+
+
+
+                                        </StackPanel>
+                                    </Grid>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+
+                    </StackPanel>
+
+                    <local:SlajderUserControl x:Name="slajder_UC" Visibility="Collapsed" />
+
+
+                </StackPanel>
+            </StackPanel>
+            <Image Height="72" Source="Okna/Img/FB.png" MouseDown="Image_MouseDown_1" VerticalAlignment="Bottom"/>
+        </Grid>
+
+        <Grid Grid.Row="3" Grid.Column="0">
+            <Rectangle HorizontalAlignment="Left" Height="1" Fill="{DynamicResource kolor_akcent_1}" Width="350" VerticalAlignment="Top"/>
+
+
+            <Label x:Name="etykieta_zajetosc_dysku" Content="w użyciu 0.0GB / 10GB" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="10" Foreground="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" Margin="0,0,10,0"/>
+
+
+        </Grid>
+
+        <Grid Grid.Row="3" Grid.Column="1">
+
+            <Rectangle HorizontalAlignment="Left" Height="1" Fill="{DynamicResource kolor_akcent_2}" Width="600" VerticalAlignment="Top"/>
+            <Label Content=" WCZESNA WERSJA TESTOWA - NIE ZAWIERA WSZYSTKICH FUNKCJI FINALNEGO PRODUKTU" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="10" Foreground="Red" Margin="0,0,10,0"/>
+
+           
+
+        </Grid>
+
+        <Grid Grid.Row="3" Grid.Column="2">
+
+            <Rectangle HorizontalAlignment="Left" Height="1" Fill="{DynamicResource kolor_akcent_2}" Width="250" VerticalAlignment="Top"/>
+
+            <Label x:Name="zmiana_jezyka" Content="{x:Static p:Resources.test}" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="10" Foreground="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" MouseDown="Label_MouseDown" Margin="0,0,10,0"/>
+
+        </Grid>
+
+
+
+    </Grid>
+</Controls:MetroWindow>

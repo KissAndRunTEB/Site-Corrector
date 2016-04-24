@@ -1,0 +1,3046 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CBAB5444-4367-4D18-9FB3-F2FCA4B16098}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Site_Corrector</RootNamespace>
+    <AssemblyName>Site Corrector</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <TargetFrameworkProfile />
+    <PublishUrl>ftp://ftp.modernapp.pl/www/Aplikacje/Site Corrector/Instalator/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>true</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <InstallUrl>http://www.modernapp.pl/Aplikacje/Site Corrector/Instalator/</InstallUrl>
+    <ProductName>Site Corrector</ProductName>
+    <PublisherName>Modern App</PublisherName>
+    <MinimumRequiredVersion>0.0.0.1</MinimumRequiredVersion>
+    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
+    <WebPage>index.html</WebPage>
+    <ApplicationRevision>19</ApplicationRevision>
+    <ApplicationVersion>0.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Okna\Img\Logo.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>DC94417AE637CBA4B0B765DEA08A4C1622A200F6</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>Site Corrector_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EcmaScript.NET, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\EcmaScript.Net.1.0.1.0\lib\net20\EcmaScript.NET.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Google.Apis, Version=1.11.1.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.1.11.1\lib\net45\Google.Apis.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Google.Apis.Core, Version=1.11.1.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Core.1.11.1\lib\net45\Google.Apis.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Google.Apis.Pagespeedonline.v2, Version=1.12.0.430, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Pagespeedonline.v2.1.12.0.430\lib\portable-net45+netcore45+wpa81+wp8\Google.Apis.Pagespeedonline.v2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Google.Apis.PlatformServices, Version=1.11.1.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.1.11.1\lib\net45\Google.Apis.PlatformServices.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.5\lib\net45-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MahApps.Metro, Version=1.2.4.0, Culture=neutral, PublicKeyToken=f4fb5a3c4d1e5b4f, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.1.2.4.0\lib\net45\MahApps.Metro.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PresentationFramework.Aero2" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.1.2.4.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WebMarkupMin.Core, Version=1.1.0.0, Culture=neutral, PublicKeyToken=99472178d266584b, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebMarkupMin.Core.1.1.0\lib\net40\WebMarkupMin.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="Yahoo.Yui.Compressor, Version=2.7.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\YUICompressor.NET.2.7.0.0\lib\NET20\Yahoo.Yui.Compressor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Zlib.Portable, Version=1.11.0.0, Culture=neutral, PublicKeyToken=431cba815f6a8b5b, processorArchitecture=MSIL">
+      <HintPath>..\packages\Zlib.Portable.Signed.1.11.0\lib\portable-net4+sl5+wp8+win8+wpa81+MonoTouch+MonoAndroid\Zlib.Portable.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Logika\BazaDanych.cs" />
+    <Compile Include="Logika\Modele\Etap.cs" />
+    <Compile Include="Logika\Foldery.cs" />
+    <Compile Include="Logika\Htaccess.cs" />
+    <Compile Include="Logika\Kompresja.cs" />
+    <Compile Include="Konta\Adresy.cs" />
+    <Compile Include="Logika\ListaProjektow.cs" />
+    <Compile Include="Logika\Modele\Zmiana.cs" />
+    <Compile Include="Logika\Optymalizacja.cs" />
+    <Compile Include="Logika\PageScreen.cs" />
+    <Compile Include="Logika\PageSpeed.cs" />
+    <Compile Include="Okna\DodajProjekt.xaml.cs">
+      <DependentUpon>DodajProjekt.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Okna\Informacje.xaml.cs">
+      <DependentUpon>Informacje.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Okna\Logowanie.xaml.cs">
+      <DependentUpon>Logowanie.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Okna\Sukces.xaml.cs">
+      <DependentUpon>Sukces.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Okna\Komunikat.xaml.cs">
+      <DependentUpon>Komunikat.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Okna\Start.xaml.cs">
+      <DependentUpon>Start.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Okna\UstawieniaEtapu.xaml.cs">
+      <DependentUpon>UstawieniaEtapu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Okna\Zglos.xaml.cs">
+      <DependentUpon>Zglos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Logika\Modele\Plik.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Logika\Modele\Projekt.cs" />
+    <Compile Include="Logika\Modele\Serwer.cs" />
+    <Compile Include="Okna\SlajderUserControl.xaml.cs">
+      <DependentUpon>SlajderUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.en-US.Designer.cs">
+      <DependentUpon>Resources.en-US.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Ustawienia.cs" />
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Okna\DodajProjekt.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Okna\Informacje.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Okna\Logowanie.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Okna\Sukces.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Okna\Komunikat.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Okna\Start.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Okna\UstawieniaEtapu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Okna\Zglos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Okna\SlajderUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SA_Dictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.en-US.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.en-US.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Design\projectGuides.guides" />
+    <Resource Include="Okna\Fonts\Roboto-Black.ttf" />
+    <Resource Include="Okna\Fonts\Roboto-BlackItalic.ttf" />
+    <Resource Include="Okna\Fonts\Roboto-Bold.ttf" />
+    <Resource Include="Okna\Fonts\Roboto-BoldItalic.ttf" />
+    <Resource Include="Okna\Fonts\Roboto-Italic.ttf" />
+    <Resource Include="Okna\Fonts\Roboto-Light.ttf" />
+    <Resource Include="Okna\Fonts\Roboto-LightItalic.ttf" />
+    <Resource Include="Okna\Fonts\Roboto-Medium.ttf" />
+    <Resource Include="Okna\Fonts\Roboto-MediumItalic.ttf" />
+    <Resource Include="Okna\Fonts\Roboto-Regular.ttf" />
+    <Resource Include="Okna\Fonts\Roboto-Thin.ttf" />
+    <Resource Include="Okna\Fonts\Roboto-ThinItalic.ttf" />
+    <None Include="packages.config" />
+    <None Include="Properties\app.manifest" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+    <None Include="Site Corrector_TemporaryKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Okna\Zdjecia\avatar_tlov2.png" />
+    <Resource Include="Okna\Zdjecia\maska.png" />
+    <Resource Include="maska.png" />
+    <Resource Include="Okna\Domyslne\avatar_test.png" />
+    <Resource Include="Okna\Zdjecia\avatar_tlo.png" />
+    <Resource Include="Okna\Domyslne\Favicon.png" />
+    <Resource Include="Okna\Zdjecia\Logowanie.png" />
+    <Resource Include="Okna\Icons\dark\appbar.3d.3ds.png" />
+    <Resource Include="Okna\Icons\dark\appbar.3d.collada.png" />
+    <Resource Include="Okna\Icons\dark\appbar.3d.obj.png" />
+    <Resource Include="Okna\Icons\dark\appbar.3d.x.png" />
+    <Resource Include="Okna\Icons\dark\appbar.acorn.png" />
+    <Resource Include="Okna\Icons\dark\appbar.add.multiple.png" />
+    <Resource Include="Okna\Icons\dark\appbar.add.png" />
+    <Resource Include="Okna\Icons\dark\appbar.adobe.acrobat.png" />
+    <Resource Include="Okna\Icons\dark\appbar.adobe.aftereffects.png" />
+    <Resource Include="Okna\Icons\dark\appbar.adobe.audition.png" />
+    <Resource Include="Okna\Icons\dark\appbar.adobe.bridge.png" />
+    <Resource Include="Okna\Icons\dark\appbar.adobe.dreamweaver.png" />
+    <Resource Include="Okna\Icons\dark\appbar.adobe.encore.png" />
+    <Resource Include="Okna\Icons\dark\appbar.adobe.fireworks.png" />
+    <Resource Include="Okna\Icons\dark\appbar.adobe.flash.png" />
+    <Resource Include="Okna\Icons\dark\appbar.adobe.flashbuilder.png" />
+    <Resource Include="Okna\Icons\dark\appbar.adobe.illustrator.png" />
+    <Resource Include="Okna\Icons\dark\appbar.adobe.indesign.png" />
+    <Resource Include="Okna\Icons\dark\appbar.adobe.lightroom.png" />
+    <Resource Include="Okna\Icons\dark\appbar.adobe.photoshop.png" />
+    <Resource Include="Okna\Icons\dark\appbar.adobe.prelude.png" />
+    <Resource Include="Okna\Icons\dark\appbar.adobe.premierpro.png" />
+    <Resource Include="Okna\Icons\dark\appbar.adobe.speedgrade.png" />
+    <Resource Include="Okna\Icons\dark\appbar.alert.png" />
+    <Resource Include="Okna\Icons\dark\appbar.alien.png" />
+    <Resource Include="Okna\Icons\dark\appbar.align.center.png" />
+    <Resource Include="Okna\Icons\dark\appbar.align.justify.png" />
+    <Resource Include="Okna\Icons\dark\appbar.align.left.png" />
+    <Resource Include="Okna\Icons\dark\appbar.align.right.png" />
+    <Resource Include="Okna\Icons\dark\appbar.anchor.png" />
+    <Resource Include="Okna\Icons\dark\appbar.app.favorite.png" />
+    <Resource Include="Okna\Icons\dark\appbar.app.minus.png" />
+    <Resource Include="Okna\Icons\dark\appbar.app.plus.png" />
+    <Resource Include="Okna\Icons\dark\appbar.app.png" />
+    <Resource Include="Okna\Icons\dark\appbar.app.remove.png" />
+    <Resource Include="Okna\Icons\dark\appbar.arcade.button.png" />
+    <Resource Include="Okna\Icons\dark\appbar.archive.png" />
+    <Resource Include="Okna\Icons\dark\appbar.arrow.collapsed.png" />
+    <Resource Include="Okna\Icons\dark\appbar.arrow.corner.up.right.png" />
+    <Resource Include="Okna\Icons\dark\appbar.arrow.down.png" />
+    <Resource Include="Okna\Icons\dark\appbar.arrow.down.up.png" />
+    <Resource Include="Okna\Icons\dark\appbar.arrow.expand.png" />
+    <Resource Include="Okna\Icons\dark\appbar.arrow.left.png" />
+    <Resource Include="Okna\Icons\dark\appbar.arrow.left.right.png" />
+    <Resource Include="Okna\Icons\dark\appbar.arrow.right.left.png" />
+    <Resource Include="Okna\Icons\dark\appbar.arrow.right.png" />
+    <Resource Include="Okna\Icons\dark\appbar.arrow.up.down.png" />
+    <Resource Include="Okna\Icons\dark\appbar.arrow.up.png" />
+    <Resource Include="Okna\Icons\dark\appbar.at.png" />
+    <Resource Include="Okna\Icons\dark\appbar.axis.three.png" />
+    <Resource Include="Okna\Icons\dark\appbar.axis.x.letter.png" />
+    <Resource Include="Okna\Icons\dark\appbar.axis.x.png" />
+    <Resource Include="Okna\Icons\dark\appbar.axis.xy.parentheses.png" />
+    <Resource Include="Okna\Icons\dark\appbar.axis.xy.png" />
+    <Resource Include="Okna\Icons\dark\appbar.axis.y.letter.png" />
+    <Resource Include="Okna\Icons\dark\appbar.axis.y.png" />
+    <Resource Include="Okna\Icons\dark\appbar.axis.yx.png" />
+    <Resource Include="Okna\Icons\dark\appbar.axis.z.letter.png" />
+    <Resource Include="Okna\Icons\dark\appbar.axis.z.png" />
+    <Resource Include="Okna\Icons\dark\appbar.baby.png" />
+    <Resource Include="Okna\Icons\dark\appbar.barcode.png" />
+    <Resource Include="Okna\Icons\dark\appbar.base.png" />
+    <Resource Include="Okna\Icons\dark\appbar.base.select.png" />
+    <Resource Include="Okna\Icons\dark\appbar.bath.png" />
+    <Resource Include="Okna\Icons\dark\appbar.battery.0.png" />
+    <Resource Include="Okna\Icons\dark\appbar.battery.1.png" />
+    <Resource Include="Okna\Icons\dark\appbar.battery.2.png" />
+    <Resource Include="Okna\Icons\dark\appbar.battery.3.png" />
+    <Resource Include="Okna\Icons\dark\appbar.battery.charging.png" />
+    <Resource Include="Okna\Icons\dark\appbar.bed.png" />
+    <Resource Include="Okna\Icons\dark\appbar.bike.parking.png" />
+    <Resource Include="Okna\Icons\dark\appbar.bike.png" />
+    <Resource Include="Okna\Icons\dark\appbar.billboard.png" />
+    <Resource Include="Okna\Icons\dark\appbar.billing.png" />
+    <Resource Include="Okna\Icons\dark\appbar.bing.png" />
+    <Resource Include="Okna\Icons\dark\appbar.book.contact.png" />
+    <Resource Include="Okna\Icons\dark\appbar.book.hardcover.open.png" />
+    <Resource Include="Okna\Icons\dark\appbar.book.hardcover.open.writing.png" />
+    <Resource Include="Okna\Icons\dark\appbar.book.list.png" />
+    <Resource Include="Okna\Icons\dark\appbar.book.open.information.png" />
+    <Resource Include="Okna\Icons\dark\appbar.book.open.png" />
+    <Resource Include="Okna\Icons\dark\appbar.book.open.text.image.png" />
+    <Resource Include="Okna\Icons\dark\appbar.book.open.text.png" />
+    <Resource Include="Okna\Icons\dark\appbar.book.perspective.help.png" />
+    <Resource Include="Okna\Icons\dark\appbar.book.perspective.png" />
+    <Resource Include="Okna\Icons\dark\appbar.book.png" />
+    <Resource Include="Okna\Icons\dark\appbar.book.side.png" />
+    <Resource Include="Okna\Icons\dark\appbar.border.all.png" />
+    <Resource Include="Okna\Icons\dark\appbar.border.bottom.png" />
+    <Resource Include="Okna\Icons\dark\appbar.border.horizontal.png" />
+    <Resource Include="Okna\Icons\dark\appbar.border.inner.png" />
+    <Resource Include="Okna\Icons\dark\appbar.border.left.png" />
+    <Resource Include="Okna\Icons\dark\appbar.border.none.png" />
+    <Resource Include="Okna\Icons\dark\appbar.border.outside.png" />
+    <Resource Include="Okna\Icons\dark\appbar.border.right.png" />
+    <Resource Include="Okna\Icons\dark\appbar.border.top.png" />
+    <Resource Include="Okna\Icons\dark\appbar.border.vertical.png" />
+    <Resource Include="Okna\Icons\dark\appbar.box.layered.png" />
+    <Resource Include="Okna\Icons\dark\appbar.box.png" />
+    <Resource Include="Okna\Icons\dark\appbar.box.unfolded.png" />
+    <Resource Include="Okna\Icons\dark\appbar.brick.png" />
+    <Resource Include="Okna\Icons\dark\appbar.browser.chrome.png" />
+    <Resource Include="Okna\Icons\dark\appbar.browser.ie.png" />
+    <Resource Include="Okna\Icons\dark\appbar.browser.png" />
+    <Resource Include="Okna\Icons\dark\appbar.browser.wire.png" />
+    <Resource Include="Okna\Icons\dark\appbar.bug.png" />
+    <Resource Include="Okna\Icons\dark\appbar.bug.remove.png" />
+    <Resource Include="Okna\Icons\dark\appbar.cabinet.files.png" />
+    <Resource Include="Okna\Icons\dark\appbar.cabinet.files.variant.png" />
+    <Resource Include="Okna\Icons\dark\appbar.cabinet.in.png" />
+    <Resource Include="Okna\Icons\dark\appbar.cabinet.out.png" />
+    <Resource Include="Okna\Icons\dark\appbar.cabinet.png" />
+    <Resource Include="Okna\Icons\dark\appbar.cabinet.variant.png" />
+    <Resource Include="Okna\Icons\dark\appbar.calculator.png" />
+    <Resource Include="Okna\Icons\dark\appbar.calendar.14.png" />
+    <Resource Include="Okna\Icons\dark\appbar.calendar.31.png" />
+    <Resource Include="Okna\Icons\dark\appbar.calendar.day.png" />
+    <Resource Include="Okna\Icons\dark\appbar.calendar.dollar.png" />
+    <Resource Include="Okna\Icons\dark\appbar.calendar.future.png" />
+    <Resource Include="Okna\Icons\dark\appbar.calendar.month.png" />
+    <Resource Include="Okna\Icons\dark\appbar.calendar.plus.png" />
+    <Resource Include="Okna\Icons\dark\appbar.calendar.png" />
+    <Resource Include="Okna\Icons\dark\appbar.calendar.range.png" />
+    <Resource Include="Okna\Icons\dark\appbar.calendar.tomorrow.png" />
+    <Resource Include="Okna\Icons\dark\appbar.calendar.week.png" />
+    <Resource Include="Okna\Icons\dark\appbar.calendar.year.png" />
+    <Resource Include="Okna\Icons\dark\appbar.camera.auto.png" />
+    <Resource Include="Okna\Icons\dark\appbar.camera.flash.auto.png" />
+    <Resource Include="Okna\Icons\dark\appbar.camera.flash.auto.selected.png" />
+    <Resource Include="Okna\Icons\dark\appbar.camera.flash.off.png" />
+    <Resource Include="Okna\Icons\dark\appbar.camera.flash.off.selected.png" />
+    <Resource Include="Okna\Icons\dark\appbar.camera.flash.png" />
+    <Resource Include="Okna\Icons\dark\appbar.camera.flash.selected.png" />
+    <Resource Include="Okna\Icons\dark\appbar.camera.png" />
+    <Resource Include="Okna\Icons\dark\appbar.camera.send.png" />
+    <Resource Include="Okna\Icons\dark\appbar.camera.switch.invert.png" />
+    <Resource Include="Okna\Icons\dark\appbar.camera.switch.png" />
+    <Resource Include="Okna\Icons\dark\appbar.cancel.png" />
+    <Resource Include="Okna\Icons\dark\appbar.candle.png" />
+    <Resource Include="Okna\Icons\dark\appbar.card.1.png" />
+    <Resource Include="Okna\Icons\dark\appbar.card.2.png" />
+    <Resource Include="Okna\Icons\dark\appbar.card.3.png" />
+    <Resource Include="Okna\Icons\dark\appbar.card.4.png" />
+    <Resource Include="Okna\Icons\dark\appbar.card.5.png" />
+    <Resource Include="Okna\Icons\dark\appbar.card.6.png" />
+    <Resource Include="Okna\Icons\dark\appbar.card.7.png" />
+    <Resource Include="Okna\Icons\dark\appbar.card.8.png" />
+    <Resource Include="Okna\Icons\dark\appbar.card.9.png" />
+    <Resource Include="Okna\Icons\dark\appbar.card.png" />
+    <Resource Include="Okna\Icons\dark\appbar.cards.club.png" />
+    <Resource Include="Okna\Icons\dark\appbar.cards.diamond.png" />
+    <Resource Include="Okna\Icons\dark\appbar.cards.heart.png" />
+    <Resource Include="Okna\Icons\dark\appbar.cards.spade.png" />
+    <Resource Include="Okna\Icons\dark\appbar.cart.png" />
+    <Resource Include="Okna\Icons\dark\appbar.cd.eject.png" />
+    <Resource Include="Okna\Icons\dark\appbar.cd.png" />
+    <Resource Include="Okna\Icons\dark\appbar.cell.align.png" />
+    <Resource Include="Okna\Icons\dark\appbar.cell.column.delete.png" />
+    <Resource Include="Okna\Icons\dark\appbar.cell.down.png" />
+    <Resource Include="Okna\Icons\dark\appbar.cell.function.png" />
+    <Resource Include="Okna\Icons\dark\appbar.cell.insert.above.png" />
+    <Resource Include="Okna\Icons\dark\appbar.cell.insert.below.png" />
+    <Resource Include="Okna\Icons\dark\appbar.cell.merge.png" />
+    <Resource Include="Okna\Icons\dark\appbar.cell.row.delete.png" />
+    <Resource Include="Okna\Icons\dark\appbar.cell.up.png" />
+    <Resource Include="Okna\Icons\dark\appbar.centerline.png" />
+    <Resource Include="Okna\Icons\dark\appbar.chat.png" />
+    <Resource Include="Okna\Icons\dark\appbar.check.png" />
+    <Resource Include="Okna\Icons\dark\appbar.checkmark.cross.png" />
+    <Resource Include="Okna\Icons\dark\appbar.checkmark.pencil.png" />
+    <Resource Include="Okna\Icons\dark\appbar.checkmark.pencil.top.png" />
+    <Resource Include="Okna\Icons\dark\appbar.checkmark.png" />
+    <Resource Include="Okna\Icons\dark\appbar.checkmark.thick.png" />
+    <Resource Include="Okna\Icons\dark\appbar.checkmark.thick.unchecked.png" />
+    <Resource Include="Okna\Icons\dark\appbar.checkmark.uncrossed.png" />
+    <Resource Include="Okna\Icons\dark\appbar.chess.bishop.png" />
+    <Resource Include="Okna\Icons\dark\appbar.chess.horse.png" />
+    <Resource Include="Okna\Icons\dark\appbar.chess.king.png" />
+    <Resource Include="Okna\Icons\dark\appbar.chess.pawn.png" />
+    <Resource Include="Okna\Icons\dark\appbar.chess.queen.png" />
+    <Resource Include="Okna\Icons\dark\appbar.chess.rook.png" />
+    <Resource Include="Okna\Icons\dark\appbar.chevron.down.png" />
+    <Resource Include="Okna\Icons\dark\appbar.chevron.left.png" />
+    <Resource Include="Okna\Icons\dark\appbar.chevron.right.png" />
+    <Resource Include="Okna\Icons\dark\appbar.chevron.up.png" />
+    <Resource Include="Okna\Icons\dark\appbar.chromakey.png" />
+    <Resource Include="Okna\Icons\dark\appbar.church.png" />
+    <Resource Include="Okna\Icons\dark\appbar.circle.decline.png" />
+    <Resource Include="Okna\Icons\dark\appbar.circle.growth.png" />
+    <Resource Include="Okna\Icons\dark\appbar.city.chicago.png" />
+    <Resource Include="Okna\Icons\dark\appbar.city.png" />
+    <Resource Include="Okna\Icons\dark\appbar.city.sanfrancisco.png" />
+    <Resource Include="Okna\Icons\dark\appbar.city.seattle.png" />
+    <Resource Include="Okna\Icons\dark\appbar.clean.png" />
+    <Resource Include="Okna\Icons\dark\appbar.clear.inverse.png" />
+    <Resource Include="Okna\Icons\dark\appbar.clear.inverse.reflect.horizontal.png" />
+    <Resource Include="Okna\Icons\dark\appbar.clear.png" />
+    <Resource Include="Okna\Icons\dark\appbar.clear.reflect.horizontal.png" />
+    <Resource Include="Okna\Icons\dark\appbar.clipboard.paper.check.png" />
+    <Resource Include="Okna\Icons\dark\appbar.clipboard.paper.png" />
+    <Resource Include="Okna\Icons\dark\appbar.clipboard.paste.png" />
+    <Resource Include="Okna\Icons\dark\appbar.clipboard.png" />
+    <Resource Include="Okna\Icons\dark\appbar.clipboard.variant.edit.png" />
+    <Resource Include="Okna\Icons\dark\appbar.clipboard.variant.png" />
+    <Resource Include="Okna\Icons\dark\appbar.clipboard.variant.text.png" />
+    <Resource Include="Okna\Icons\dark\appbar.clock.png" />
+    <Resource Include="Okna\Icons\dark\appbar.close.png" />
+    <Resource Include="Okna\Icons\dark\appbar.closedcaption.off.png" />
+    <Resource Include="Okna\Icons\dark\appbar.closedcaption.png" />
+    <Resource Include="Okna\Icons\dark\appbar.clothes.shirt.png" />
+    <Resource Include="Okna\Icons\dark\appbar.clothes.tie.png" />
+    <Resource Include="Okna\Icons\dark\appbar.cloud.add.png" />
+    <Resource Include="Okna\Icons\dark\appbar.cloud.delete.png" />
+    <Resource Include="Okna\Icons\dark\appbar.cloud.download.png" />
+    <Resource Include="Okna\Icons\dark\appbar.cloud.pause.png" />
+    <Resource Include="Okna\Icons\dark\appbar.cloud.play.png" />
+    <Resource Include="Okna\Icons\dark\appbar.cloud.png" />
+    <Resource Include="Okna\Icons\dark\appbar.cloud.upload.png" />
+    <Resource Include="Okna\Icons\dark\appbar.cloudirc.png" />
+    <Resource Include="Okna\Icons\dark\appbar.code.xml.png" />
+    <Resource Include="Okna\Icons\dark\appbar.cog.png" />
+    <Resource Include="Okna\Icons\dark\appbar.cogs.png" />
+    <Resource Include="Okna\Icons\dark\appbar.column.one.png" />
+    <Resource Include="Okna\Icons\dark\appbar.column.three.png" />
+    <Resource Include="Okna\Icons\dark\appbar.column.two.png" />
+    <Resource Include="Okna\Icons\dark\appbar.companioncube.png" />
+    <Resource Include="Okna\Icons\dark\appbar.cone.diagonal.png" />
+    <Resource Include="Okna\Icons\dark\appbar.cone.png" />
+    <Resource Include="Okna\Icons\dark\appbar.confirm.yes.no.png" />
+    <Resource Include="Okna\Icons\dark\appbar.connect.png" />
+    <Resource Include="Okna\Icons\dark\appbar.connection.1x.png" />
+    <Resource Include="Okna\Icons\dark\appbar.connection.3g.png" />
+    <Resource Include="Okna\Icons\dark\appbar.connection.4g.png" />
+    <Resource Include="Okna\Icons\dark\appbar.connection.bluetooth.png" />
+    <Resource Include="Okna\Icons\dark\appbar.connection.ev.png" />
+    <Resource Include="Okna\Icons\dark\appbar.connection.nfc.png" />
+    <Resource Include="Okna\Icons\dark\appbar.connection.quality.extremelylow.png" />
+    <Resource Include="Okna\Icons\dark\appbar.connection.quality.high.png" />
+    <Resource Include="Okna\Icons\dark\appbar.connection.quality.low.png" />
+    <Resource Include="Okna\Icons\dark\appbar.connection.quality.medium.png" />
+    <Resource Include="Okna\Icons\dark\appbar.connection.quality.veryhigh.png" />
+    <Resource Include="Okna\Icons\dark\appbar.connection.quality.verylow.png" />
+    <Resource Include="Okna\Icons\dark\appbar.connection.wifi.png" />
+    <Resource Include="Okna\Icons\dark\appbar.connection.wifi.variant.png" />
+    <Resource Include="Okna\Icons\dark\appbar.console.png" />
+    <Resource Include="Okna\Icons\dark\appbar.contrast.png" />
+    <Resource Include="Okna\Icons\dark\appbar.control.eject.png" />
+    <Resource Include="Okna\Icons\dark\appbar.control.fastforward.png" />
+    <Resource Include="Okna\Icons\dark\appbar.control.fastforward.variant.png" />
+    <Resource Include="Okna\Icons\dark\appbar.control.guide.png" />
+    <Resource Include="Okna\Icons\dark\appbar.control.pause.png" />
+    <Resource Include="Okna\Icons\dark\appbar.control.play.live.png" />
+    <Resource Include="Okna\Icons\dark\appbar.control.play.png" />
+    <Resource Include="Okna\Icons\dark\appbar.control.resume.png" />
+    <Resource Include="Okna\Icons\dark\appbar.control.rewind.png" />
+    <Resource Include="Okna\Icons\dark\appbar.control.rewind.variant.png" />
+    <Resource Include="Okna\Icons\dark\appbar.control.stop.png" />
+    <Resource Include="Okna\Icons\dark\appbar.controller.snes.png" />
+    <Resource Include="Okna\Icons\dark\appbar.controller.xbox.png" />
+    <Resource Include="Okna\Icons\dark\appbar.copyright.png" />
+    <Resource Include="Okna\Icons\dark\appbar.corner.png" />
+    <Resource Include="Okna\Icons\dark\appbar.coupon.png" />
+    <Resource Include="Okna\Icons\dark\appbar.creativecommons.png" />
+    <Resource Include="Okna\Icons\dark\appbar.creditcard.png" />
+    <Resource Include="Okna\Icons\dark\appbar.crop.png" />
+    <Resource Include="Okna\Icons\dark\appbar.crosshair.png" />
+    <Resource Include="Okna\Icons\dark\appbar.crown.png" />
+    <Resource Include="Okna\Icons\dark\appbar.cup.empty.png" />
+    <Resource Include="Okna\Icons\dark\appbar.cup.full.png" />
+    <Resource Include="Okna\Icons\dark\appbar.cup.half.png" />
+    <Resource Include="Okna\Icons\dark\appbar.cup.paper.png" />
+    <Resource Include="Okna\Icons\dark\appbar.cup.png" />
+    <Resource Include="Okna\Icons\dark\appbar.currency.cent.png" />
+    <Resource Include="Okna\Icons\dark\appbar.currency.dollar.free.png" />
+    <Resource Include="Okna\Icons\dark\appbar.currency.dollar.png" />
+    <Resource Include="Okna\Icons\dark\appbar.currency.euro.png" />
+    <Resource Include="Okna\Icons\dark\appbar.currency.grivna.png" />
+    <Resource Include="Okna\Icons\dark\appbar.currency.pound.png" />
+    <Resource Include="Okna\Icons\dark\appbar.currency.rubles.png" />
+    <Resource Include="Okna\Icons\dark\appbar.currency.rupee.png" />
+    <Resource Include="Okna\Icons\dark\appbar.currency.yen.png" />
+    <Resource Include="Okna\Icons\dark\appbar.cursor.default.outline.png" />
+    <Resource Include="Okna\Icons\dark\appbar.cursor.default.png" />
+    <Resource Include="Okna\Icons\dark\appbar.cursor.default.transform.horizontal.png" />
+    <Resource Include="Okna\Icons\dark\appbar.cursor.hand.png" />
+    <Resource Include="Okna\Icons\dark\appbar.cursor.information.png" />
+    <Resource Include="Okna\Icons\dark\appbar.cursor.move.png" />
+    <Resource Include="Okna\Icons\dark\appbar.cusor.pointer.png" />
+    <Resource Include="Okna\Icons\dark\appbar.customerservice.png" />
+    <Resource Include="Okna\Icons\dark\appbar.database.mysql.png" />
+    <Resource Include="Okna\Icons\dark\appbar.database.png" />
+    <Resource Include="Okna\Icons\dark\appbar.database.sql.png" />
+    <Resource Include="Okna\Icons\dark\appbar.debug.restart.png" />
+    <Resource Include="Okna\Icons\dark\appbar.debug.step.into.png" />
+    <Resource Include="Okna\Icons\dark\appbar.debug.step.out.png" />
+    <Resource Include="Okna\Icons\dark\appbar.debug.step.over.png" />
+    <Resource Include="Okna\Icons\dark\appbar.debug.stop.png" />
+    <Resource Include="Okna\Icons\dark\appbar.deeplink.png" />
+    <Resource Include="Okna\Icons\dark\appbar.deeplink.round.png" />
+    <Resource Include="Okna\Icons\dark\appbar.delete.png" />
+    <Resource Include="Okna\Icons\dark\appbar.devcenter.png" />
+    <Resource Include="Okna\Icons\dark\appbar.diagram.png" />
+    <Resource Include="Okna\Icons\dark\appbar.dial.png" />
+    <Resource Include="Okna\Icons\dark\appbar.dimension.arrow.box.height.png" />
+    <Resource Include="Okna\Icons\dark\appbar.dimension.arrow.box.width.png" />
+    <Resource Include="Okna\Icons\dark\appbar.dimension.arrow.line.height.png" />
+    <Resource Include="Okna\Icons\dark\appbar.dimension.arrow.line.height.short.png" />
+    <Resource Include="Okna\Icons\dark\appbar.dimension.arrow.line.height.thick.png" />
+    <Resource Include="Okna\Icons\dark\appbar.dimension.arrow.line.width.png" />
+    <Resource Include="Okna\Icons\dark\appbar.dimension.arrow.line.width.short.png" />
+    <Resource Include="Okna\Icons\dark\appbar.dimension.arrow.line.width.thick.png" />
+    <Resource Include="Okna\Icons\dark\appbar.dimension.box.height.png" />
+    <Resource Include="Okna\Icons\dark\appbar.dimension.box.width.png" />
+    <Resource Include="Okna\Icons\dark\appbar.dimension.line.height.png" />
+    <Resource Include="Okna\Icons\dark\appbar.dimension.line.height.short.png" />
+    <Resource Include="Okna\Icons\dark\appbar.dimension.line.width.png" />
+    <Resource Include="Okna\Icons\dark\appbar.dimension.line.width.short.png" />
+    <Resource Include="Okna\Icons\dark\appbar.directions.png" />
+    <Resource Include="Okna\Icons\dark\appbar.disconnect.png" />
+    <Resource Include="Okna\Icons\dark\appbar.disk.download.png" />
+    <Resource Include="Okna\Icons\dark\appbar.disk.png" />
+    <Resource Include="Okna\Icons\dark\appbar.disk.upload.png" />
+    <Resource Include="Okna\Icons\dark\appbar.dnd.png" />
+    <Resource Include="Okna\Icons\dark\appbar.door.enter.png" />
+    <Resource Include="Okna\Icons\dark\appbar.door.leave.png" />
+    <Resource Include="Okna\Icons\dark\appbar.door.lock.closed.png" />
+    <Resource Include="Okna\Icons\dark\appbar.door.lock.open.png" />
+    <Resource Include="Okna\Icons\dark\appbar.download.png" />
+    <Resource Include="Okna\Icons\dark\appbar.drafting.centerline.png" />
+    <Resource Include="Okna\Icons\dark\appbar.draw.brush.png" />
+    <Resource Include="Okna\Icons\dark\appbar.draw.brush.reflection.png" />
+    <Resource Include="Okna\Icons\dark\appbar.draw.button.png" />
+    <Resource Include="Okna\Icons\dark\appbar.draw.marker.png" />
+    <Resource Include="Okna\Icons\dark\appbar.draw.marker.reflection.png" />
+    <Resource Include="Okna\Icons\dark\appbar.draw.paintbrush.png" />
+    <Resource Include="Okna\Icons\dark\appbar.draw.pen.add.png" />
+    <Resource Include="Okna\Icons\dark\appbar.draw.pen.minus.png" />
+    <Resource Include="Okna\Icons\dark\appbar.draw.pen.png" />
+    <Resource Include="Okna\Icons\dark\appbar.draw.pen.reflection.png" />
+    <Resource Include="Okna\Icons\dark\appbar.draw.pencil.png" />
+    <Resource Include="Okna\Icons\dark\appbar.draw.pencil.reflection.png" />
+    <Resource Include="Okna\Icons\dark\appbar.draw.pixel.fill.grid.png" />
+    <Resource Include="Okna\Icons\dark\appbar.draw.pixel.grid.png" />
+    <Resource Include="Okna\Icons\dark\appbar.drinks.beer.guinness.png" />
+    <Resource Include="Okna\Icons\dark\appbar.drinks.beer.png" />
+    <Resource Include="Okna\Icons\dark\appbar.drinks.martini.png" />
+    <Resource Include="Okna\Icons\dark\appbar.dropper.png" />
+    <Resource Include="Okna\Icons\dark\appbar.edit.add.png" />
+    <Resource Include="Okna\Icons\dark\appbar.edit.box.png" />
+    <Resource Include="Okna\Icons\dark\appbar.edit.minus.png" />
+    <Resource Include="Okna\Icons\dark\appbar.edit.png" />
+    <Resource Include="Okna\Icons\dark\appbar.elevator.down.png" />
+    <Resource Include="Okna\Icons\dark\appbar.elevator.up.png" />
+    <Resource Include="Okna\Icons\dark\appbar.email.gmail.png" />
+    <Resource Include="Okna\Icons\dark\appbar.email.hardedge.png" />
+    <Resource Include="Okna\Icons\dark\appbar.email.minimal.png" />
+    <Resource Include="Okna\Icons\dark\appbar.email.outlook.png" />
+    <Resource Include="Okna\Icons\dark\appbar.email.png" />
+    <Resource Include="Okna\Icons\dark\appbar.email.yahoo.png" />
+    <Resource Include="Okna\Icons\dark\appbar.eye.hide.png" />
+    <Resource Include="Okna\Icons\dark\appbar.eye.png" />
+    <Resource Include="Okna\Icons\dark\appbar.facebook.connect.png" />
+    <Resource Include="Okna\Icons\dark\appbar.facebook.disconnect.png" />
+    <Resource Include="Okna\Icons\dark\appbar.fan.box.png" />
+    <Resource Include="Okna\Icons\dark\appbar.ferry.png" />
+    <Resource Include="Okna\Icons\dark\appbar.film.gallery.png" />
+    <Resource Include="Okna\Icons\dark\appbar.film.list.png" />
+    <Resource Include="Okna\Icons\dark\appbar.film.live.png" />
+    <Resource Include="Okna\Icons\dark\appbar.film.png" />
+    <Resource Include="Okna\Icons\dark\appbar.film.select.png" />
+    <Resource Include="Okna\Icons\dark\appbar.filter.alphabetical.png" />
+    <Resource Include="Okna\Icons\dark\appbar.filter.png" />
+    <Resource Include="Okna\Icons\dark\appbar.finder.png" />
+    <Resource Include="Okna\Icons\dark\appbar.fingerprint.png" />
+    <Resource Include="Okna\Icons\dark\appbar.flag.bear.png" />
+    <Resource Include="Okna\Icons\dark\appbar.flag.png" />
+    <Resource Include="Okna\Icons\dark\appbar.flag.texas.png" />
+    <Resource Include="Okna\Icons\dark\appbar.flag.wavy.png" />
+    <Resource Include="Okna\Icons\dark\appbar.folder.ellipsis.png" />
+    <Resource Include="Okna\Icons\dark\appbar.folder.lock.png" />
+    <Resource Include="Okna\Icons\dark\appbar.folder.open.png" />
+    <Resource Include="Okna\Icons\dark\appbar.folder.people.png" />
+    <Resource Include="Okna\Icons\dark\appbar.folder.png" />
+    <Resource Include="Okna\Icons\dark\appbar.folder.puzzle.png" />
+    <Resource Include="Okna\Icons\dark\appbar.folder.star.png" />
+    <Resource Include="Okna\Icons\dark\appbar.food.apple.png" />
+    <Resource Include="Okna\Icons\dark\appbar.food.candy.cane.png" />
+    <Resource Include="Okna\Icons\dark\appbar.food.cupcake.png" />
+    <Resource Include="Okna\Icons\dark\appbar.food.icecream.bar.png" />
+    <Resource Include="Okna\Icons\dark\appbar.food.png" />
+    <Resource Include="Okna\Icons\dark\appbar.food.silverware.cross.png" />
+    <Resource Include="Okna\Icons\dark\appbar.food.silverware.png" />
+    <Resource Include="Okna\Icons\dark\appbar.foot.png" />
+    <Resource Include="Okna\Icons\dark\appbar.forklift.load.png" />
+    <Resource Include="Okna\Icons\dark\appbar.forklift.png" />
+    <Resource Include="Okna\Icons\dark\appbar.form.basic.png" />
+    <Resource Include="Okna\Icons\dark\appbar.form.editable.png" />
+    <Resource Include="Okna\Icons\dark\appbar.forrst.png" />
+    <Resource Include="Okna\Icons\dark\appbar.forsale.png" />
+    <Resource Include="Okna\Icons\dark\appbar.framework.net.png" />
+    <Resource Include="Okna\Icons\dark\appbar.fullscreen.box.png" />
+    <Resource Include="Okna\Icons\dark\appbar.fullscreen.png" />
+    <Resource Include="Okna\Icons\dark\appbar.futurama.bender.png" />
+    <Resource Include="Okna\Icons\dark\appbar.futurama.fry.png" />
+    <Resource Include="Okna\Icons\dark\appbar.gas.png" />
+    <Resource Include="Okna\Icons\dark\appbar.gauge.0.png" />
+    <Resource Include="Okna\Icons\dark\appbar.gauge.100.png" />
+    <Resource Include="Okna\Icons\dark\appbar.gauge.25.png" />
+    <Resource Include="Okna\Icons\dark\appbar.gauge.50.png" />
+    <Resource Include="Okna\Icons\dark\appbar.gauge.75.png" />
+    <Resource Include="Okna\Icons\dark\appbar.gender.both.png" />
+    <Resource Include="Okna\Icons\dark\appbar.gender.female.png" />
+    <Resource Include="Okna\Icons\dark\appbar.gender.male.png" />
+    <Resource Include="Okna\Icons\dark\appbar.gift.png" />
+    <Resource Include="Okna\Icons\dark\appbar.globe.png" />
+    <Resource Include="Okna\Icons\dark\appbar.globe.wire.png" />
+    <Resource Include="Okna\Icons\dark\appbar.google.png" />
+    <Resource Include="Okna\Icons\dark\appbar.googleplus.png" />
+    <Resource Include="Okna\Icons\dark\appbar.grade.a.minus.png" />
+    <Resource Include="Okna\Icons\dark\appbar.grade.a.plus.png" />
+    <Resource Include="Okna\Icons\dark\appbar.grade.a.png" />
+    <Resource Include="Okna\Icons\dark\appbar.grade.b.minus.png" />
+    <Resource Include="Okna\Icons\dark\appbar.grade.b.plus.png" />
+    <Resource Include="Okna\Icons\dark\appbar.grade.b.png" />
+    <Resource Include="Okna\Icons\dark\appbar.grade.c.minus.png" />
+    <Resource Include="Okna\Icons\dark\appbar.grade.c.plus.png" />
+    <Resource Include="Okna\Icons\dark\appbar.grade.c.png" />
+    <Resource Include="Okna\Icons\dark\appbar.grade.d.minus.png" />
+    <Resource Include="Okna\Icons\dark\appbar.grade.d.plus.png" />
+    <Resource Include="Okna\Icons\dark\appbar.grade.d.png" />
+    <Resource Include="Okna\Icons\dark\appbar.grade.e.png" />
+    <Resource Include="Okna\Icons\dark\appbar.grade.f.png" />
+    <Resource Include="Okna\Icons\dark\appbar.graph.bar.png" />
+    <Resource Include="Okna\Icons\dark\appbar.graph.boxplot.png" />
+    <Resource Include="Okna\Icons\dark\appbar.graph.histogram.description.png" />
+    <Resource Include="Okna\Icons\dark\appbar.graph.histogram.png" />
+    <Resource Include="Okna\Icons\dark\appbar.graph.line.down.png" />
+    <Resource Include="Okna\Icons\dark\appbar.graph.line.png" />
+    <Resource Include="Okna\Icons\dark\appbar.graph.line.up.png" />
+    <Resource Include="Okna\Icons\dark\appbar.greek.sigma.lowercase.png" />
+    <Resource Include="Okna\Icons\dark\appbar.greek.sigma.uppercase.png" />
+    <Resource Include="Okna\Icons\dark\appbar.grid.png" />
+    <Resource Include="Okna\Icons\dark\appbar.group.add.png" />
+    <Resource Include="Okna\Icons\dark\appbar.group.delete.png" />
+    <Resource Include="Okna\Icons\dark\appbar.group.minus.png" />
+    <Resource Include="Okna\Icons\dark\appbar.group.png" />
+    <Resource Include="Okna\Icons\dark\appbar.handicap.in.png" />
+    <Resource Include="Okna\Icons\dark\appbar.handicap.out.png" />
+    <Resource Include="Okna\Icons\dark\appbar.handicap.png" />
+    <Resource Include="Okna\Icons\dark\appbar.hardware.cpu.png" />
+    <Resource Include="Okna\Icons\dark\appbar.hardware.headphones.bluetooth.png" />
+    <Resource Include="Okna\Icons\dark\appbar.hardware.headphones.png" />
+    <Resource Include="Okna\Icons\dark\appbar.hardware.headset.png" />
+    <Resource Include="Okna\Icons\dark\appbar.hardware.mouse.png" />
+    <Resource Include="Okna\Icons\dark\appbar.hat.santa.png" />
+    <Resource Include="Okna\Icons\dark\appbar.heart.break.png" />
+    <Resource Include="Okna\Icons\dark\appbar.heart.cross.png" />
+    <Resource Include="Okna\Icons\dark\appbar.heart.outline.png" />
+    <Resource Include="Okna\Icons\dark\appbar.heart.png" />
+    <Resource Include="Okna\Icons\dark\appbar.home.empty.png" />
+    <Resource Include="Okna\Icons\dark\appbar.home.garage.arrow.close.png" />
+    <Resource Include="Okna\Icons\dark\appbar.home.garage.arrow.open.png" />
+    <Resource Include="Okna\Icons\dark\appbar.home.garage.open.png" />
+    <Resource Include="Okna\Icons\dark\appbar.home.garage.png" />
+    <Resource Include="Okna\Icons\dark\appbar.home.gps.png" />
+    <Resource Include="Okna\Icons\dark\appbar.home.location.pin.png" />
+    <Resource Include="Okna\Icons\dark\appbar.home.location.round.png" />
+    <Resource Include="Okna\Icons\dark\appbar.home.people.none.png" />
+    <Resource Include="Okna\Icons\dark\appbar.home.people.png" />
+    <Resource Include="Okna\Icons\dark\appbar.home.png" />
+    <Resource Include="Okna\Icons\dark\appbar.home.question.png" />
+    <Resource Include="Okna\Icons\dark\appbar.home.variant.enter.png" />
+    <Resource Include="Okna\Icons\dark\appbar.home.variant.leave.png" />
+    <Resource Include="Okna\Icons\dark\appbar.home.variant.png" />
+    <Resource Include="Okna\Icons\dark\appbar.hourglass.png" />
+    <Resource Include="Okna\Icons\dark\appbar.ie.png" />
+    <Resource Include="Okna\Icons\dark\appbar.image.ants.png" />
+    <Resource Include="Okna\Icons\dark\appbar.image.backlight.png" />
+    <Resource Include="Okna\Icons\dark\appbar.image.beach.png" />
+    <Resource Include="Okna\Icons\dark\appbar.image.broken.png" />
+    <Resource Include="Okna\Icons\dark\appbar.image.export.png" />
+    <Resource Include="Okna\Icons\dark\appbar.image.focus.png" />
+    <Resource Include="Okna\Icons\dark\appbar.image.gallery.png" />
+    <Resource Include="Okna\Icons\dark\appbar.image.hdr.png" />
+    <Resource Include="Okna\Icons\dark\appbar.image.landscape.png" />
+    <Resource Include="Okna\Icons\dark\appbar.image.macro.png" />
+    <Resource Include="Okna\Icons\dark\appbar.image.multiple.png" />
+    <Resource Include="Okna\Icons\dark\appbar.image.night.landscape.png" />
+    <Resource Include="Okna\Icons\dark\appbar.image.night.person.png" />
+    <Resource Include="Okna\Icons\dark\appbar.image.night.png" />
+    <Resource Include="Okna\Icons\dark\appbar.image.night.portrait.png" />
+    <Resource Include="Okna\Icons\dark\appbar.image.png" />
+    <Resource Include="Okna\Icons\dark\appbar.image.portrait.png" />
+    <Resource Include="Okna\Icons\dark\appbar.image.redeye.png" />
+    <Resource Include="Okna\Icons\dark\appbar.image.select.png" />
+    <Resource Include="Okna\Icons\dark\appbar.image.snow.png" />
+    <Resource Include="Okna\Icons\dark\appbar.image.sports.png" />
+    <Resource Include="Okna\Icons\dark\appbar.image.sunset.png" />
+    <Resource Include="Okna\Icons\dark\appbar.inbox.in.png" />
+    <Resource Include="Okna\Icons\dark\appbar.inbox.out.png" />
+    <Resource Include="Okna\Icons\dark\appbar.inbox.png" />
+    <Resource Include="Okna\Icons\dark\appbar.infinite.png" />
+    <Resource Include="Okna\Icons\dark\appbar.information.circle.png" />
+    <Resource Include="Okna\Icons\dark\appbar.information.png" />
+    <Resource Include="Okna\Icons\dark\appbar.input.down.png" />
+    <Resource Include="Okna\Icons\dark\appbar.input.keyboard.down.png" />
+    <Resource Include="Okna\Icons\dark\appbar.input.keyboard.png" />
+    <Resource Include="Okna\Icons\dark\appbar.input.pen.down.png" />
+    <Resource Include="Okna\Icons\dark\appbar.input.pen.png" />
+    <Resource Include="Okna\Icons\dark\appbar.input.png" />
+    <Resource Include="Okna\Icons\dark\appbar.input.question.png" />
+    <Resource Include="Okna\Icons\dark\appbar.interface.button.png" />
+    <Resource Include="Okna\Icons\dark\appbar.interface.dropdown.png" />
+    <Resource Include="Okna\Icons\dark\appbar.interface.list.png" />
+    <Resource Include="Okna\Icons\dark\appbar.interface.password.png" />
+    <Resource Include="Okna\Icons\dark\appbar.interface.textbox.png" />
+    <Resource Include="Okna\Icons\dark\appbar.iphone.png" />
+    <Resource Include="Okna\Icons\dark\appbar.journal.png" />
+    <Resource Include="Okna\Icons\dark\appbar.key.old.png" />
+    <Resource Include="Okna\Icons\dark\appbar.key.png" />
+    <Resource Include="Okna\Icons\dark\appbar.lamp.desk.png" />
+    <Resource Include="Okna\Icons\dark\appbar.lamp.desk.variant.png" />
+    <Resource Include="Okna\Icons\dark\appbar.lamp.png" />
+    <Resource Include="Okna\Icons\dark\appbar.lamp.variant.png" />
+    <Resource Include="Okna\Icons\dark\appbar.language.csharp.png" />
+    <Resource Include="Okna\Icons\dark\appbar.language.java.png" />
+    <Resource Include="Okna\Icons\dark\appbar.language.java.text.png" />
+    <Resource Include="Okna\Icons\dark\appbar.language.python.png" />
+    <Resource Include="Okna\Icons\dark\appbar.language.python.text.png" />
+    <Resource Include="Okna\Icons\dark\appbar.laptop.png" />
+    <Resource Include="Okna\Icons\dark\appbar.laser.png" />
+    <Resource Include="Okna\Icons\dark\appbar.lavalamp.png" />
+    <Resource Include="Okna\Icons\dark\appbar.layer.add.png" />
+    <Resource Include="Okna\Icons\dark\appbar.layer.arrange.bringforward.png" />
+    <Resource Include="Okna\Icons\dark\appbar.layer.arrange.bringtofront.png" />
+    <Resource Include="Okna\Icons\dark\appbar.layer.arrange.sendbackward.png" />
+    <Resource Include="Okna\Icons\dark\appbar.layer.arrange.sendtoback.png" />
+    <Resource Include="Okna\Icons\dark\appbar.layer.arrange.solid.bringforward.png" />
+    <Resource Include="Okna\Icons\dark\appbar.layer.arrange.solid.bringtofront.png" />
+    <Resource Include="Okna\Icons\dark\appbar.layer.arrange.solid.sendbackward.png" />
+    <Resource Include="Okna\Icons\dark\appbar.layer.arrange.solid.sendtoback.png" />
+    <Resource Include="Okna\Icons\dark\appbar.layer.delete.png" />
+    <Resource Include="Okna\Icons\dark\appbar.layer.down.png" />
+    <Resource Include="Okna\Icons\dark\appbar.layer.minus.png" />
+    <Resource Include="Okna\Icons\dark\appbar.layer.perspective.up.png" />
+    <Resource Include="Okna\Icons\dark\appbar.layer.png" />
+    <Resource Include="Okna\Icons\dark\appbar.layer.thick.png" />
+    <Resource Include="Okna\Icons\dark\appbar.layer.up.png" />
+    <Resource Include="Okna\Icons\dark\appbar.layout.body.png" />
+    <Resource Include="Okna\Icons\dark\appbar.layout.collapse.left.png" />
+    <Resource Include="Okna\Icons\dark\appbar.layout.collapse.left.variant.png" />
+    <Resource Include="Okna\Icons\dark\appbar.layout.collapse.right.png" />
+    <Resource Include="Okna\Icons\dark\appbar.layout.collapse.right.variant.png" />
+    <Resource Include="Okna\Icons\dark\appbar.layout.expand.left.png" />
+    <Resource Include="Okna\Icons\dark\appbar.layout.expand.left.variant.png" />
+    <Resource Include="Okna\Icons\dark\appbar.layout.expand.right.png" />
+    <Resource Include="Okna\Icons\dark\appbar.layout.expand.right.variant.png" />
+    <Resource Include="Okna\Icons\dark\appbar.layout.header.png" />
+    <Resource Include="Okna\Icons\dark\appbar.layout.png" />
+    <Resource Include="Okna\Icons\dark\appbar.layout.sidebar.png" />
+    <Resource Include="Okna\Icons\dark\appbar.leaderboard.png" />
+    <Resource Include="Okna\Icons\dark\appbar.lifesaver.png" />
+    <Resource Include="Okna\Icons\dark\appbar.lightbulb.coil.png" />
+    <Resource Include="Okna\Icons\dark\appbar.lightbulb.hue.on.png" />
+    <Resource Include="Okna\Icons\dark\appbar.lightbulb.hue.png" />
+    <Resource Include="Okna\Icons\dark\appbar.lightbulb.png" />
+    <Resource Include="Okna\Icons\dark\appbar.lightning.png" />
+    <Resource Include="Okna\Icons\dark\appbar.lines.horizontal.3.png" />
+    <Resource Include="Okna\Icons\dark\appbar.lines.horizontal.4.png" />
+    <Resource Include="Okna\Icons\dark\appbar.link.png" />
+    <Resource Include="Okna\Icons\dark\appbar.linkedin.png" />
+    <Resource Include="Okna\Icons\dark\appbar.list.add.above.png" />
+    <Resource Include="Okna\Icons\dark\appbar.list.add.below.png" />
+    <Resource Include="Okna\Icons\dark\appbar.list.add.png" />
+    <Resource Include="Okna\Icons\dark\appbar.list.check.png" />
+    <Resource Include="Okna\Icons\dark\appbar.list.create.png" />
+    <Resource Include="Okna\Icons\dark\appbar.list.delete.inline.png" />
+    <Resource Include="Okna\Icons\dark\appbar.list.delete.png" />
+    <Resource Include="Okna\Icons\dark\appbar.list.gear.png" />
+    <Resource Include="Okna\Icons\dark\appbar.list.hidden.png" />
+    <Resource Include="Okna\Icons\dark\appbar.list.merge.png" />
+    <Resource Include="Okna\Icons\dark\appbar.list.one.png" />
+    <Resource Include="Okna\Icons\dark\appbar.list.png" />
+    <Resource Include="Okna\Icons\dark\appbar.list.reorder.down.png" />
+    <Resource Include="Okna\Icons\dark\appbar.list.reorder.png" />
+    <Resource Include="Okna\Icons\dark\appbar.list.reorder.up.png" />
+    <Resource Include="Okna\Icons\dark\appbar.list.select.png" />
+    <Resource Include="Okna\Icons\dark\appbar.list.star.png" />
+    <Resource Include="Okna\Icons\dark\appbar.list.two.png" />
+    <Resource Include="Okna\Icons\dark\appbar.location.add.png" />
+    <Resource Include="Okna\Icons\dark\appbar.location.checkin.png" />
+    <Resource Include="Okna\Icons\dark\appbar.location.circle.png" />
+    <Resource Include="Okna\Icons\dark\appbar.location.delete.png" />
+    <Resource Include="Okna\Icons\dark\appbar.location.foursquare.png" />
+    <Resource Include="Okna\Icons\dark\appbar.location.minus.png" />
+    <Resource Include="Okna\Icons\dark\appbar.location.png" />
+    <Resource Include="Okna\Icons\dark\appbar.location.round.png" />
+    <Resource Include="Okna\Icons\dark\appbar.lock.png" />
+    <Resource Include="Okna\Icons\dark\appbar.logic.and.add.png" />
+    <Resource Include="Okna\Icons\dark\appbar.logic.and.png" />
+    <Resource Include="Okna\Icons\dark\appbar.logic.or.add.png" />
+    <Resource Include="Okna\Icons\dark\appbar.logic.or.png" />
+    <Resource Include="Okna\Icons\dark\appbar.loop.png" />
+    <Resource Include="Okna\Icons\dark\appbar.magnify.add.png" />
+    <Resource Include="Okna\Icons\dark\appbar.magnify.arrow.down.png" />
+    <Resource Include="Okna\Icons\dark\appbar.magnify.arrow.up.png" />
+    <Resource Include="Okna\Icons\dark\appbar.magnify.back.png" />
+    <Resource Include="Okna\Icons\dark\appbar.magnify.browse.png" />
+    <Resource Include="Okna\Icons\dark\appbar.magnify.forward.png" />
+    <Resource Include="Okna\Icons\dark\appbar.magnify.minus.png" />
+    <Resource Include="Okna\Icons\dark\appbar.magnify.png" />
+    <Resource Include="Okna\Icons\dark\appbar.man.sensor.png" />
+    <Resource Include="Okna\Icons\dark\appbar.man.suitcase.fast.png" />
+    <Resource Include="Okna\Icons\dark\appbar.man.suitcase.png" />
+    <Resource Include="Okna\Icons\dark\appbar.man.suitcase.run.png" />
+    <Resource Include="Okna\Icons\dark\appbar.man.walk.png" />
+    <Resource Include="Okna\Icons\dark\appbar.map.aerial.highway.png" />
+    <Resource Include="Okna\Icons\dark\appbar.map.aerial.png" />
+    <Resource Include="Okna\Icons\dark\appbar.map.folds.png" />
+    <Resource Include="Okna\Icons\dark\appbar.map.gps.png" />
+    <Resource Include="Okna\Icons\dark\appbar.map.location.add.png" />
+    <Resource Include="Okna\Icons\dark\appbar.map.location.png" />
+    <Resource Include="Okna\Icons\dark\appbar.map.png" />
+    <Resource Include="Okna\Icons\dark\appbar.map.satellite.png" />
+    <Resource Include="Okna\Icons\dark\appbar.map.treasure.png" />
+    <Resource Include="Okna\Icons\dark\appbar.marketplace.old.png" />
+    <Resource Include="Okna\Icons\dark\appbar.marketplace.png" />
+    <Resource Include="Okna\Icons\dark\appbar.markup.png" />
+    <Resource Include="Okna\Icons\dark\appbar.marvel.avengers.png" />
+    <Resource Include="Okna\Icons\dark\appbar.marvel.captainamerica.png" />
+    <Resource Include="Okna\Icons\dark\appbar.marvel.ironman.mask.png" />
+    <Resource Include="Okna\Icons\dark\appbar.marvel.ironman.png" />
+    <Resource Include="Okna\Icons\dark\appbar.marvel.shield.png" />
+    <Resource Include="Okna\Icons\dark\appbar.marvel.shield.variant.png" />
+    <Resource Include="Okna\Icons\dark\appbar.math.plus.minus.png" />
+    <Resource Include="Okna\Icons\dark\appbar.measure.celcius.png" />
+    <Resource Include="Okna\Icons\dark\appbar.measure.centimeter.png" />
+    <Resource Include="Okna\Icons\dark\appbar.measure.farenheit.png" />
+    <Resource Include="Okna\Icons\dark\appbar.measure.foot.png" />
+    <Resource Include="Okna\Icons\dark\appbar.measure.inch.png" />
+    <Resource Include="Okna\Icons\dark\appbar.measure.kilometer.png" />
+    <Resource Include="Okna\Icons\dark\appbar.measure.meter.png" />
+    <Resource Include="Okna\Icons\dark\appbar.measure.mile.png" />
+    <Resource Include="Okna\Icons\dark\appbar.medical.pill.broken.png" />
+    <Resource Include="Okna\Icons\dark\appbar.medical.pill.png" />
+    <Resource Include="Okna\Icons\dark\appbar.medical.pulse.png" />
+    <Resource Include="Okna\Icons\dark\appbar.message.png" />
+    <Resource Include="Okna\Icons\dark\appbar.message.profanity.png" />
+    <Resource Include="Okna\Icons\dark\appbar.message.send.png" />
+    <Resource Include="Okna\Icons\dark\appbar.message.smiley.png" />
+    <Resource Include="Okna\Icons\dark\appbar.microphone.google.png" />
+    <Resource Include="Okna\Icons\dark\appbar.microphone.png" />
+    <Resource Include="Okna\Icons\dark\appbar.microsoft.tag.png" />
+    <Resource Include="Okna\Icons\dark\appbar.minecraft.civcraft.png" />
+    <Resource Include="Okna\Icons\dark\appbar.minus.png" />
+    <Resource Include="Okna\Icons\dark\appbar.money.png" />
+    <Resource Include="Okna\Icons\dark\appbar.monitor.add.png" />
+    <Resource Include="Okna\Icons\dark\appbar.monitor.delete.png" />
+    <Resource Include="Okna\Icons\dark\appbar.monitor.film.png" />
+    <Resource Include="Okna\Icons\dark\appbar.monitor.identify.png" />
+    <Resource Include="Okna\Icons\dark\appbar.monitor.minus.png" />
+    <Resource Include="Okna\Icons\dark\appbar.monitor.play.png" />
+    <Resource Include="Okna\Icons\dark\appbar.monitor.png" />
+    <Resource Include="Okna\Icons\dark\appbar.monitor.to.png" />
+    <Resource Include="Okna\Icons\dark\appbar.mono.png" />
+    <Resource Include="Okna\Icons\dark\appbar.moon.first.quarter.png" />
+    <Resource Include="Okna\Icons\dark\appbar.moon.full.png" />
+    <Resource Include="Okna\Icons\dark\appbar.moon.new.png" />
+    <Resource Include="Okna\Icons\dark\appbar.moon.png" />
+    <Resource Include="Okna\Icons\dark\appbar.moon.sleep.png" />
+    <Resource Include="Okna\Icons\dark\appbar.moon.third.quarter.png" />
+    <Resource Include="Okna\Icons\dark\appbar.moon.waning.crescent.png" />
+    <Resource Include="Okna\Icons\dark\appbar.moon.waning.gibbous.png" />
+    <Resource Include="Okna\Icons\dark\appbar.moon.waxing.crescent.png" />
+    <Resource Include="Okna\Icons\dark\appbar.moon.waxing.gibbous.png" />
+    <Resource Include="Okna\Icons\dark\appbar.movie.clapper.png" />
+    <Resource Include="Okna\Icons\dark\appbar.movie.clapper.select.png" />
+    <Resource Include="Okna\Icons\dark\appbar.movie.clapper.solid.png" />
+    <Resource Include="Okna\Icons\dark\appbar.movie.clapper.solid.select.png" />
+    <Resource Include="Okna\Icons\dark\appbar.music.live.png" />
+    <Resource Include="Okna\Icons\dark\appbar.music.png" />
+    <Resource Include="Okna\Icons\dark\appbar.music.select.png" />
+    <Resource Include="Okna\Icons\dark\appbar.music.wifi.png" />
+    <Resource Include="Okna\Icons\dark\appbar.na.png" />
+    <Resource Include="Okna\Icons\dark\appbar.navigate.next.png" />
+    <Resource Include="Okna\Icons\dark\appbar.navigate.previous.png" />
+    <Resource Include="Okna\Icons\dark\appbar.network.disconnect.png" />
+    <Resource Include="Okna\Icons\dark\appbar.network.home.disconnect.png" />
+    <Resource Include="Okna\Icons\dark\appbar.network.home.png" />
+    <Resource Include="Okna\Icons\dark\appbar.network.png" />
+    <Resource Include="Okna\Icons\dark\appbar.network.port.disconnect.png" />
+    <Resource Include="Okna\Icons\dark\appbar.network.port.png" />
+    <Resource Include="Okna\Icons\dark\appbar.network.server.connecting.png" />
+    <Resource Include="Okna\Icons\dark\appbar.network.server.disconnect.png" />
+    <Resource Include="Okna\Icons\dark\appbar.network.server.png" />
+    <Resource Include="Okna\Icons\dark\appbar.new.png" />
+    <Resource Include="Okna\Icons\dark\appbar.new.window.png" />
+    <Resource Include="Okna\Icons\dark\appbar.newspaper.create.png" />
+    <Resource Include="Okna\Icons\dark\appbar.newspaper.png" />
+    <Resource Include="Okna\Icons\dark\appbar.noentry.png" />
+    <Resource Include="Okna\Icons\dark\appbar.notification.above.multiple.png" />
+    <Resource Include="Okna\Icons\dark\appbar.notification.above.png" />
+    <Resource Include="Okna\Icons\dark\appbar.notification.multiple.png" />
+    <Resource Include="Okna\Icons\dark\appbar.notification.png" />
+    <Resource Include="Okna\Icons\dark\appbar.notification.star.png" />
+    <Resource Include="Okna\Icons\dark\appbar.nyan.png" />
+    <Resource Include="Okna\Icons\dark\appbar.office.365.png" />
+    <Resource Include="Okna\Icons\dark\appbar.office.access.png" />
+    <Resource Include="Okna\Icons\dark\appbar.office.excel.png" />
+    <Resource Include="Okna\Icons\dark\appbar.office.infopath.png" />
+    <Resource Include="Okna\Icons\dark\appbar.office.lync.png" />
+    <Resource Include="Okna\Icons\dark\appbar.office.onenote.png" />
+    <Resource Include="Okna\Icons\dark\appbar.office.outlook.png" />
+    <Resource Include="Okna\Icons\dark\appbar.office.png" />
+    <Resource Include="Okna\Icons\dark\appbar.office.powerpoint.png" />
+    <Resource Include="Okna\Icons\dark\appbar.office.project.png" />
+    <Resource Include="Okna\Icons\dark\appbar.office.publisher.png" />
+    <Resource Include="Okna\Icons\dark\appbar.office.sharepoint.png" />
+    <Resource Include="Okna\Icons\dark\appbar.office.visio.png" />
+    <Resource Include="Okna\Icons\dark\appbar.office.word.png" />
+    <Resource Include="Okna\Icons\dark\appbar.opacity.png" />
+    <Resource Include="Okna\Icons\dark\appbar.ornament.png" />
+    <Resource Include="Okna\Icons\dark\appbar.ornament.variant.png" />
+    <Resource Include="Okna\Icons\dark\appbar.os.android.png" />
+    <Resource Include="Okna\Icons\dark\appbar.os.arm.png" />
+    <Resource Include="Okna\Icons\dark\appbar.os.blackberry.png" />
+    <Resource Include="Okna\Icons\dark\appbar.os.chromium.png" />
+    <Resource Include="Okna\Icons\dark\appbar.os.gnome.png" />
+    <Resource Include="Okna\Icons\dark\appbar.os.ios.png" />
+    <Resource Include="Okna\Icons\dark\appbar.os.ubuntu.png" />
+    <Resource Include="Okna\Icons\dark\appbar.os.windows.8.png" />
+    <Resource Include="Okna\Icons\dark\appbar.os.windows.png" />
+    <Resource Include="Okna\Icons\dark\appbar.os.windows.rt.png" />
+    <Resource Include="Okna\Icons\dark\appbar.os.windowsphone.png" />
+    <Resource Include="Okna\Icons\dark\appbar.os.windowsphone.round.png" />
+    <Resource Include="Okna\Icons\dark\appbar.os.x64.png" />
+    <Resource Include="Okna\Icons\dark\appbar.os.x86.png" />
+    <Resource Include="Okna\Icons\dark\appbar.outlet.png" />
+    <Resource Include="Okna\Icons\dark\appbar.page.0.png" />
+    <Resource Include="Okna\Icons\dark\appbar.page.1.png" />
+    <Resource Include="Okna\Icons\dark\appbar.page.2.png" />
+    <Resource Include="Okna\Icons\dark\appbar.page.3.png" />
+    <Resource Include="Okna\Icons\dark\appbar.page.4.png" />
+    <Resource Include="Okna\Icons\dark\appbar.page.5.png" />
+    <Resource Include="Okna\Icons\dark\appbar.page.6.png" />
+    <Resource Include="Okna\Icons\dark\appbar.page.7.png" />
+    <Resource Include="Okna\Icons\dark\appbar.page.8.png" />
+    <Resource Include="Okna\Icons\dark\appbar.page.9.png" />
+    <Resource Include="Okna\Icons\dark\appbar.page.add.png" />
+    <Resource Include="Okna\Icons\dark\appbar.page.arrow.png" />
+    <Resource Include="Okna\Icons\dark\appbar.page.bold.png" />
+    <Resource Include="Okna\Icons\dark\appbar.page.break.png" />
+    <Resource Include="Okna\Icons\dark\appbar.page.check.png" />
+    <Resource Include="Okna\Icons\dark\appbar.page.code.png" />
+    <Resource Include="Okna\Icons\dark\appbar.page.copy.png" />
+    <Resource Include="Okna\Icons\dark\appbar.page.corner.bookmark.png" />
+    <Resource Include="Okna\Icons\dark\appbar.page.corner.break.png" />
+    <Resource Include="Okna\Icons\dark\appbar.page.corner.cells.png" />
+    <Resource Include="Okna\Icons\dark\appbar.page.corner.folded.grid.png" />
+    <Resource Include="Okna\Icons\dark\appbar.page.corner.folded.png" />
+    <Resource Include="Okna\Icons\dark\appbar.page.corner.folded.text.png" />
+    <Resource Include="Okna\Icons\dark\appbar.page.corner.grid.png" />
+    <Resource Include="Okna\Icons\dark\appbar.page.corner.png" />
+    <Resource Include="Okna\Icons\dark\appbar.page.corner.text.break.png" />
+    <Resource Include="Okna\Icons\dark\appbar.page.corner.text.png" />
+    <Resource Include="Okna\Icons\dark\appbar.page.cross.png" />
+    <Resource Include="Okna\Icons\dark\appbar.page.delete.png" />
+    <Resource Include="Okna\Icons\dark\appbar.page.download.png" />
+    <Resource Include="Okna\Icons\dark\appbar.page.duplicate.png" />
+    <Resource Include="Okna\Icons\dark\appbar.page.edit.png" />
+    <Resource Include="Okna\Icons\dark\appbar.page.excel.png" />
+    <Resource Include="Okna\Icons\dark\appbar.page.file.gif.png" />
+    <Resource Include="Okna\Icons\dark\appbar.page.file.gif.tag.png" />
+    <Resource Include="Okna\Icons\dark\appbar.page.file.pdf.png" />
+    <Resource Include="Okna\Icons\dark\appbar.page.file.pdf.tag.png" />
+    <Resource Include="Okna\Icons\dark\appbar.page.heart.png" />
+    <Resource Include="Okna\Icons\dark\appbar.page.heartbreak.png" />
+    <Resource Include="Okna\Icons\dark\appbar.page.hidden.png" />
+    <Resource Include="Okna\Icons\dark\appbar.page.image.png" />
+    <Resource Include="Okna\Icons\dark\appbar.page.jpg.png" />
+    <Resource Include="Okna\Icons\dark\appbar.page.location.add.png" />
+    <Resource Include="Okna\Icons\dark\appbar.page.location.png" />
+    <Resource Include="Okna\Icons\dark\appbar.page.minus.png" />
+    <Resource Include="Okna\Icons\dark\appbar.page.multiple.png" />
+    <Resource Include="Okna\Icons\dark\appbar.page.music.png" />
+    <Resource Include="Okna\Icons\dark\appbar.page.new.png" />
+    <Resource Include="Okna\Icons\dark\appbar.page.onenote.png" />
+    <Resource Include="Okna\Icons\dark\appbar.page.pdf.png" />
+    <Resource Include="Okna\Icons\dark\appbar.page.png" />
+    <Resource Include="Okna\Icons\dark\appbar.page.png.png" />
+    <Resource Include="Okna\Icons\dark\appbar.page.powerpoint.png" />
+    <Resource Include="Okna\Icons\dark\appbar.page.question.png" />
+    <Resource Include="Okna\Icons\dark\appbar.page.search.png" />
+    <Resource Include="Okna\Icons\dark\appbar.page.select.png" />
+    <Resource Include="Okna\Icons\dark\appbar.page.small.png" />
+    <Resource Include="Okna\Icons\dark\appbar.page.solid.add.png" />
+    <Resource Include="Okna\Icons\dark\appbar.page.solid.cross.png" />
+    <Resource Include="Okna\Icons\dark\appbar.page.solid.move.png" />
+    <Resource Include="Okna\Icons\dark\appbar.page.solid.png" />
+    <Resource Include="Okna\Icons\dark\appbar.page.text.png" />
+    <Resource Include="Okna\Icons\dark\appbar.page.upload.png" />
+    <Resource Include="Okna\Icons\dark\appbar.page.word.png" />
+    <Resource Include="Okna\Icons\dark\appbar.page.xml.png" />
+    <Resource Include="Okna\Icons\dark\appbar.palmtree.png" />
+    <Resource Include="Okna\Icons\dark\appbar.palmtree.variant.png" />
+    <Resource Include="Okna\Icons\dark\appbar.paper.png" />
+    <Resource Include="Okna\Icons\dark\appbar.paperclip.png" />
+    <Resource Include="Okna\Icons\dark\appbar.paperclip.rotated.png" />
+    <Resource Include="Okna\Icons\dark\appbar.paw.png" />
+    <Resource Include="Okna\Icons\dark\appbar.paypal.png" />
+    <Resource Include="Okna\Icons\dark\appbar.people.arrow.left.png" />
+    <Resource Include="Okna\Icons\dark\appbar.people.arrow.right.png" />
+    <Resource Include="Okna\Icons\dark\appbar.people.checkbox.png" />
+    <Resource Include="Okna\Icons\dark\appbar.people.down.png" />
+    <Resource Include="Okna\Icons\dark\appbar.people.left.png" />
+    <Resource Include="Okna\Icons\dark\appbar.people.magnify.png" />
+    <Resource Include="Okna\Icons\dark\appbar.people.multiple.magnify.png" />
+    <Resource Include="Okna\Icons\dark\appbar.people.multiple.png" />
+    <Resource Include="Okna\Icons\dark\appbar.people.png" />
+    <Resource Include="Okna\Icons\dark\appbar.people.profile.png" />
+    <Resource Include="Okna\Icons\dark\appbar.people.right.png" />
+    <Resource Include="Okna\Icons\dark\appbar.people.sensor.png" />
+    <Resource Include="Okna\Icons\dark\appbar.people.sensor.variant.png" />
+    <Resource Include="Okna\Icons\dark\appbar.people.status.png" />
+    <Resource Include="Okna\Icons\dark\appbar.people.up.png" />
+    <Resource Include="Okna\Icons\dark\appbar.percent.off.png" />
+    <Resource Include="Okna\Icons\dark\appbar.phone.hangup.png" />
+    <Resource Include="Okna\Icons\dark\appbar.phone.png" />
+    <Resource Include="Okna\Icons\dark\appbar.phone.voicemail.png" />
+    <Resource Include="Okna\Icons\dark\appbar.pie.png" />
+    <Resource Include="Okna\Icons\dark\appbar.pie.quarter.png" />
+    <Resource Include="Okna\Icons\dark\appbar.pin.png" />
+    <Resource Include="Okna\Icons\dark\appbar.pin.remove.png" />
+    <Resource Include="Okna\Icons\dark\appbar.places.png" />
+    <Resource Include="Okna\Icons\dark\appbar.plane.png" />
+    <Resource Include="Okna\Icons\dark\appbar.plane.rotated.135.png" />
+    <Resource Include="Okna\Icons\dark\appbar.plane.rotated.45.png" />
+    <Resource Include="Okna\Icons\dark\appbar.plant.png" />
+    <Resource Include="Okna\Icons\dark\appbar.pokeball.png" />
+    <Resource Include="Okna\Icons\dark\appbar.potion.png" />
+    <Resource Include="Okna\Icons\dark\appbar.power.png" />
+    <Resource Include="Okna\Icons\dark\appbar.present.png" />
+    <Resource Include="Okna\Icons\dark\appbar.printer.blank.png" />
+    <Resource Include="Okna\Icons\dark\appbar.printer.png" />
+    <Resource Include="Okna\Icons\dark\appbar.printer.text.png" />
+    <Resource Include="Okna\Icons\dark\appbar.progress.png" />
+    <Resource Include="Okna\Icons\dark\appbar.projector.png" />
+    <Resource Include="Okna\Icons\dark\appbar.projector.screen.png" />
+    <Resource Include="Okna\Icons\dark\appbar.protractor.png" />
+    <Resource Include="Okna\Icons\dark\appbar.puzzle.png" />
+    <Resource Include="Okna\Icons\dark\appbar.puzzle.round.png" />
+    <Resource Include="Okna\Icons\dark\appbar.qr.png" />
+    <Resource Include="Okna\Icons\dark\appbar.question.png" />
+    <Resource Include="Okna\Icons\dark\appbar.quill.png" />
+    <Resource Include="Okna\Icons\dark\appbar.quote.left.png" />
+    <Resource Include="Okna\Icons\dark\appbar.quote.right.png" />
+    <Resource Include="Okna\Icons\dark\appbar.radar.png" />
+    <Resource Include="Okna\Icons\dark\appbar.radar.screen.png" />
+    <Resource Include="Okna\Icons\dark\appbar.radioactive.png" />
+    <Resource Include="Okna\Icons\dark\appbar.redo.curve.png" />
+    <Resource Include="Okna\Icons\dark\appbar.redo.png" />
+    <Resource Include="Okna\Icons\dark\appbar.redo.point.png" />
+    <Resource Include="Okna\Icons\dark\appbar.refresh.clockwise.down.png" />
+    <Resource Include="Okna\Icons\dark\appbar.refresh.clockwise.up.png" />
+    <Resource Include="Okna\Icons\dark\appbar.refresh.counterclockwise.down.png" />
+    <Resource Include="Okna\Icons\dark\appbar.refresh.counterclockwise.up.png" />
+    <Resource Include="Okna\Icons\dark\appbar.refresh.png" />
+    <Resource Include="Okna\Icons\dark\appbar.religion.christianity.png" />
+    <Resource Include="Okna\Icons\dark\appbar.religion.islamic.png" />
+    <Resource Include="Okna\Icons\dark\appbar.religion.judaism.png" />
+    <Resource Include="Okna\Icons\dark\appbar.repeat.png" />
+    <Resource Include="Okna\Icons\dark\appbar.reply.calendar.png" />
+    <Resource Include="Okna\Icons\dark\appbar.reply.email.png" />
+    <Resource Include="Okna\Icons\dark\appbar.reply.people.png" />
+    <Resource Include="Okna\Icons\dark\appbar.reset.png" />
+    <Resource Include="Okna\Icons\dark\appbar.resource.group.png" />
+    <Resource Include="Okna\Icons\dark\appbar.resource.png" />
+    <Resource Include="Okna\Icons\dark\appbar.return.png" />
+    <Resource Include="Okna\Icons\dark\appbar.ribbon.png" />
+    <Resource Include="Okna\Icons\dark\appbar.ribbon.wave.png" />
+    <Resource Include="Okna\Icons\dark\appbar.ring.png" />
+    <Resource Include="Okna\Icons\dark\appbar.rocket.png" />
+    <Resource Include="Okna\Icons\dark\appbar.rocket.rotated.45.png" />
+    <Resource Include="Okna\Icons\dark\appbar.rss.png" />
+    <Resource Include="Okna\Icons\dark\appbar.ruler.png" />
+    <Resource Include="Okna\Icons\dark\appbar.sailboat.png" />
+    <Resource Include="Okna\Icons\dark\appbar.save.png" />
+    <Resource Include="Okna\Icons\dark\appbar.scale.png" />
+    <Resource Include="Okna\Icons\dark\appbar.scale.unbalanced.png" />
+    <Resource Include="Okna\Icons\dark\appbar.scissor.png" />
+    <Resource Include="Okna\Icons\dark\appbar.scrabble.a.png" />
+    <Resource Include="Okna\Icons\dark\appbar.scrabble.b.png" />
+    <Resource Include="Okna\Icons\dark\appbar.scrabble.c.png" />
+    <Resource Include="Okna\Icons\dark\appbar.scrabble.d.png" />
+    <Resource Include="Okna\Icons\dark\appbar.scrabble.e.png" />
+    <Resource Include="Okna\Icons\dark\appbar.scrabble.f.png" />
+    <Resource Include="Okna\Icons\dark\appbar.scrabble.g.png" />
+    <Resource Include="Okna\Icons\dark\appbar.scrabble.h.png" />
+    <Resource Include="Okna\Icons\dark\appbar.scrabble.i.png" />
+    <Resource Include="Okna\Icons\dark\appbar.scrabble.j.png" />
+    <Resource Include="Okna\Icons\dark\appbar.scrabble.k.png" />
+    <Resource Include="Okna\Icons\dark\appbar.scrabble.l.png" />
+    <Resource Include="Okna\Icons\dark\appbar.scrabble.m.png" />
+    <Resource Include="Okna\Icons\dark\appbar.scrabble.n.png" />
+    <Resource Include="Okna\Icons\dark\appbar.scrabble.o.png" />
+    <Resource Include="Okna\Icons\dark\appbar.scrabble.p.png" />
+    <Resource Include="Okna\Icons\dark\appbar.scrabble.q.png" />
+    <Resource Include="Okna\Icons\dark\appbar.scrabble.r.png" />
+    <Resource Include="Okna\Icons\dark\appbar.scrabble.s.png" />
+    <Resource Include="Okna\Icons\dark\appbar.scrabble.t.png" />
+    <Resource Include="Okna\Icons\dark\appbar.scrabble.u.png" />
+    <Resource Include="Okna\Icons\dark\appbar.scrabble.v.png" />
+    <Resource Include="Okna\Icons\dark\appbar.scrabble.w.png" />
+    <Resource Include="Okna\Icons\dark\appbar.scrabble.x.png" />
+    <Resource Include="Okna\Icons\dark\appbar.scrabble.y.png" />
+    <Resource Include="Okna\Icons\dark\appbar.scrabble.z.png" />
+    <Resource Include="Okna\Icons\dark\appbar.sd.micro.png" />
+    <Resource Include="Okna\Icons\dark\appbar.sd.png" />
+    <Resource Include="Okna\Icons\dark\appbar.section.collapse.all.png" />
+    <Resource Include="Okna\Icons\dark\appbar.section.collapse.png" />
+    <Resource Include="Okna\Icons\dark\appbar.section.expand.all.png" />
+    <Resource Include="Okna\Icons\dark\appbar.section.expand.png" />
+    <Resource Include="Okna\Icons\dark\appbar.server.png" />
+    <Resource Include="Okna\Icons\dark\appbar.settings.png" />
+    <Resource Include="Okna\Icons\dark\appbar.share.open.png" />
+    <Resource Include="Okna\Icons\dark\appbar.share.png" />
+    <Resource Include="Okna\Icons\dark\appbar.shield.alert.png" />
+    <Resource Include="Okna\Icons\dark\appbar.shield.png" />
+    <Resource Include="Okna\Icons\dark\appbar.shopping.png" />
+    <Resource Include="Okna\Icons\dark\appbar.shotglass.png" />
+    <Resource Include="Okna\Icons\dark\appbar.shuffle.png" />
+    <Resource Include="Okna\Icons\dark\appbar.sidebar.left.collapse.png" />
+    <Resource Include="Okna\Icons\dark\appbar.sidebar.left.expand.png" />
+    <Resource Include="Okna\Icons\dark\appbar.sidebar.right.collapse.png" />
+    <Resource Include="Okna\Icons\dark\appbar.sidebar.right.expand.png" />
+    <Resource Include="Okna\Icons\dark\appbar.sign.caution.png" />
+    <Resource Include="Okna\Icons\dark\appbar.sign.interstate.75.png" />
+    <Resource Include="Okna\Icons\dark\appbar.sign.interstate.94.png" />
+    <Resource Include="Okna\Icons\dark\appbar.sign.interstate.95.png" />
+    <Resource Include="Okna\Icons\dark\appbar.sign.interstate.png" />
+    <Resource Include="Okna\Icons\dark\appbar.sign.parking.png" />
+    <Resource Include="Okna\Icons\dark\appbar.sign.stop.png" />
+    <Resource Include="Okna\Icons\dark\appbar.simcard.micro.png" />
+    <Resource Include="Okna\Icons\dark\appbar.simcard.png" />
+    <Resource Include="Okna\Icons\dark\appbar.skydrive.download.png" />
+    <Resource Include="Okna\Icons\dark\appbar.skydrive.png" />
+    <Resource Include="Okna\Icons\dark\appbar.skydrive.upload.png" />
+    <Resource Include="Okna\Icons\dark\appbar.sleep.png" />
+    <Resource Include="Okna\Icons\dark\appbar.slice.png" />
+    <Resource Include="Okna\Icons\dark\appbar.smiley.angry.png" />
+    <Resource Include="Okna\Icons\dark\appbar.smiley.cry.png" />
+    <Resource Include="Okna\Icons\dark\appbar.smiley.frown.png" />
+    <Resource Include="Okna\Icons\dark\appbar.smiley.glasses.png" />
+    <Resource Include="Okna\Icons\dark\appbar.smiley.grin.png" />
+    <Resource Include="Okna\Icons\dark\appbar.smiley.grumpy.png" />
+    <Resource Include="Okna\Icons\dark\appbar.smiley.happy.png" />
+    <Resource Include="Okna\Icons\dark\appbar.smiley.kiki.png" />
+    <Resource Include="Okna\Icons\dark\appbar.smiley.squint.png" />
+    <Resource Include="Okna\Icons\dark\appbar.smiley.tounge.png" />
+    <Resource Include="Okna\Icons\dark\appbar.smiley.what.png" />
+    <Resource Include="Okna\Icons\dark\appbar.snowflake.png" />
+    <Resource Include="Okna\Icons\dark\appbar.snowman.png" />
+    <Resource Include="Okna\Icons\dark\appbar.social.aim.png" />
+    <Resource Include="Okna\Icons\dark\appbar.social.aim.variant.png" />
+    <Resource Include="Okna\Icons\dark\appbar.social.amazon.appstore.png" />
+    <Resource Include="Okna\Icons\dark\appbar.social.amazon.png" />
+    <Resource Include="Okna\Icons\dark\appbar.social.apple.appstore.png" />
+    <Resource Include="Okna\Icons\dark\appbar.social.apple.mobileme.png" />
+    <Resource Include="Okna\Icons\dark\appbar.social.apple.png" />
+    <Resource Include="Okna\Icons\dark\appbar.social.appnet.png" />
+    <Resource Include="Okna\Icons\dark\appbar.social.artcom.png" />
+    <Resource Include="Okna\Icons\dark\appbar.social.arto.png" />
+    <Resource Include="Okna\Icons\dark\appbar.social.aws.png" />
+    <Resource Include="Okna\Icons\dark\appbar.social.baidu.png" />
+    <Resource Include="Okna\Icons\dark\appbar.social.basecamp.png" />
+    <Resource Include="Okna\Icons\dark\appbar.social.bebo.png" />
+    <Resource Include="Okna\Icons\dark\appbar.social.behance.png" />
+    <Resource Include="Okna\Icons\dark\appbar.social.blogger.png" />
+    <Resource Include="Okna\Icons\dark\appbar.social.cloudapp.png" />
+    <Resource Include="Okna\Icons\dark\appbar.social.coding4fun.png" />
+    <Resource Include="Okna\Icons\dark\appbar.social.delicious.png" />
+    <Resource Include="Okna\Icons\dark\appbar.social.deviantart.png" />
+    <Resource Include="Okna\Icons\dark\appbar.social.digg.png" />
+    <Resource Include="Okna\Icons\dark\appbar.social.digg.variant.png" />
+    <Resource Include="Okna\Icons\dark\appbar.social.disqus.png" />
+    <Resource Include="Okna\Icons\dark\appbar.social.dribbble.png" />
+    <Resource Include="Okna\Icons\dark\appbar.social.dropbox.download.png" />
+    <Resource Include="Okna\Icons\dark\appbar.social.dropbox.png" />
+    <Resource Include="Okna\Icons\dark\appbar.social.dropbox.upload.png" />
+    <Resource Include="Okna\Icons\dark\appbar.social.drupal.png" />
+    <Resource Include="Okna\Icons\dark\appbar.social.engadget.png" />
+    <Resource Include="Okna\Icons\dark\appbar.social.etsy.png" />
+    <Resource Include="Okna\Icons\dark\appbar.social.evernote.png" />
+    <Resource Include="Okna\Icons\dark\appbar.social.facebook.heart.break.png" />
+    <Resource Include="Okna\Icons\dark\appbar.social.facebook.heart.png" />
+    <Resource Include="Okna\Icons\dark\appbar.social.facebook.png" />
+    <Resource Include="Okna\Icons\dark\appbar.social.facebook.variant.png" />
+    <Resource Include="Okna\Icons\dark\appbar.social.foursquare.png" />
+    <Resource Include="Okna\Icons\dark\appbar.social.gdgt.png" />
+    <Resource Include="Okna\Icons\dark\appbar.social.github.octocat.png" />
+    <Resource Include="Okna\Icons\dark\appbar.social.github.octocat.solid.png" />
+    <Resource Include="Okna\Icons\dark\appbar.social.github.png" />
+    <Resource Include="Okna\Icons\dark\appbar.social.grooveshark.png" />
+    <Resource Include="Okna\Icons\dark\appbar.social.indiegogo.png" />
+    <Resource Include="Okna\Icons\dark\appbar.social.instapaper.png" />
+    <Resource Include="Okna\Icons\dark\appbar.social.jira.png" />
+    <Resource Include="Okna\Icons\dark\appbar.social.kickstarter.png" />
+    <Resource Include="Okna\Icons\dark\appbar.social.lastfm.png" />
+    <Resource Include="Okna\Icons\dark\appbar.social.line.png" />
+    <Resource Include="Okna\Icons\dark\appbar.social.linkedin.png" />
+    <Resource Include="Okna\Icons\dark\appbar.social.linkedin.variant.png" />
+    <Resource Include="Okna\Icons\dark\appbar.social.microsoft.png" />
+    <Resource Include="Okna\Icons\dark\appbar.social.nuget.png" />
+    <Resource Include="Okna\Icons\dark\appbar.social.openid.png" />
+    <Resource Include="Okna\Icons\dark\appbar.social.picasa.png" />
+    <Resource Include="Okna\Icons\dark\appbar.social.pinterest.png" />
+    <Resource Include="Okna\Icons\dark\appbar.social.playstation.png" />
+    <Resource Include="Okna\Icons\dark\appbar.social.pocket.png" />
+    <Resource Include="Okna\Icons\dark\appbar.social.rdio.png" />
+    <Resource Include="Okna\Icons\dark\appbar.social.readability.png" />
+    <Resource Include="Okna\Icons\dark\appbar.social.reddit.png" />
+    <Resource Include="Okna\Icons\dark\appbar.social.sharethis.png" />
+    <Resource Include="Okna\Icons\dark\appbar.social.skype.png" />
+    <Resource Include="Okna\Icons\dark\appbar.social.slashdot.png" />
+    <Resource Include="Okna\Icons\dark\appbar.social.soundcloud.png" />
+    <Resource Include="Okna\Icons\dark\appbar.social.spotify.png" />
+    <Resource Include="Okna\Icons\dark\appbar.social.stackoverflow.png" />
+    <Resource Include="Okna\Icons\dark\appbar.social.theverge.png" />
+    <Resource Include="Okna\Icons\dark\appbar.social.trello.png" />
+    <Resource Include="Okna\Icons\dark\appbar.social.tumblr.png" />
+    <Resource Include="Okna\Icons\dark\appbar.social.twitter.hashtag.png" />
+    <Resource Include="Okna\Icons\dark\appbar.social.twitter.png" />
+    <Resource Include="Okna\Icons\dark\appbar.social.twitter.retweet.png" />
+    <Resource Include="Okna\Icons\dark\appbar.social.unity.png" />
+    <Resource Include="Okna\Icons\dark\appbar.social.untapped.png" />
+    <Resource Include="Okna\Icons\dark\appbar.social.uservoice.png" />
+    <Resource Include="Okna\Icons\dark\appbar.social.vimeo.png" />
+    <Resource Include="Okna\Icons\dark\appbar.social.whatsapp.png" />
+    <Resource Include="Okna\Icons\dark\appbar.social.wikipedia.png" />
+    <Resource Include="Okna\Icons\dark\appbar.social.wordpress.png" />
+    <Resource Include="Okna\Icons\dark\appbar.social.wordpress.variant.png" />
+    <Resource Include="Okna\Icons\dark\appbar.social.xing.png" />
+    <Resource Include="Okna\Icons\dark\appbar.social.yahoo.png" />
+    <Resource Include="Okna\Icons\dark\appbar.social.ycombinator.png" />
+    <Resource Include="Okna\Icons\dark\appbar.social.yelp.png" />
+    <Resource Include="Okna\Icons\dark\appbar.social.zappos.png" />
+    <Resource Include="Okna\Icons\dark\appbar.sort.alphabetical.ascending.png" />
+    <Resource Include="Okna\Icons\dark\appbar.sort.alphabetical.descending.png" />
+    <Resource Include="Okna\Icons\dark\appbar.sort.alphabetical.png" />
+    <Resource Include="Okna\Icons\dark\appbar.sort.numeric.ascending.png" />
+    <Resource Include="Okna\Icons\dark\appbar.sort.numeric.descending.png" />
+    <Resource Include="Okna\Icons\dark\appbar.sort.numeric.png" />
+    <Resource Include="Okna\Icons\dark\appbar.sort.png" />
+    <Resource Include="Okna\Icons\dark\appbar.sound.0.png" />
+    <Resource Include="Okna\Icons\dark\appbar.sound.1.png" />
+    <Resource Include="Okna\Icons\dark\appbar.sound.2.png" />
+    <Resource Include="Okna\Icons\dark\appbar.sound.3.png" />
+    <Resource Include="Okna\Icons\dark\appbar.sound.left.right.png" />
+    <Resource Include="Okna\Icons\dark\appbar.sound.mute.png" />
+    <Resource Include="Okna\Icons\dark\appbar.sound.stereo.png" />
+    <Resource Include="Okna\Icons\dark\appbar.sound.stereo.stack.png" />
+    <Resource Include="Okna\Icons\dark\appbar.source.fork.png" />
+    <Resource Include="Okna\Icons\dark\appbar.source.pull.png" />
+    <Resource Include="Okna\Icons\dark\appbar.speakerphone.png" />
+    <Resource Include="Okna\Icons\dark\appbar.sport.football.png" />
+    <Resource Include="Okna\Icons\dark\appbar.stairs.down.png" />
+    <Resource Include="Okna\Icons\dark\appbar.stairs.down.reflect.horizontal.png" />
+    <Resource Include="Okna\Icons\dark\appbar.stairs.up.png" />
+    <Resource Include="Okna\Icons\dark\appbar.stairs.up.reflect.horizontal.png" />
+    <Resource Include="Okna\Icons\dark\appbar.stamp.at.png" />
+    <Resource Include="Okna\Icons\dark\appbar.stamp.empty.png" />
+    <Resource Include="Okna\Icons\dark\appbar.stamp.png" />
+    <Resource Include="Okna\Icons\dark\appbar.star.add.png" />
+    <Resource Include="Okna\Icons\dark\appbar.star.delete.png" />
+    <Resource Include="Okna\Icons\dark\appbar.star.invincible.png" />
+    <Resource Include="Okna\Icons\dark\appbar.star.minus.png" />
+    <Resource Include="Okna\Icons\dark\appbar.star.png" />
+    <Resource Include="Okna\Icons\dark\appbar.star.remove.png" />
+    <Resource Include="Okna\Icons\dark\appbar.starwars.jedi.png" />
+    <Resource Include="Okna\Icons\dark\appbar.starwars.rebel.png" />
+    <Resource Include="Okna\Icons\dark\appbar.starwars.sith.png" />
+    <Resource Include="Okna\Icons\dark\appbar.steam.png" />
+    <Resource Include="Okna\Icons\dark\appbar.stock.down.png" />
+    <Resource Include="Okna\Icons\dark\appbar.stock.png" />
+    <Resource Include="Okna\Icons\dark\appbar.stock.up.png" />
+    <Resource Include="Okna\Icons\dark\appbar.stocking.png" />
+    <Resource Include="Okna\Icons\dark\appbar.stop.png" />
+    <Resource Include="Okna\Icons\dark\appbar.store.png" />
+    <Resource Include="Okna\Icons\dark\appbar.stream.png" />
+    <Resource Include="Okna\Icons\dark\appbar.suitcase.png" />
+    <Resource Include="Okna\Icons\dark\appbar.swap.png" />
+    <Resource Include="Okna\Icons\dark\appbar.switch.off.png" />
+    <Resource Include="Okna\Icons\dark\appbar.symbol.braces.png" />
+    <Resource Include="Okna\Icons\dark\appbar.symbol.bracket.png" />
+    <Resource Include="Okna\Icons\dark\appbar.table.add.png" />
+    <Resource Include="Okna\Icons\dark\appbar.table.delete.png" />
+    <Resource Include="Okna\Icons\dark\appbar.table.png" />
+    <Resource Include="Okna\Icons\dark\appbar.table.select.png" />
+    <Resource Include="Okna\Icons\dark\appbar.table.unselect.png" />
+    <Resource Include="Okna\Icons\dark\appbar.tablet.windows.png" />
+    <Resource Include="Okna\Icons\dark\appbar.tag.label.png" />
+    <Resource Include="Okna\Icons\dark\appbar.tag.png" />
+    <Resource Include="Okna\Icons\dark\appbar.tardis.png" />
+    <Resource Include="Okna\Icons\dark\appbar.team.png" />
+    <Resource Include="Okna\Icons\dark\appbar.text.align.center.png" />
+    <Resource Include="Okna\Icons\dark\appbar.text.align.justify.png" />
+    <Resource Include="Okna\Icons\dark\appbar.text.align.left.png" />
+    <Resource Include="Okna\Icons\dark\appbar.text.align.right.png" />
+    <Resource Include="Okna\Icons\dark\appbar.text.bold.png" />
+    <Resource Include="Okna\Icons\dark\appbar.text.italic.png" />
+    <Resource Include="Okna\Icons\dark\appbar.text.overline.png" />
+    <Resource Include="Okna\Icons\dark\appbar.text.sans.png" />
+    <Resource Include="Okna\Icons\dark\appbar.text.script.png" />
+    <Resource Include="Okna\Icons\dark\appbar.text.serif.png" />
+    <Resource Include="Okna\Icons\dark\appbar.text.size.down.png" />
+    <Resource Include="Okna\Icons\dark\appbar.text.size.minus.png" />
+    <Resource Include="Okna\Icons\dark\appbar.text.size.plus.png" />
+    <Resource Include="Okna\Icons\dark\appbar.text.size.png" />
+    <Resource Include="Okna\Icons\dark\appbar.text.size.up.png" />
+    <Resource Include="Okna\Icons\dark\appbar.text.strikethrough.png" />
+    <Resource Include="Okna\Icons\dark\appbar.text.underline.png" />
+    <Resource Include="Okna\Icons\dark\appbar.thermometer.celcius.png" />
+    <Resource Include="Okna\Icons\dark\appbar.thermometer.digital.png" />
+    <Resource Include="Okna\Icons\dark\appbar.thermometer.fahrenheit.png" />
+    <Resource Include="Okna\Icons\dark\appbar.thermometer.honeywell.png" />
+    <Resource Include="Okna\Icons\dark\appbar.thermometer.kelvin.png" />
+    <Resource Include="Okna\Icons\dark\appbar.thermometer.png" />
+    <Resource Include="Okna\Icons\dark\appbar.thermometer.signs.png" />
+    <Resource Include="Okna\Icons\dark\appbar.thumb.up.add.png" />
+    <Resource Include="Okna\Icons\dark\appbar.thumb.up.delete.png" />
+    <Resource Include="Okna\Icons\dark\appbar.thumb.up.minus.png" />
+    <Resource Include="Okna\Icons\dark\appbar.thumbs.down.png" />
+    <Resource Include="Okna\Icons\dark\appbar.thumbs.up.png" />
+    <Resource Include="Okna\Icons\dark\appbar.ticket.png" />
+    <Resource Include="Okna\Icons\dark\appbar.tiles.four.png" />
+    <Resource Include="Okna\Icons\dark\appbar.tiles.minus.png" />
+    <Resource Include="Okna\Icons\dark\appbar.tiles.nine.png" />
+    <Resource Include="Okna\Icons\dark\appbar.tiles.plus.png" />
+    <Resource Include="Okna\Icons\dark\appbar.tiles.sixteen.png" />
+    <Resource Include="Okna\Icons\dark\appbar.timer.1.png" />
+    <Resource Include="Okna\Icons\dark\appbar.timer.2.png" />
+    <Resource Include="Okna\Icons\dark\appbar.timer.3.png" />
+    <Resource Include="Okna\Icons\dark\appbar.timer.4.png" />
+    <Resource Include="Okna\Icons\dark\appbar.timer.5.png" />
+    <Resource Include="Okna\Icons\dark\appbar.timer.alert.png" />
+    <Resource Include="Okna\Icons\dark\appbar.timer.check.png" />
+    <Resource Include="Okna\Icons\dark\appbar.timer.forward.png" />
+    <Resource Include="Okna\Icons\dark\appbar.timer.pause.png" />
+    <Resource Include="Okna\Icons\dark\appbar.timer.play.png" />
+    <Resource Include="Okna\Icons\dark\appbar.timer.png" />
+    <Resource Include="Okna\Icons\dark\appbar.timer.record.png" />
+    <Resource Include="Okna\Icons\dark\appbar.timer.resume.png" />
+    <Resource Include="Okna\Icons\dark\appbar.timer.rewind.png" />
+    <Resource Include="Okna\Icons\dark\appbar.timer.stop.png" />
+    <Resource Include="Okna\Icons\dark\appbar.tools.png" />
+    <Resource Include="Okna\Icons\dark\appbar.tournament.bracket.down.png" />
+    <Resource Include="Okna\Icons\dark\appbar.tournament.bracket.left.png" />
+    <Resource Include="Okna\Icons\dark\appbar.tournament.bracket.png" />
+    <Resource Include="Okna\Icons\dark\appbar.tournament.bracket.right.png" />
+    <Resource Include="Okna\Icons\dark\appbar.tournament.bracket.up.png" />
+    <Resource Include="Okna\Icons\dark\appbar.tower.png" />
+    <Resource Include="Okna\Icons\dark\appbar.train.png" />
+    <Resource Include="Okna\Icons\dark\appbar.train.track.png" />
+    <Resource Include="Okna\Icons\dark\appbar.train.tunnel.png" />
+    <Resource Include="Okna\Icons\dark\appbar.transform.flip.horizontal.png" />
+    <Resource Include="Okna\Icons\dark\appbar.transform.flip.vertical.png" />
+    <Resource Include="Okna\Icons\dark\appbar.transform.rotate.clockwise.png" />
+    <Resource Include="Okna\Icons\dark\appbar.transform.rotate.counterclockwise.png" />
+    <Resource Include="Okna\Icons\dark\appbar.transform.rotate.left.png" />
+    <Resource Include="Okna\Icons\dark\appbar.transform.rotate.right.png" />
+    <Resource Include="Okna\Icons\dark\appbar.transit.arrive.png" />
+    <Resource Include="Okna\Icons\dark\appbar.transit.bus.png" />
+    <Resource Include="Okna\Icons\dark\appbar.transit.car.accident.png" />
+    <Resource Include="Okna\Icons\dark\appbar.transit.car.png" />
+    <Resource Include="Okna\Icons\dark\appbar.transit.congestion.png" />
+    <Resource Include="Okna\Icons\dark\appbar.transit.connection.departure.png" />
+    <Resource Include="Okna\Icons\dark\appbar.transit.connection.png" />
+    <Resource Include="Okna\Icons\dark\appbar.transit.construction.png" />
+    <Resource Include="Okna\Icons\dark\appbar.transit.depart.png" />
+    <Resource Include="Okna\Icons\dark\appbar.transit.distance.from.png" />
+    <Resource Include="Okna\Icons\dark\appbar.transit.distance.to.png" />
+    <Resource Include="Okna\Icons\dark\appbar.transit.hazard.png" />
+    <Resource Include="Okna\Icons\dark\appbar.tree.leaf.png" />
+    <Resource Include="Okna\Icons\dark\appbar.tree.leaf.three.png" />
+    <Resource Include="Okna\Icons\dark\appbar.tree.pine.png" />
+    <Resource Include="Okna\Icons\dark\appbar.tree.png" />
+    <Resource Include="Okna\Icons\dark\appbar.trophy.png" />
+    <Resource Include="Okna\Icons\dark\appbar.truck.png" />
+    <Resource Include="Okna\Icons\dark\appbar.tux.png" />
+    <Resource Include="Okna\Icons\dark\appbar.tv.news.png" />
+    <Resource Include="Okna\Icons\dark\appbar.tv.png" />
+    <Resource Include="Okna\Icons\dark\appbar.tv.remote.png" />
+    <Resource Include="Okna\Icons\dark\appbar.tv.syfy.png" />
+    <Resource Include="Okna\Icons\dark\appbar.type.bit.png" />
+    <Resource Include="Okna\Icons\dark\appbar.type.boolean.png" />
+    <Resource Include="Okna\Icons\dark\appbar.type.null.png" />
+    <Resource Include="Okna\Icons\dark\appbar.undo.curve.png" />
+    <Resource Include="Okna\Icons\dark\appbar.undo.png" />
+    <Resource Include="Okna\Icons\dark\appbar.undo.point.png" />
+    <Resource Include="Okna\Icons\dark\appbar.unlock.keyhole.png" />
+    <Resource Include="Okna\Icons\dark\appbar.unlock.png" />
+    <Resource Include="Okna\Icons\dark\appbar.upload.png" />
+    <Resource Include="Okna\Icons\dark\appbar.usb.drive.png" />
+    <Resource Include="Okna\Icons\dark\appbar.usb.png" />
+    <Resource Include="Okna\Icons\dark\appbar.user.add.png" />
+    <Resource Include="Okna\Icons\dark\appbar.user.delete.png" />
+    <Resource Include="Okna\Icons\dark\appbar.user.minus.png" />
+    <Resource Include="Okna\Icons\dark\appbar.user.png" />
+    <Resource Include="Okna\Icons\dark\appbar.user.tie.png" />
+    <Resource Include="Okna\Icons\dark\appbar.vector.circle.png" />
+    <Resource Include="Okna\Icons\dark\appbar.vector.group.png" />
+    <Resource Include="Okna\Icons\dark\appbar.vector.group.removed.png" />
+    <Resource Include="Okna\Icons\dark\appbar.vector.line.curve.png" />
+    <Resource Include="Okna\Icons\dark\appbar.vector.line.png" />
+    <Resource Include="Okna\Icons\dark\appbar.vector.line.spline.png" />
+    <Resource Include="Okna\Icons\dark\appbar.vector.pen.add.png" />
+    <Resource Include="Okna\Icons\dark\appbar.vector.pen.convert.png" />
+    <Resource Include="Okna\Icons\dark\appbar.vector.pen.minus.png" />
+    <Resource Include="Okna\Icons\dark\appbar.vector.pen.png" />
+    <Resource Include="Okna\Icons\dark\appbar.vector.polygon.png" />
+    <Resource Include="Okna\Icons\dark\appbar.vector.rectangle.png" />
+    <Resource Include="Okna\Icons\dark\appbar.vector.star.png" />
+    <Resource Include="Okna\Icons\dark\appbar.video.basic.png" />
+    <Resource Include="Okna\Icons\dark\appbar.video.gallery.png" />
+    <Resource Include="Okna\Icons\dark\appbar.video.highdefinition.png" />
+    <Resource Include="Okna\Icons\dark\appbar.video.png" />
+    <Resource Include="Okna\Icons\dark\appbar.video.send.png" />
+    <Resource Include="Okna\Icons\dark\appbar.video.standarddefinition.png" />
+    <Resource Include="Okna\Icons\dark\appbar.vip.lowercase.png" />
+    <Resource Include="Okna\Icons\dark\appbar.vip.png" />
+    <Resource Include="Okna\Icons\dark\appbar.visualstudio.news.png" />
+    <Resource Include="Okna\Icons\dark\appbar.visualstudio.png" />
+    <Resource Include="Okna\Icons\dark\appbar.warning.circle.png" />
+    <Resource Include="Okna\Icons\dark\appbar.warning.png" />
+    <Resource Include="Okna\Icons\dark\appbar.water.droplet.alert.png" />
+    <Resource Include="Okna\Icons\dark\appbar.water.droplet.png" />
+    <Resource Include="Okna\Icons\dark\appbar.water.droplet.reflection.png" />
+    <Resource Include="Okna\Icons\dark\appbar.weather.chance.png" />
+    <Resource Include="Okna\Icons\dark\appbar.weather.overcast.png" />
+    <Resource Include="Okna\Icons\dark\appbar.weather.rain.png" />
+    <Resource Include="Okna\Icons\dark\appbar.weather.snow.png" />
+    <Resource Include="Okna\Icons\dark\appbar.weather.station.png" />
+    <Resource Include="Okna\Icons\dark\appbar.weather.sun.png" />
+    <Resource Include="Okna\Icons\dark\appbar.weather.sun.rise.png" />
+    <Resource Include="Okna\Icons\dark\appbar.weather.sun.set.png" />
+    <Resource Include="Okna\Icons\dark\appbar.weather.symbol.png" />
+    <Resource Include="Okna\Icons\dark\appbar.weather.thunder.png" />
+    <Resource Include="Okna\Icons\dark\appbar.webcam.png" />
+    <Resource Include="Okna\Icons\dark\appbar.window.casement.closed.png" />
+    <Resource Include="Okna\Icons\dark\appbar.window.casement.png" />
+    <Resource Include="Okna\Icons\dark\appbar.window.closed.png" />
+    <Resource Include="Okna\Icons\dark\appbar.window.maximize.png" />
+    <Resource Include="Okna\Icons\dark\appbar.window.minimize.png" />
+    <Resource Include="Okna\Icons\dark\appbar.window.png" />
+    <Resource Include="Okna\Icons\dark\appbar.window.restore.png" />
+    <Resource Include="Okna\Icons\dark\appbar.window.simple.png" />
+    <Resource Include="Okna\Icons\dark\appbar.windowsphone.png" />
+    <Resource Include="Okna\Icons\dark\appbar.xbox.png" />
+    <Resource Include="Okna\Icons\dark\appbar.youtube.play.png" />
+    <Resource Include="Okna\Icons\dark\appbar.youtube.png" />
+    <Resource Include="Okna\Icons\dark\appbar.zune.png" />
+    <Resource Include="Okna\Icons\light\appbar.3d.3ds.png" />
+    <Resource Include="Okna\Icons\light\appbar.3d.collada.png" />
+    <Resource Include="Okna\Icons\light\appbar.3d.obj.png" />
+    <Resource Include="Okna\Icons\light\appbar.3d.x.png" />
+    <Resource Include="Okna\Icons\light\appbar.acorn.png" />
+    <Resource Include="Okna\Icons\light\appbar.add.multiple.png" />
+    <Resource Include="Okna\Icons\light\appbar.add.png" />
+    <Resource Include="Okna\Icons\light\appbar.adobe.acrobat.png" />
+    <Resource Include="Okna\Icons\light\appbar.adobe.aftereffects.png" />
+    <Resource Include="Okna\Icons\light\appbar.adobe.audition.png" />
+    <Resource Include="Okna\Icons\light\appbar.adobe.bridge.png" />
+    <Resource Include="Okna\Icons\light\appbar.adobe.dreamweaver.png" />
+    <Resource Include="Okna\Icons\light\appbar.adobe.encore.png" />
+    <Resource Include="Okna\Icons\light\appbar.adobe.fireworks.png" />
+    <Resource Include="Okna\Icons\light\appbar.adobe.flash.png" />
+    <Resource Include="Okna\Icons\light\appbar.adobe.flashbuilder.png" />
+    <Resource Include="Okna\Icons\light\appbar.adobe.illustrator.png" />
+    <Resource Include="Okna\Icons\light\appbar.adobe.indesign.png" />
+    <Resource Include="Okna\Icons\light\appbar.adobe.lightroom.png" />
+    <Resource Include="Okna\Icons\light\appbar.adobe.photoshop.png" />
+    <Resource Include="Okna\Icons\light\appbar.adobe.prelude.png" />
+    <Resource Include="Okna\Icons\light\appbar.adobe.premierpro.png" />
+    <Resource Include="Okna\Icons\light\appbar.adobe.speedgrade.png" />
+    <Resource Include="Okna\Icons\light\appbar.alert.png" />
+    <Resource Include="Okna\Icons\light\appbar.alien.png" />
+    <Resource Include="Okna\Icons\light\appbar.align.center.png" />
+    <Resource Include="Okna\Icons\light\appbar.align.justify.png" />
+    <Resource Include="Okna\Icons\light\appbar.align.left.png" />
+    <Resource Include="Okna\Icons\light\appbar.align.right.png" />
+    <Resource Include="Okna\Icons\light\appbar.anchor.png" />
+    <Resource Include="Okna\Icons\light\appbar.app.favorite.png" />
+    <Resource Include="Okna\Icons\light\appbar.app.minus.png" />
+    <Resource Include="Okna\Icons\light\appbar.app.plus.png" />
+    <Resource Include="Okna\Icons\light\appbar.app.png" />
+    <Resource Include="Okna\Icons\light\appbar.app.remove.png" />
+    <Resource Include="Okna\Icons\light\appbar.arcade.button.png" />
+    <Resource Include="Okna\Icons\light\appbar.archive.png" />
+    <Resource Include="Okna\Icons\light\appbar.arrow.collapsed.png" />
+    <Resource Include="Okna\Icons\light\appbar.arrow.corner.up.right.png" />
+    <Resource Include="Okna\Icons\light\appbar.arrow.down.png" />
+    <Resource Include="Okna\Icons\light\appbar.arrow.down.up.png" />
+    <Resource Include="Okna\Icons\light\appbar.arrow.expand.png" />
+    <Resource Include="Okna\Icons\light\appbar.arrow.left.png" />
+    <Resource Include="Okna\Icons\light\appbar.arrow.left.right.png" />
+    <Resource Include="Okna\Icons\light\appbar.arrow.right.left.png" />
+    <Resource Include="Okna\Icons\light\appbar.arrow.right.png" />
+    <Resource Include="Okna\Icons\light\appbar.arrow.up.down.png" />
+    <Resource Include="Okna\Icons\light\appbar.arrow.up.png" />
+    <Resource Include="Okna\Icons\light\appbar.at.png" />
+    <Resource Include="Okna\Icons\light\appbar.axis.three.png" />
+    <Resource Include="Okna\Icons\light\appbar.axis.x.letter.png" />
+    <Resource Include="Okna\Icons\light\appbar.axis.x.png" />
+    <Resource Include="Okna\Icons\light\appbar.axis.xy.parentheses.png" />
+    <Resource Include="Okna\Icons\light\appbar.axis.xy.png" />
+    <Resource Include="Okna\Icons\light\appbar.axis.y.letter.png" />
+    <Resource Include="Okna\Icons\light\appbar.axis.y.png" />
+    <Resource Include="Okna\Icons\light\appbar.axis.yx.png" />
+    <Resource Include="Okna\Icons\light\appbar.axis.z.letter.png" />
+    <Resource Include="Okna\Icons\light\appbar.axis.z.png" />
+    <Resource Include="Okna\Icons\light\appbar.baby.png" />
+    <Resource Include="Okna\Icons\light\appbar.barcode.png" />
+    <Resource Include="Okna\Icons\light\appbar.base.png" />
+    <Resource Include="Okna\Icons\light\appbar.base.select.png" />
+    <Resource Include="Okna\Icons\light\appbar.bath.png" />
+    <Resource Include="Okna\Icons\light\appbar.battery.0.png" />
+    <Resource Include="Okna\Icons\light\appbar.battery.1.png" />
+    <Resource Include="Okna\Icons\light\appbar.battery.2.png" />
+    <Resource Include="Okna\Icons\light\appbar.battery.3.png" />
+    <Resource Include="Okna\Icons\light\appbar.battery.charging.png" />
+    <Resource Include="Okna\Icons\light\appbar.bed.png" />
+    <Resource Include="Okna\Icons\light\appbar.bike.parking.png" />
+    <Resource Include="Okna\Icons\light\appbar.bike.png" />
+    <Resource Include="Okna\Icons\light\appbar.billboard.png" />
+    <Resource Include="Okna\Icons\light\appbar.billing.png" />
+    <Resource Include="Okna\Icons\light\appbar.bing.png" />
+    <Resource Include="Okna\Icons\light\appbar.book.contact.png" />
+    <Resource Include="Okna\Icons\light\appbar.book.hardcover.open.png" />
+    <Resource Include="Okna\Icons\light\appbar.book.hardcover.open.writing.png" />
+    <Resource Include="Okna\Icons\light\appbar.book.list.png" />
+    <Resource Include="Okna\Icons\light\appbar.book.open.information.png" />
+    <Resource Include="Okna\Icons\light\appbar.book.open.png" />
+    <Resource Include="Okna\Icons\light\appbar.book.open.text.image.png" />
+    <Resource Include="Okna\Icons\light\appbar.book.open.text.png" />
+    <Resource Include="Okna\Icons\light\appbar.book.perspective.help.png" />
+    <Resource Include="Okna\Icons\light\appbar.book.perspective.png" />
+    <Resource Include="Okna\Icons\light\appbar.book.png" />
+    <Resource Include="Okna\Icons\light\appbar.book.side.png" />
+    <Resource Include="Okna\Icons\light\appbar.border.all.png" />
+    <Resource Include="Okna\Icons\light\appbar.border.bottom.png" />
+    <Resource Include="Okna\Icons\light\appbar.border.horizontal.png" />
+    <Resource Include="Okna\Icons\light\appbar.border.inner.png" />
+    <Resource Include="Okna\Icons\light\appbar.border.left.png" />
+    <Resource Include="Okna\Icons\light\appbar.border.none.png" />
+    <Resource Include="Okna\Icons\light\appbar.border.outside.png" />
+    <Resource Include="Okna\Icons\light\appbar.border.right.png" />
+    <Resource Include="Okna\Icons\light\appbar.border.top.png" />
+    <Resource Include="Okna\Icons\light\appbar.border.vertical.png" />
+    <Resource Include="Okna\Icons\light\appbar.box.layered.png" />
+    <Resource Include="Okna\Icons\light\appbar.box.png" />
+    <Resource Include="Okna\Icons\light\appbar.box.unfolded.png" />
+    <Resource Include="Okna\Icons\light\appbar.brick.png" />
+    <Resource Include="Okna\Icons\light\appbar.browser.chrome.png" />
+    <Resource Include="Okna\Icons\light\appbar.browser.ie.png" />
+    <Resource Include="Okna\Icons\light\appbar.browser.png" />
+    <Resource Include="Okna\Icons\light\appbar.browser.wire.png" />
+    <Resource Include="Okna\Icons\light\appbar.bug.png" />
+    <Resource Include="Okna\Icons\light\appbar.bug.remove.png" />
+    <Resource Include="Okna\Icons\light\appbar.cabinet.files.png" />
+    <Resource Include="Okna\Icons\light\appbar.cabinet.files.variant.png" />
+    <Resource Include="Okna\Icons\light\appbar.cabinet.in.png" />
+    <Resource Include="Okna\Icons\light\appbar.cabinet.out.png" />
+    <Resource Include="Okna\Icons\light\appbar.cabinet.png" />
+    <Resource Include="Okna\Icons\light\appbar.cabinet.variant.png" />
+    <Resource Include="Okna\Icons\light\appbar.calculator.png" />
+    <Resource Include="Okna\Icons\light\appbar.calendar.14.png" />
+    <Resource Include="Okna\Icons\light\appbar.calendar.31.png" />
+    <Resource Include="Okna\Icons\light\appbar.calendar.day.png" />
+    <Resource Include="Okna\Icons\light\appbar.calendar.dollar.png" />
+    <Resource Include="Okna\Icons\light\appbar.calendar.future.png" />
+    <Resource Include="Okna\Icons\light\appbar.calendar.month.png" />
+    <Resource Include="Okna\Icons\light\appbar.calendar.plus.png" />
+    <Resource Include="Okna\Icons\light\appbar.calendar.png" />
+    <Resource Include="Okna\Icons\light\appbar.calendar.range.png" />
+    <Resource Include="Okna\Icons\light\appbar.calendar.tomorrow.png" />
+    <Resource Include="Okna\Icons\light\appbar.calendar.week.png" />
+    <Resource Include="Okna\Icons\light\appbar.calendar.year.png" />
+    <Resource Include="Okna\Icons\light\appbar.camera.auto.png" />
+    <Resource Include="Okna\Icons\light\appbar.camera.flash.auto.png" />
+    <Resource Include="Okna\Icons\light\appbar.camera.flash.auto.selected.png" />
+    <Resource Include="Okna\Icons\light\appbar.camera.flash.off.png" />
+    <Resource Include="Okna\Icons\light\appbar.camera.flash.off.selected.png" />
+    <Resource Include="Okna\Icons\light\appbar.camera.flash.png" />
+    <Resource Include="Okna\Icons\light\appbar.camera.flash.selected.png" />
+    <Resource Include="Okna\Icons\light\appbar.camera.png" />
+    <Resource Include="Okna\Icons\light\appbar.camera.send.png" />
+    <Resource Include="Okna\Icons\light\appbar.camera.switch.invert.png" />
+    <Resource Include="Okna\Icons\light\appbar.camera.switch.png" />
+    <Resource Include="Okna\Icons\light\appbar.cancel.png" />
+    <Resource Include="Okna\Icons\light\appbar.candle.png" />
+    <Resource Include="Okna\Icons\light\appbar.card.1.png" />
+    <Resource Include="Okna\Icons\light\appbar.card.2.png" />
+    <Resource Include="Okna\Icons\light\appbar.card.3.png" />
+    <Resource Include="Okna\Icons\light\appbar.card.4.png" />
+    <Resource Include="Okna\Icons\light\appbar.card.5.png" />
+    <Resource Include="Okna\Icons\light\appbar.card.6.png" />
+    <Resource Include="Okna\Icons\light\appbar.card.7.png" />
+    <Resource Include="Okna\Icons\light\appbar.card.8.png" />
+    <Resource Include="Okna\Icons\light\appbar.card.9.png" />
+    <Resource Include="Okna\Icons\light\appbar.card.png" />
+    <Resource Include="Okna\Icons\light\appbar.cards.club.png" />
+    <Resource Include="Okna\Icons\light\appbar.cards.diamond.png" />
+    <Resource Include="Okna\Icons\light\appbar.cards.heart.png" />
+    <Resource Include="Okna\Icons\light\appbar.cards.spade.png" />
+    <Resource Include="Okna\Icons\light\appbar.cart.png" />
+    <Resource Include="Okna\Icons\light\appbar.cd.eject.png" />
+    <Resource Include="Okna\Icons\light\appbar.cd.png" />
+    <Resource Include="Okna\Icons\light\appbar.cell.align.png" />
+    <Resource Include="Okna\Icons\light\appbar.cell.column.delete.png" />
+    <Resource Include="Okna\Icons\light\appbar.cell.down.png" />
+    <Resource Include="Okna\Icons\light\appbar.cell.function.png" />
+    <Resource Include="Okna\Icons\light\appbar.cell.insert.above.png" />
+    <Resource Include="Okna\Icons\light\appbar.cell.insert.below.png" />
+    <Resource Include="Okna\Icons\light\appbar.cell.merge.png" />
+    <Resource Include="Okna\Icons\light\appbar.cell.row.delete.png" />
+    <Resource Include="Okna\Icons\light\appbar.cell.up.png" />
+    <Resource Include="Okna\Icons\light\appbar.centerline.png" />
+    <Resource Include="Okna\Icons\light\appbar.chat.png" />
+    <Resource Include="Okna\Icons\light\appbar.check.png" />
+    <Resource Include="Okna\Icons\light\appbar.checkmark.cross.png" />
+    <Resource Include="Okna\Icons\light\appbar.checkmark.pencil.png" />
+    <Resource Include="Okna\Icons\light\appbar.checkmark.pencil.top.png" />
+    <Resource Include="Okna\Icons\light\appbar.checkmark.png" />
+    <Resource Include="Okna\Icons\light\appbar.checkmark.thick.png" />
+    <Resource Include="Okna\Icons\light\appbar.checkmark.thick.unchecked.png" />
+    <Resource Include="Okna\Icons\light\appbar.checkmark.uncrossed.png" />
+    <Resource Include="Okna\Icons\light\appbar.chess.bishop.png" />
+    <Resource Include="Okna\Icons\light\appbar.chess.horse.png" />
+    <Resource Include="Okna\Icons\light\appbar.chess.king.png" />
+    <Resource Include="Okna\Icons\light\appbar.chess.pawn.png" />
+    <Resource Include="Okna\Icons\light\appbar.chess.queen.png" />
+    <Resource Include="Okna\Icons\light\appbar.chess.rook.png" />
+    <Resource Include="Okna\Icons\light\appbar.chevron.down.png" />
+    <Resource Include="Okna\Icons\light\appbar.chevron.left.png" />
+    <Resource Include="Okna\Icons\light\appbar.chevron.right.png" />
+    <Resource Include="Okna\Icons\light\appbar.chevron.up.png" />
+    <Resource Include="Okna\Icons\light\appbar.chromakey.png" />
+    <Resource Include="Okna\Icons\light\appbar.church.png" />
+    <Resource Include="Okna\Icons\light\appbar.circle.decline.png" />
+    <Resource Include="Okna\Icons\light\appbar.circle.growth.png" />
+    <Resource Include="Okna\Icons\light\appbar.city.chicago.png" />
+    <Resource Include="Okna\Icons\light\appbar.city.png" />
+    <Resource Include="Okna\Icons\light\appbar.city.sanfrancisco.png" />
+    <Resource Include="Okna\Icons\light\appbar.city.seattle.png" />
+    <Resource Include="Okna\Icons\light\appbar.clean.png" />
+    <Resource Include="Okna\Icons\light\appbar.clear.inverse.png" />
+    <Resource Include="Okna\Icons\light\appbar.clear.inverse.reflect.horizontal.png" />
+    <Resource Include="Okna\Icons\light\appbar.clear.png" />
+    <Resource Include="Okna\Icons\light\appbar.clear.reflect.horizontal.png" />
+    <Resource Include="Okna\Icons\light\appbar.clipboard.paper.check.png" />
+    <Resource Include="Okna\Icons\light\appbar.clipboard.paper.png" />
+    <Resource Include="Okna\Icons\light\appbar.clipboard.paste.png" />
+    <Resource Include="Okna\Icons\light\appbar.clipboard.png" />
+    <Resource Include="Okna\Icons\light\appbar.clipboard.variant.edit.png" />
+    <Resource Include="Okna\Icons\light\appbar.clipboard.variant.png" />
+    <Resource Include="Okna\Icons\light\appbar.clipboard.variant.text.png" />
+    <Resource Include="Okna\Icons\light\appbar.clock.png" />
+    <Resource Include="Okna\Icons\light\appbar.close.png" />
+    <Resource Include="Okna\Icons\light\appbar.closedcaption.off.png" />
+    <Resource Include="Okna\Icons\light\appbar.closedcaption.png" />
+    <Resource Include="Okna\Icons\light\appbar.clothes.shirt.png" />
+    <Resource Include="Okna\Icons\light\appbar.clothes.tie.png" />
+    <Resource Include="Okna\Icons\light\appbar.cloud.add.png" />
+    <Resource Include="Okna\Icons\light\appbar.cloud.delete.png" />
+    <Resource Include="Okna\Icons\light\appbar.cloud.download.png" />
+    <Resource Include="Okna\Icons\light\appbar.cloud.pause.png" />
+    <Resource Include="Okna\Icons\light\appbar.cloud.play.png" />
+    <Resource Include="Okna\Icons\light\appbar.cloud.png" />
+    <Resource Include="Okna\Icons\light\appbar.cloud.upload.png" />
+    <Resource Include="Okna\Icons\light\appbar.cloudirc.png" />
+    <Resource Include="Okna\Icons\light\appbar.code.xml.png" />
+    <Resource Include="Okna\Icons\light\appbar.cog.png" />
+    <Resource Include="Okna\Icons\light\appbar.cogs.png" />
+    <Resource Include="Okna\Icons\light\appbar.column.one.png" />
+    <Resource Include="Okna\Icons\light\appbar.column.three.png" />
+    <Resource Include="Okna\Icons\light\appbar.column.two.png" />
+    <Resource Include="Okna\Icons\light\appbar.companioncube.png" />
+    <Resource Include="Okna\Icons\light\appbar.cone.diagonal.png" />
+    <Resource Include="Okna\Icons\light\appbar.cone.png" />
+    <Resource Include="Okna\Icons\light\appbar.confirm.yes.no.png" />
+    <Resource Include="Okna\Icons\light\appbar.connect.png" />
+    <Resource Include="Okna\Icons\light\appbar.connection.1x.png" />
+    <Resource Include="Okna\Icons\light\appbar.connection.3g.png" />
+    <Resource Include="Okna\Icons\light\appbar.connection.4g.png" />
+    <Resource Include="Okna\Icons\light\appbar.connection.bluetooth.png" />
+    <Resource Include="Okna\Icons\light\appbar.connection.ev.png" />
+    <Resource Include="Okna\Icons\light\appbar.connection.nfc.png" />
+    <Resource Include="Okna\Icons\light\appbar.connection.quality.extremelylow.png" />
+    <Resource Include="Okna\Icons\light\appbar.connection.quality.high.png" />
+    <Resource Include="Okna\Icons\light\appbar.connection.quality.low.png" />
+    <Resource Include="Okna\Icons\light\appbar.connection.quality.medium.png" />
+    <Resource Include="Okna\Icons\light\appbar.connection.quality.veryhigh.png" />
+    <Resource Include="Okna\Icons\light\appbar.connection.quality.verylow.png" />
+    <Resource Include="Okna\Icons\light\appbar.connection.wifi.png" />
+    <Resource Include="Okna\Icons\light\appbar.connection.wifi.variant.png" />
+    <Resource Include="Okna\Icons\light\appbar.console.png" />
+    <Resource Include="Okna\Icons\light\appbar.contrast.png" />
+    <Resource Include="Okna\Icons\light\appbar.control.eject.png" />
+    <Resource Include="Okna\Icons\light\appbar.control.fastforward.png" />
+    <Resource Include="Okna\Icons\light\appbar.control.fastforward.variant.png" />
+    <Resource Include="Okna\Icons\light\appbar.control.guide.png" />
+    <Resource Include="Okna\Icons\light\appbar.control.pause.png" />
+    <Resource Include="Okna\Icons\light\appbar.control.play.live.png" />
+    <Resource Include="Okna\Icons\light\appbar.control.play.png" />
+    <Resource Include="Okna\Icons\light\appbar.control.resume.png" />
+    <Resource Include="Okna\Icons\light\appbar.control.rewind.png" />
+    <Resource Include="Okna\Icons\light\appbar.control.rewind.variant.png" />
+    <Resource Include="Okna\Icons\light\appbar.control.stop.png" />
+    <Resource Include="Okna\Icons\light\appbar.controller.snes.png" />
+    <Resource Include="Okna\Icons\light\appbar.controller.xbox.png" />
+    <Resource Include="Okna\Icons\light\appbar.copyright.png" />
+    <Resource Include="Okna\Icons\light\appbar.corner.png" />
+    <Resource Include="Okna\Icons\light\appbar.coupon.png" />
+    <Resource Include="Okna\Icons\light\appbar.creativecommons.png" />
+    <Resource Include="Okna\Icons\light\appbar.creditcard.png" />
+    <Resource Include="Okna\Icons\light\appbar.crop.png" />
+    <Resource Include="Okna\Icons\light\appbar.crosshair.png" />
+    <Resource Include="Okna\Icons\light\appbar.crown.png" />
+    <Resource Include="Okna\Icons\light\appbar.cup.empty.png" />
+    <Resource Include="Okna\Icons\light\appbar.cup.full.png" />
+    <Resource Include="Okna\Icons\light\appbar.cup.half.png" />
+    <Resource Include="Okna\Icons\light\appbar.cup.paper.png" />
+    <Resource Include="Okna\Icons\light\appbar.cup.png" />
+    <Resource Include="Okna\Icons\light\appbar.currency.cent.png" />
+    <Resource Include="Okna\Icons\light\appbar.currency.dollar.free.png" />
+    <Resource Include="Okna\Icons\light\appbar.currency.dollar.png" />
+    <Resource Include="Okna\Icons\light\appbar.currency.euro.png" />
+    <Resource Include="Okna\Icons\light\appbar.currency.grivna.png" />
+    <Resource Include="Okna\Icons\light\appbar.currency.pound.png" />
+    <Resource Include="Okna\Icons\light\appbar.currency.rubles.png" />
+    <Resource Include="Okna\Icons\light\appbar.currency.rupee.png" />
+    <Resource Include="Okna\Icons\light\appbar.currency.yen.png" />
+    <Resource Include="Okna\Icons\light\appbar.cursor.default.outline.png" />
+    <Resource Include="Okna\Icons\light\appbar.cursor.default.png" />
+    <Resource Include="Okna\Icons\light\appbar.cursor.default.transform.horizontal.png" />
+    <Resource Include="Okna\Icons\light\appbar.cursor.hand.png" />
+    <Resource Include="Okna\Icons\light\appbar.cursor.information.png" />
+    <Resource Include="Okna\Icons\light\appbar.cursor.move.png" />
+    <Resource Include="Okna\Icons\light\appbar.cusor.pointer.png" />
+    <Resource Include="Okna\Icons\light\appbar.customerservice.png" />
+    <Resource Include="Okna\Icons\light\appbar.database.mysql.png" />
+    <Resource Include="Okna\Icons\light\appbar.database.png" />
+    <Resource Include="Okna\Icons\light\appbar.database.sql.png" />
+    <Resource Include="Okna\Icons\light\appbar.debug.restart.png" />
+    <Resource Include="Okna\Icons\light\appbar.debug.step.into.png" />
+    <Resource Include="Okna\Icons\light\appbar.debug.step.out.png" />
+    <Resource Include="Okna\Icons\light\appbar.debug.step.over.png" />
+    <Resource Include="Okna\Icons\light\appbar.debug.stop.png" />
+    <Resource Include="Okna\Icons\light\appbar.deeplink.png" />
+    <Resource Include="Okna\Icons\light\appbar.deeplink.round.png" />
+    <Resource Include="Okna\Icons\light\appbar.delete.png" />
+    <Resource Include="Okna\Icons\light\appbar.devcenter.png" />
+    <Resource Include="Okna\Icons\light\appbar.diagram.png" />
+    <Resource Include="Okna\Icons\light\appbar.dial.png" />
+    <Resource Include="Okna\Icons\light\appbar.dimension.arrow.box.height.png" />
+    <Resource Include="Okna\Icons\light\appbar.dimension.arrow.box.width.png" />
+    <Resource Include="Okna\Icons\light\appbar.dimension.arrow.line.height.png" />
+    <Resource Include="Okna\Icons\light\appbar.dimension.arrow.line.height.short.png" />
+    <Resource Include="Okna\Icons\light\appbar.dimension.arrow.line.height.thick.png" />
+    <Resource Include="Okna\Icons\light\appbar.dimension.arrow.line.width.png" />
+    <Resource Include="Okna\Icons\light\appbar.dimension.arrow.line.width.short.png" />
+    <Resource Include="Okna\Icons\light\appbar.dimension.arrow.line.width.thick.png" />
+    <Resource Include="Okna\Icons\light\appbar.dimension.box.height.png" />
+    <Resource Include="Okna\Icons\light\appbar.dimension.box.width.png" />
+    <Resource Include="Okna\Icons\light\appbar.dimension.line.height.png" />
+    <Resource Include="Okna\Icons\light\appbar.dimension.line.height.short.png" />
+    <Resource Include="Okna\Icons\light\appbar.dimension.line.width.png" />
+    <Resource Include="Okna\Icons\light\appbar.dimension.line.width.short.png" />
+    <Resource Include="Okna\Icons\light\appbar.directions.png" />
+    <Resource Include="Okna\Icons\light\appbar.disconnect.png" />
+    <Resource Include="Okna\Icons\light\appbar.disk.download.png" />
+    <Resource Include="Okna\Icons\light\appbar.disk.png" />
+    <Resource Include="Okna\Icons\light\appbar.disk.upload.png" />
+    <Resource Include="Okna\Icons\light\appbar.dnd.png" />
+    <Resource Include="Okna\Icons\light\appbar.door.enter.png" />
+    <Resource Include="Okna\Icons\light\appbar.door.leave.png" />
+    <Resource Include="Okna\Icons\light\appbar.door.lock.closed.png" />
+    <Resource Include="Okna\Icons\light\appbar.door.lock.open.png" />
+    <Resource Include="Okna\Icons\light\appbar.download.png" />
+    <Resource Include="Okna\Icons\light\appbar.drafting.centerline.png" />
+    <Resource Include="Okna\Icons\light\appbar.draw.brush.png" />
+    <Resource Include="Okna\Icons\light\appbar.draw.brush.reflection.png" />
+    <Resource Include="Okna\Icons\light\appbar.draw.button.png" />
+    <Resource Include="Okna\Icons\light\appbar.draw.marker.png" />
+    <Resource Include="Okna\Icons\light\appbar.draw.marker.reflection.png" />
+    <Resource Include="Okna\Icons\light\appbar.draw.paintbrush.png" />
+    <Resource Include="Okna\Icons\light\appbar.draw.pen.add.png" />
+    <Resource Include="Okna\Icons\light\appbar.draw.pen.minus.png" />
+    <Resource Include="Okna\Icons\light\appbar.draw.pen.png" />
+    <Resource Include="Okna\Icons\light\appbar.draw.pen.reflection.png" />
+    <Resource Include="Okna\Icons\light\appbar.draw.pencil.png" />
+    <Resource Include="Okna\Icons\light\appbar.draw.pencil.reflection.png" />
+    <Resource Include="Okna\Icons\light\appbar.draw.pixel.fill.grid.png" />
+    <Resource Include="Okna\Icons\light\appbar.draw.pixel.grid.png" />
+    <Resource Include="Okna\Icons\light\appbar.drinks.beer.guinness.png" />
+    <Resource Include="Okna\Icons\light\appbar.drinks.beer.png" />
+    <Resource Include="Okna\Icons\light\appbar.drinks.martini.png" />
+    <Resource Include="Okna\Icons\light\appbar.dropper.png" />
+    <Resource Include="Okna\Icons\light\appbar.edit.add.png" />
+    <Resource Include="Okna\Icons\light\appbar.edit.box.png" />
+    <Resource Include="Okna\Icons\light\appbar.edit.minus.png" />
+    <Resource Include="Okna\Icons\light\appbar.edit.png" />
+    <Resource Include="Okna\Icons\light\appbar.elevator.down.png" />
+    <Resource Include="Okna\Icons\light\appbar.elevator.up.png" />
+    <Resource Include="Okna\Icons\light\appbar.email.gmail.png" />
+    <Resource Include="Okna\Icons\light\appbar.email.hardedge.png" />
+    <Resource Include="Okna\Icons\light\appbar.email.minimal.png" />
+    <Resource Include="Okna\Icons\light\appbar.email.outlook.png" />
+    <Resource Include="Okna\Icons\light\appbar.email.png" />
+    <Resource Include="Okna\Icons\light\appbar.email.yahoo.png" />
+    <Resource Include="Okna\Icons\light\appbar.eye.hide.png" />
+    <Resource Include="Okna\Icons\light\appbar.eye.png" />
+    <Resource Include="Okna\Icons\light\appbar.facebook.connect.png" />
+    <Resource Include="Okna\Icons\light\appbar.facebook.disconnect.png" />
+    <Resource Include="Okna\Icons\light\appbar.fan.box.png" />
+    <Resource Include="Okna\Icons\light\appbar.ferry.png" />
+    <Resource Include="Okna\Icons\light\appbar.film.gallery.png" />
+    <Resource Include="Okna\Icons\light\appbar.film.list.png" />
+    <Resource Include="Okna\Icons\light\appbar.film.live.png" />
+    <Resource Include="Okna\Icons\light\appbar.film.png" />
+    <Resource Include="Okna\Icons\light\appbar.film.select.png" />
+    <Resource Include="Okna\Icons\light\appbar.filter.alphabetical.png" />
+    <Resource Include="Okna\Icons\light\appbar.filter.png" />
+    <Resource Include="Okna\Icons\light\appbar.finder.png" />
+    <Resource Include="Okna\Icons\light\appbar.fingerprint.png" />
+    <Resource Include="Okna\Icons\light\appbar.flag.bear.png" />
+    <Resource Include="Okna\Icons\light\appbar.flag.png" />
+    <Resource Include="Okna\Icons\light\appbar.flag.texas.png" />
+    <Resource Include="Okna\Icons\light\appbar.flag.wavy.png" />
+    <Resource Include="Okna\Icons\light\appbar.folder.ellipsis.png" />
+    <Resource Include="Okna\Icons\light\appbar.folder.lock.png" />
+    <Resource Include="Okna\Icons\light\appbar.folder.open.png" />
+    <Resource Include="Okna\Icons\light\appbar.folder.people.png" />
+    <Resource Include="Okna\Icons\light\appbar.folder.png" />
+    <Resource Include="Okna\Icons\light\appbar.folder.puzzle.png" />
+    <Resource Include="Okna\Icons\light\appbar.folder.star.png" />
+    <Resource Include="Okna\Icons\light\appbar.food.apple.png" />
+    <Resource Include="Okna\Icons\light\appbar.food.candy.cane.png" />
+    <Resource Include="Okna\Icons\light\appbar.food.cupcake.png" />
+    <Resource Include="Okna\Icons\light\appbar.food.icecream.bar.png" />
+    <Resource Include="Okna\Icons\light\appbar.food.png" />
+    <Resource Include="Okna\Icons\light\appbar.food.silverware.cross.png" />
+    <Resource Include="Okna\Icons\light\appbar.food.silverware.png" />
+    <Resource Include="Okna\Icons\light\appbar.foot.png" />
+    <Resource Include="Okna\Icons\light\appbar.forklift.load.png" />
+    <Resource Include="Okna\Icons\light\appbar.forklift.png" />
+    <Resource Include="Okna\Icons\light\appbar.form.basic.png" />
+    <Resource Include="Okna\Icons\light\appbar.form.editable.png" />
+    <Resource Include="Okna\Icons\light\appbar.forrst.png" />
+    <Resource Include="Okna\Icons\light\appbar.forsale.png" />
+    <Resource Include="Okna\Icons\light\appbar.framework.net.png" />
+    <Resource Include="Okna\Icons\light\appbar.fullscreen.box.png" />
+    <Resource Include="Okna\Icons\light\appbar.fullscreen.png" />
+    <Resource Include="Okna\Icons\light\appbar.futurama.bender.png" />
+    <Resource Include="Okna\Icons\light\appbar.futurama.fry.png" />
+    <Resource Include="Okna\Icons\light\appbar.gas.png" />
+    <Resource Include="Okna\Icons\light\appbar.gauge.0.png" />
+    <Resource Include="Okna\Icons\light\appbar.gauge.100.png" />
+    <Resource Include="Okna\Icons\light\appbar.gauge.25.png" />
+    <Resource Include="Okna\Icons\light\appbar.gauge.50.png" />
+    <Resource Include="Okna\Icons\light\appbar.gauge.75.png" />
+    <Resource Include="Okna\Icons\light\appbar.gender.both.png" />
+    <Resource Include="Okna\Icons\light\appbar.gender.female.png" />
+    <Resource Include="Okna\Icons\light\appbar.gender.male.png" />
+    <Resource Include="Okna\Icons\light\appbar.gift.png" />
+    <Resource Include="Okna\Icons\light\appbar.globe.png" />
+    <Resource Include="Okna\Icons\light\appbar.globe.wire.png" />
+    <Resource Include="Okna\Icons\light\appbar.google.png" />
+    <Resource Include="Okna\Icons\light\appbar.googleplus.png" />
+    <Resource Include="Okna\Icons\light\appbar.grade.a.minus.png" />
+    <Resource Include="Okna\Icons\light\appbar.grade.a.plus.png" />
+    <Resource Include="Okna\Icons\light\appbar.grade.a.png" />
+    <Resource Include="Okna\Icons\light\appbar.grade.b.minus.png" />
+    <Resource Include="Okna\Icons\light\appbar.grade.b.plus.png" />
+    <Resource Include="Okna\Icons\light\appbar.grade.b.png" />
+    <Resource Include="Okna\Icons\light\appbar.grade.c.minus.png" />
+    <Resource Include="Okna\Icons\light\appbar.grade.c.plus.png" />
+    <Resource Include="Okna\Icons\light\appbar.grade.c.png" />
+    <Resource Include="Okna\Icons\light\appbar.grade.d.minus.png" />
+    <Resource Include="Okna\Icons\light\appbar.grade.d.plus.png" />
+    <Resource Include="Okna\Icons\light\appbar.grade.d.png" />
+    <Resource Include="Okna\Icons\light\appbar.grade.e.png" />
+    <Resource Include="Okna\Icons\light\appbar.grade.f.png" />
+    <Resource Include="Okna\Icons\light\appbar.graph.bar.png" />
+    <Resource Include="Okna\Icons\light\appbar.graph.boxplot.png" />
+    <Resource Include="Okna\Icons\light\appbar.graph.histogram.description.png" />
+    <Resource Include="Okna\Icons\light\appbar.graph.histogram.png" />
+    <Resource Include="Okna\Icons\light\appbar.graph.line.down.png" />
+    <Resource Include="Okna\Icons\light\appbar.graph.line.png" />
+    <Resource Include="Okna\Icons\light\appbar.graph.line.up.png" />
+    <Resource Include="Okna\Icons\light\appbar.greek.sigma.lowercase.png" />
+    <Resource Include="Okna\Icons\light\appbar.greek.sigma.uppercase.png" />
+    <Resource Include="Okna\Icons\light\appbar.grid.png" />
+    <Resource Include="Okna\Icons\light\appbar.group.add.png" />
+    <Resource Include="Okna\Icons\light\appbar.group.delete.png" />
+    <Resource Include="Okna\Icons\light\appbar.group.minus.png" />
+    <Resource Include="Okna\Icons\light\appbar.group.png" />
+    <Resource Include="Okna\Icons\light\appbar.handicap.in.png" />
+    <Resource Include="Okna\Icons\light\appbar.handicap.out.png" />
+    <Resource Include="Okna\Icons\light\appbar.handicap.png" />
+    <Resource Include="Okna\Icons\light\appbar.hardware.cpu.png" />
+    <Resource Include="Okna\Icons\light\appbar.hardware.headphones.bluetooth.png" />
+    <Resource Include="Okna\Icons\light\appbar.hardware.headphones.png" />
+    <Resource Include="Okna\Icons\light\appbar.hardware.headset.png" />
+    <Resource Include="Okna\Icons\light\appbar.hardware.mouse.png" />
+    <Resource Include="Okna\Icons\light\appbar.hat.santa.png" />
+    <Resource Include="Okna\Icons\light\appbar.heart.break.png" />
+    <Resource Include="Okna\Icons\light\appbar.heart.cross.png" />
+    <Resource Include="Okna\Icons\light\appbar.heart.outline.png" />
+    <Resource Include="Okna\Icons\light\appbar.heart.png" />
+    <Resource Include="Okna\Icons\light\appbar.home.empty.png" />
+    <Resource Include="Okna\Icons\light\appbar.home.garage.arrow.close.png" />
+    <Resource Include="Okna\Icons\light\appbar.home.garage.arrow.open.png" />
+    <Resource Include="Okna\Icons\light\appbar.home.garage.open.png" />
+    <Resource Include="Okna\Icons\light\appbar.home.garage.png" />
+    <Resource Include="Okna\Icons\light\appbar.home.gps.png" />
+    <Resource Include="Okna\Icons\light\appbar.home.location.pin.png" />
+    <Resource Include="Okna\Icons\light\appbar.home.location.round.png" />
+    <Resource Include="Okna\Icons\light\appbar.home.people.none.png" />
+    <Resource Include="Okna\Icons\light\appbar.home.people.png" />
+    <Resource Include="Okna\Icons\light\appbar.home.png" />
+    <Resource Include="Okna\Icons\light\appbar.home.question.png" />
+    <Resource Include="Okna\Icons\light\appbar.home.variant.enter.png" />
+    <Resource Include="Okna\Icons\light\appbar.home.variant.leave.png" />
+    <Resource Include="Okna\Icons\light\appbar.home.variant.png" />
+    <Resource Include="Okna\Icons\light\appbar.hourglass.png" />
+    <Resource Include="Okna\Icons\light\appbar.ie.png" />
+    <Resource Include="Okna\Icons\light\appbar.image.ants.png" />
+    <Resource Include="Okna\Icons\light\appbar.image.backlight.png" />
+    <Resource Include="Okna\Icons\light\appbar.image.beach.png" />
+    <Resource Include="Okna\Icons\light\appbar.image.broken.png" />
+    <Resource Include="Okna\Icons\light\appbar.image.export.png" />
+    <Resource Include="Okna\Icons\light\appbar.image.focus.png" />
+    <Resource Include="Okna\Icons\light\appbar.image.gallery.png" />
+    <Resource Include="Okna\Icons\light\appbar.image.hdr.png" />
+    <Resource Include="Okna\Icons\light\appbar.image.landscape.png" />
+    <Resource Include="Okna\Icons\light\appbar.image.macro.png" />
+    <Resource Include="Okna\Icons\light\appbar.image.multiple.png" />
+    <Resource Include="Okna\Icons\light\appbar.image.night.landscape.png" />
+    <Resource Include="Okna\Icons\light\appbar.image.night.person.png" />
+    <Resource Include="Okna\Icons\light\appbar.image.night.png" />
+    <Resource Include="Okna\Icons\light\appbar.image.night.portrait.png" />
+    <Resource Include="Okna\Icons\light\appbar.image.png" />
+    <Resource Include="Okna\Icons\light\appbar.image.portrait.png" />
+    <Resource Include="Okna\Icons\light\appbar.image.redeye.png" />
+    <Resource Include="Okna\Icons\light\appbar.image.select.png" />
+    <Resource Include="Okna\Icons\light\appbar.image.snow.png" />
+    <Resource Include="Okna\Icons\light\appbar.image.sports.png" />
+    <Resource Include="Okna\Icons\light\appbar.image.sunset.png" />
+    <Resource Include="Okna\Icons\light\appbar.inbox.in.png" />
+    <Resource Include="Okna\Icons\light\appbar.inbox.out.png" />
+    <Resource Include="Okna\Icons\light\appbar.inbox.png" />
+    <Resource Include="Okna\Icons\light\appbar.infinite.png" />
+    <Resource Include="Okna\Icons\light\appbar.information.circle.png" />
+    <Resource Include="Okna\Icons\light\appbar.information.png" />
+    <Resource Include="Okna\Icons\light\appbar.input.down.png" />
+    <Resource Include="Okna\Icons\light\appbar.input.keyboard.down.png" />
+    <Resource Include="Okna\Icons\light\appbar.input.keyboard.png" />
+    <Resource Include="Okna\Icons\light\appbar.input.pen.down.png" />
+    <Resource Include="Okna\Icons\light\appbar.input.pen.png" />
+    <Resource Include="Okna\Icons\light\appbar.input.png" />
+    <Resource Include="Okna\Icons\light\appbar.input.question.png" />
+    <Resource Include="Okna\Icons\light\appbar.interface.button.png" />
+    <Resource Include="Okna\Icons\light\appbar.interface.dropdown.png" />
+    <Resource Include="Okna\Icons\light\appbar.interface.list.png" />
+    <Resource Include="Okna\Icons\light\appbar.interface.password.png" />
+    <Resource Include="Okna\Icons\light\appbar.interface.textbox.png" />
+    <Resource Include="Okna\Icons\light\appbar.iphone.png" />
+    <Resource Include="Okna\Icons\light\appbar.journal.png" />
+    <Resource Include="Okna\Icons\light\appbar.key.old.png" />
+    <Resource Include="Okna\Icons\light\appbar.key.png" />
+    <Resource Include="Okna\Icons\light\appbar.lamp.desk.png" />
+    <Resource Include="Okna\Icons\light\appbar.lamp.desk.variant.png" />
+    <Resource Include="Okna\Icons\light\appbar.lamp.png" />
+    <Resource Include="Okna\Icons\light\appbar.lamp.variant.png" />
+    <Resource Include="Okna\Icons\light\appbar.language.csharp.png" />
+    <Resource Include="Okna\Icons\light\appbar.language.java.png" />
+    <Resource Include="Okna\Icons\light\appbar.language.java.text.png" />
+    <Resource Include="Okna\Icons\light\appbar.language.python.png" />
+    <Resource Include="Okna\Icons\light\appbar.language.python.text.png" />
+    <Resource Include="Okna\Icons\light\appbar.laptop.png" />
+    <Resource Include="Okna\Icons\light\appbar.laser.png" />
+    <Resource Include="Okna\Icons\light\appbar.lavalamp.png" />
+    <Resource Include="Okna\Icons\light\appbar.layer.add.png" />
+    <Resource Include="Okna\Icons\light\appbar.layer.arrange.bringforward.png" />
+    <Resource Include="Okna\Icons\light\appbar.layer.arrange.bringtofront.png" />
+    <Resource Include="Okna\Icons\light\appbar.layer.arrange.sendbackward.png" />
+    <Resource Include="Okna\Icons\light\appbar.layer.arrange.sendtoback.png" />
+    <Resource Include="Okna\Icons\light\appbar.layer.arrange.solid.bringforward.png" />
+    <Resource Include="Okna\Icons\light\appbar.layer.arrange.solid.bringtofront.png" />
+    <Resource Include="Okna\Icons\light\appbar.layer.arrange.solid.sendbackward.png" />
+    <Resource Include="Okna\Icons\light\appbar.layer.arrange.solid.sendtoback.png" />
+    <Resource Include="Okna\Icons\light\appbar.layer.delete.png" />
+    <Resource Include="Okna\Icons\light\appbar.layer.down.png" />
+    <Resource Include="Okna\Icons\light\appbar.layer.minus.png" />
+    <Resource Include="Okna\Icons\light\appbar.layer.perspective.up.png" />
+    <Resource Include="Okna\Icons\light\appbar.layer.png" />
+    <Resource Include="Okna\Icons\light\appbar.layer.thick.png" />
+    <Resource Include="Okna\Icons\light\appbar.layer.up.png" />
+    <Resource Include="Okna\Icons\light\appbar.layout.body.png" />
+    <Resource Include="Okna\Icons\light\appbar.layout.collapse.left.png" />
+    <Resource Include="Okna\Icons\light\appbar.layout.collapse.left.variant.png" />
+    <Resource Include="Okna\Icons\light\appbar.layout.collapse.right.png" />
+    <Resource Include="Okna\Icons\light\appbar.layout.collapse.right.variant.png" />
+    <Resource Include="Okna\Icons\light\appbar.layout.expand.left.png" />
+    <Resource Include="Okna\Icons\light\appbar.layout.expand.left.variant.png" />
+    <Resource Include="Okna\Icons\light\appbar.layout.expand.right.png" />
+    <Resource Include="Okna\Icons\light\appbar.layout.expand.right.variant.png" />
+    <Resource Include="Okna\Icons\light\appbar.layout.header.png" />
+    <Resource Include="Okna\Icons\light\appbar.layout.png" />
+    <Resource Include="Okna\Icons\light\appbar.layout.sidebar.png" />
+    <Resource Include="Okna\Icons\light\appbar.leaderboard.png" />
+    <Resource Include="Okna\Icons\light\appbar.lifesaver.png" />
+    <Resource Include="Okna\Icons\light\appbar.lightbulb.coil.png" />
+    <Resource Include="Okna\Icons\light\appbar.lightbulb.hue.on.png" />
+    <Resource Include="Okna\Icons\light\appbar.lightbulb.hue.png" />
+    <Resource Include="Okna\Icons\light\appbar.lightbulb.png" />
+    <Resource Include="Okna\Icons\light\appbar.lightning.png" />
+    <Resource Include="Okna\Icons\light\appbar.lines.horizontal.4.png" />
+    <Resource Include="Okna\Icons\light\appbar.link.png" />
+    <Resource Include="Okna\Icons\light\appbar.linkedin.png" />
+    <Resource Include="Okna\Icons\light\appbar.list.add.above.png" />
+    <Resource Include="Okna\Icons\light\appbar.list.add.below.png" />
+    <Resource Include="Okna\Icons\light\appbar.list.add.png" />
+    <Resource Include="Okna\Icons\light\appbar.list.check.png" />
+    <Resource Include="Okna\Icons\light\appbar.list.create.png" />
+    <Resource Include="Okna\Icons\light\appbar.list.delete.inline.png" />
+    <Resource Include="Okna\Icons\light\appbar.list.delete.png" />
+    <Resource Include="Okna\Icons\light\appbar.list.gear.png" />
+    <Resource Include="Okna\Icons\light\appbar.list.hidden.png" />
+    <Resource Include="Okna\Icons\light\appbar.list.merge.png" />
+    <Resource Include="Okna\Icons\light\appbar.list.one.png" />
+    <Resource Include="Okna\Icons\light\appbar.list.png" />
+    <Resource Include="Okna\Icons\light\appbar.list.reorder.down.png" />
+    <Resource Include="Okna\Icons\light\appbar.list.reorder.png" />
+    <Resource Include="Okna\Icons\light\appbar.list.reorder.up.png" />
+    <Resource Include="Okna\Icons\light\appbar.list.select.png" />
+    <Resource Include="Okna\Icons\light\appbar.list.star.png" />
+    <Resource Include="Okna\Icons\light\appbar.list.two.png" />
+    <Resource Include="Okna\Icons\light\appbar.location.add.png" />
+    <Resource Include="Okna\Icons\light\appbar.location.checkin.png" />
+    <Resource Include="Okna\Icons\light\appbar.location.circle.png" />
+    <Resource Include="Okna\Icons\light\appbar.location.delete.png" />
+    <Resource Include="Okna\Icons\light\appbar.location.foursquare.png" />
+    <Resource Include="Okna\Icons\light\appbar.location.minus.png" />
+    <Resource Include="Okna\Icons\light\appbar.location.png" />
+    <Resource Include="Okna\Icons\light\appbar.location.round.png" />
+    <Resource Include="Okna\Icons\light\appbar.lock.png" />
+    <Resource Include="Okna\Icons\light\appbar.logic.and.add.png" />
+    <Resource Include="Okna\Icons\light\appbar.logic.and.png" />
+    <Resource Include="Okna\Icons\light\appbar.logic.or.add.png" />
+    <Resource Include="Okna\Icons\light\appbar.logic.or.png" />
+    <Resource Include="Okna\Icons\light\appbar.loop.png" />
+    <Resource Include="Okna\Icons\light\appbar.magnify.add.png" />
+    <Resource Include="Okna\Icons\light\appbar.magnify.arrow.down.png" />
+    <Resource Include="Okna\Icons\light\appbar.magnify.arrow.up.png" />
+    <Resource Include="Okna\Icons\light\appbar.magnify.back.png" />
+    <Resource Include="Okna\Icons\light\appbar.magnify.browse.png" />
+    <Resource Include="Okna\Icons\light\appbar.magnify.forward.png" />
+    <Resource Include="Okna\Icons\light\appbar.magnify.minus.png" />
+    <Resource Include="Okna\Icons\light\appbar.magnify.png" />
+    <Resource Include="Okna\Icons\light\appbar.man.sensor.png" />
+    <Resource Include="Okna\Icons\light\appbar.man.suitcase.fast.png" />
+    <Resource Include="Okna\Icons\light\appbar.man.suitcase.png" />
+    <Resource Include="Okna\Icons\light\appbar.man.suitcase.run.png" />
+    <Resource Include="Okna\Icons\light\appbar.man.walk.png" />
+    <Resource Include="Okna\Icons\light\appbar.map.aerial.highway.png" />
+    <Resource Include="Okna\Icons\light\appbar.map.aerial.png" />
+    <Resource Include="Okna\Icons\light\appbar.map.folds.png" />
+    <Resource Include="Okna\Icons\light\appbar.map.gps.png" />
+    <Resource Include="Okna\Icons\light\appbar.map.location.add.png" />
+    <Resource Include="Okna\Icons\light\appbar.map.location.png" />
+    <Resource Include="Okna\Icons\light\appbar.map.png" />
+    <Resource Include="Okna\Icons\light\appbar.map.satellite.png" />
+    <Resource Include="Okna\Icons\light\appbar.map.treasure.png" />
+    <Resource Include="Okna\Icons\light\appbar.marketplace.old.png" />
+    <Resource Include="Okna\Icons\light\appbar.marketplace.png" />
+    <Resource Include="Okna\Icons\light\appbar.markup.png" />
+    <Resource Include="Okna\Icons\light\appbar.marvel.avengers.png" />
+    <Resource Include="Okna\Icons\light\appbar.marvel.captainamerica.png" />
+    <Resource Include="Okna\Icons\light\appbar.marvel.ironman.mask.png" />
+    <Resource Include="Okna\Icons\light\appbar.marvel.ironman.png" />
+    <Resource Include="Okna\Icons\light\appbar.marvel.shield.png" />
+    <Resource Include="Okna\Icons\light\appbar.marvel.shield.variant.png" />
+    <Resource Include="Okna\Icons\light\appbar.math.plus.minus.png" />
+    <Resource Include="Okna\Icons\light\appbar.measure.celcius.png" />
+    <Resource Include="Okna\Icons\light\appbar.measure.centimeter.png" />
+    <Resource Include="Okna\Icons\light\appbar.measure.farenheit.png" />
+    <Resource Include="Okna\Icons\light\appbar.measure.foot.png" />
+    <Resource Include="Okna\Icons\light\appbar.measure.inch.png" />
+    <Resource Include="Okna\Icons\light\appbar.measure.kilometer.png" />
+    <Resource Include="Okna\Icons\light\appbar.measure.meter.png" />
+    <Resource Include="Okna\Icons\light\appbar.measure.mile.png" />
+    <Resource Include="Okna\Icons\light\appbar.medical.pill.broken.png" />
+    <Resource Include="Okna\Icons\light\appbar.medical.pill.png" />
+    <Resource Include="Okna\Icons\light\appbar.medical.pulse.png" />
+    <Resource Include="Okna\Icons\light\appbar.message.png" />
+    <Resource Include="Okna\Icons\light\appbar.message.profanity.png" />
+    <Resource Include="Okna\Icons\light\appbar.message.send.png" />
+    <Resource Include="Okna\Icons\light\appbar.message.smiley.png" />
+    <Resource Include="Okna\Icons\light\appbar.microphone.google.png" />
+    <Resource Include="Okna\Icons\light\appbar.microphone.png" />
+    <Resource Include="Okna\Icons\light\appbar.microsoft.tag.png" />
+    <Resource Include="Okna\Icons\light\appbar.minecraft.civcraft.png" />
+    <Resource Include="Okna\Icons\light\appbar.minus.png" />
+    <Resource Include="Okna\Icons\light\appbar.money.png" />
+    <Resource Include="Okna\Icons\light\appbar.monitor.add.png" />
+    <Resource Include="Okna\Icons\light\appbar.monitor.delete.png" />
+    <Resource Include="Okna\Icons\light\appbar.monitor.film.png" />
+    <Resource Include="Okna\Icons\light\appbar.monitor.identify.png" />
+    <Resource Include="Okna\Icons\light\appbar.monitor.minus.png" />
+    <Resource Include="Okna\Icons\light\appbar.monitor.play.png" />
+    <Resource Include="Okna\Icons\light\appbar.monitor.png" />
+    <Resource Include="Okna\Icons\light\appbar.monitor.to.png" />
+    <Resource Include="Okna\Icons\light\appbar.mono.png" />
+    <Resource Include="Okna\Icons\light\appbar.moon.first.quarter.png" />
+    <Resource Include="Okna\Icons\light\appbar.moon.full.png" />
+    <Resource Include="Okna\Icons\light\appbar.moon.new.png" />
+    <Resource Include="Okna\Icons\light\appbar.moon.png" />
+    <Resource Include="Okna\Icons\light\appbar.moon.sleep.png" />
+    <Resource Include="Okna\Icons\light\appbar.moon.third.quarter.png" />
+    <Resource Include="Okna\Icons\light\appbar.moon.waning.crescent.png" />
+    <Resource Include="Okna\Icons\light\appbar.moon.waning.gibbous.png" />
+    <Resource Include="Okna\Icons\light\appbar.moon.waxing.crescent.png" />
+    <Resource Include="Okna\Icons\light\appbar.moon.waxing.gibbous.png" />
+    <Resource Include="Okna\Icons\light\appbar.movie.clapper.png" />
+    <Resource Include="Okna\Icons\light\appbar.movie.clapper.select.png" />
+    <Resource Include="Okna\Icons\light\appbar.movie.clapper.solid.png" />
+    <Resource Include="Okna\Icons\light\appbar.movie.clapper.solid.select.png" />
+    <Resource Include="Okna\Icons\light\appbar.music.live.png" />
+    <Resource Include="Okna\Icons\light\appbar.music.png" />
+    <Resource Include="Okna\Icons\light\appbar.music.select.png" />
+    <Resource Include="Okna\Icons\light\appbar.music.wifi.png" />
+    <Resource Include="Okna\Icons\light\appbar.na.png" />
+    <Resource Include="Okna\Icons\light\appbar.navigate.next.png" />
+    <Resource Include="Okna\Icons\light\appbar.navigate.previous.png" />
+    <Resource Include="Okna\Icons\light\appbar.network.disconnect.png" />
+    <Resource Include="Okna\Icons\light\appbar.network.home.disconnect.png" />
+    <Resource Include="Okna\Icons\light\appbar.network.home.png" />
+    <Resource Include="Okna\Icons\light\appbar.network.png" />
+    <Resource Include="Okna\Icons\light\appbar.network.port.disconnect.png" />
+    <Resource Include="Okna\Icons\light\appbar.network.port.png" />
+    <Resource Include="Okna\Icons\light\appbar.network.server.connecting.png" />
+    <Resource Include="Okna\Icons\light\appbar.network.server.disconnect.png" />
+    <Resource Include="Okna\Icons\light\appbar.network.server.png" />
+    <Resource Include="Okna\Icons\light\appbar.new.png" />
+    <Resource Include="Okna\Icons\light\appbar.new.window.png" />
+    <Resource Include="Okna\Icons\light\appbar.newspaper.create.png" />
+    <Resource Include="Okna\Icons\light\appbar.newspaper.png" />
+    <Resource Include="Okna\Icons\light\appbar.noentry.png" />
+    <Resource Include="Okna\Icons\light\appbar.notification.above.multiple.png" />
+    <Resource Include="Okna\Icons\light\appbar.notification.above.png" />
+    <Resource Include="Okna\Icons\light\appbar.notification.multiple.png" />
+    <Resource Include="Okna\Icons\light\appbar.notification.png" />
+    <Resource Include="Okna\Icons\light\appbar.notification.star.png" />
+    <Resource Include="Okna\Icons\light\appbar.nyan.png" />
+    <Resource Include="Okna\Icons\light\appbar.office.365.png" />
+    <Resource Include="Okna\Icons\light\appbar.office.access.png" />
+    <Resource Include="Okna\Icons\light\appbar.office.excel.png" />
+    <Resource Include="Okna\Icons\light\appbar.office.infopath.png" />
+    <Resource Include="Okna\Icons\light\appbar.office.lync.png" />
+    <Resource Include="Okna\Icons\light\appbar.office.onenote.png" />
+    <Resource Include="Okna\Icons\light\appbar.office.outlook.png" />
+    <Resource Include="Okna\Icons\light\appbar.office.png" />
+    <Resource Include="Okna\Icons\light\appbar.office.powerpoint.png" />
+    <Resource Include="Okna\Icons\light\appbar.office.project.png" />
+    <Resource Include="Okna\Icons\light\appbar.office.publisher.png" />
+    <Resource Include="Okna\Icons\light\appbar.office.sharepoint.png" />
+    <Resource Include="Okna\Icons\light\appbar.office.visio.png" />
+    <Resource Include="Okna\Icons\light\appbar.office.word.png" />
+    <Resource Include="Okna\Icons\light\appbar.opacity.png" />
+    <Resource Include="Okna\Icons\light\appbar.ornament.png" />
+    <Resource Include="Okna\Icons\light\appbar.ornament.variant.png" />
+    <Resource Include="Okna\Icons\light\appbar.os.android.png" />
+    <Resource Include="Okna\Icons\light\appbar.os.arm.png" />
+    <Resource Include="Okna\Icons\light\appbar.os.blackberry.png" />
+    <Resource Include="Okna\Icons\light\appbar.os.chromium.png" />
+    <Resource Include="Okna\Icons\light\appbar.os.gnome.png" />
+    <Resource Include="Okna\Icons\light\appbar.os.ios.png" />
+    <Resource Include="Okna\Icons\light\appbar.os.ubuntu.png" />
+    <Resource Include="Okna\Icons\light\appbar.os.windows.8.png" />
+    <Resource Include="Okna\Icons\light\appbar.os.windows.png" />
+    <Resource Include="Okna\Icons\light\appbar.os.windows.rt.png" />
+    <Resource Include="Okna\Icons\light\appbar.os.windowsphone.png" />
+    <Resource Include="Okna\Icons\light\appbar.os.windowsphone.round.png" />
+    <Resource Include="Okna\Icons\light\appbar.os.x64.png" />
+    <Resource Include="Okna\Icons\light\appbar.os.x86.png" />
+    <Resource Include="Okna\Icons\light\appbar.outlet.png" />
+    <Resource Include="Okna\Icons\light\appbar.page.0.png" />
+    <Resource Include="Okna\Icons\light\appbar.page.1.png" />
+    <Resource Include="Okna\Icons\light\appbar.page.2.png" />
+    <Resource Include="Okna\Icons\light\appbar.page.3.png" />
+    <Resource Include="Okna\Icons\light\appbar.page.4.png" />
+    <Resource Include="Okna\Icons\light\appbar.page.5.png" />
+    <Resource Include="Okna\Icons\light\appbar.page.6.png" />
+    <Resource Include="Okna\Icons\light\appbar.page.7.png" />
+    <Resource Include="Okna\Icons\light\appbar.page.8.png" />
+    <Resource Include="Okna\Icons\light\appbar.page.9.png" />
+    <Resource Include="Okna\Icons\light\appbar.page.add.png" />
+    <Resource Include="Okna\Icons\light\appbar.page.arrow.png" />
+    <Resource Include="Okna\Icons\light\appbar.page.bold.png" />
+    <Resource Include="Okna\Icons\light\appbar.page.break.png" />
+    <Resource Include="Okna\Icons\light\appbar.page.check.png" />
+    <Resource Include="Okna\Icons\light\appbar.page.code.png" />
+    <Resource Include="Okna\Icons\light\appbar.page.copy.png" />
+    <Resource Include="Okna\Icons\light\appbar.page.corner.bookmark.png" />
+    <Resource Include="Okna\Icons\light\appbar.page.corner.break.png" />
+    <Resource Include="Okna\Icons\light\appbar.page.corner.cells.png" />
+    <Resource Include="Okna\Icons\light\appbar.page.corner.folded.grid.png" />
+    <Resource Include="Okna\Icons\light\appbar.page.corner.folded.png" />
+    <Resource Include="Okna\Icons\light\appbar.page.corner.folded.text.png" />
+    <Resource Include="Okna\Icons\light\appbar.page.corner.grid.png" />
+    <Resource Include="Okna\Icons\light\appbar.page.corner.png" />
+    <Resource Include="Okna\Icons\light\appbar.page.corner.text.break.png" />
+    <Resource Include="Okna\Icons\light\appbar.page.corner.text.png" />
+    <Resource Include="Okna\Icons\light\appbar.page.cross.png" />
+    <Resource Include="Okna\Icons\light\appbar.page.delete.png" />
+    <Resource Include="Okna\Icons\light\appbar.page.download.png" />
+    <Resource Include="Okna\Icons\light\appbar.page.duplicate.png" />
+    <Resource Include="Okna\Icons\light\appbar.page.edit.png" />
+    <Resource Include="Okna\Icons\light\appbar.page.excel.png" />
+    <Resource Include="Okna\Icons\light\appbar.page.file.gif.png" />
+    <Resource Include="Okna\Icons\light\appbar.page.file.gif.tag.png" />
+    <Resource Include="Okna\Icons\light\appbar.page.file.pdf.png" />
+    <Resource Include="Okna\Icons\light\appbar.page.file.pdf.tag.png" />
+    <Resource Include="Okna\Icons\light\appbar.page.heart.png" />
+    <Resource Include="Okna\Icons\light\appbar.page.heartbreak.png" />
+    <Resource Include="Okna\Icons\light\appbar.page.hidden.png" />
+    <Resource Include="Okna\Icons\light\appbar.page.image.png" />
+    <Resource Include="Okna\Icons\light\appbar.page.jpg.png" />
+    <Resource Include="Okna\Icons\light\appbar.page.location.add.png" />
+    <Resource Include="Okna\Icons\light\appbar.page.location.png" />
+    <Resource Include="Okna\Icons\light\appbar.page.minus.png" />
+    <Resource Include="Okna\Icons\light\appbar.page.multiple.png" />
+    <Resource Include="Okna\Icons\light\appbar.page.music.png" />
+    <Resource Include="Okna\Icons\light\appbar.page.new.png" />
+    <Resource Include="Okna\Icons\light\appbar.page.onenote.png" />
+    <Resource Include="Okna\Icons\light\appbar.page.pdf.png" />
+    <Resource Include="Okna\Icons\light\appbar.page.png" />
+    <Resource Include="Okna\Icons\light\appbar.page.png.png" />
+    <Resource Include="Okna\Icons\light\appbar.page.powerpoint.png" />
+    <Resource Include="Okna\Icons\light\appbar.page.question.png" />
+    <Resource Include="Okna\Icons\light\appbar.page.search.png" />
+    <Resource Include="Okna\Icons\light\appbar.page.select.png" />
+    <Resource Include="Okna\Icons\light\appbar.page.small.png" />
+    <Resource Include="Okna\Icons\light\appbar.page.solid.add.png" />
+    <Resource Include="Okna\Icons\light\appbar.page.solid.cross.png" />
+    <Resource Include="Okna\Icons\light\appbar.page.solid.move.png" />
+    <Resource Include="Okna\Icons\light\appbar.page.solid.png" />
+    <Resource Include="Okna\Icons\light\appbar.page.text.png" />
+    <Resource Include="Okna\Icons\light\appbar.page.upload.png" />
+    <Resource Include="Okna\Icons\light\appbar.page.word.png" />
+    <Resource Include="Okna\Icons\light\appbar.page.xml.png" />
+    <Resource Include="Okna\Icons\light\appbar.palmtree.png" />
+    <Resource Include="Okna\Icons\light\appbar.palmtree.variant.png" />
+    <Resource Include="Okna\Icons\light\appbar.paper.png" />
+    <Resource Include="Okna\Icons\light\appbar.paperclip.png" />
+    <Resource Include="Okna\Icons\light\appbar.paperclip.rotated.png" />
+    <Resource Include="Okna\Icons\light\appbar.paw.png" />
+    <Resource Include="Okna\Icons\light\appbar.paypal.png" />
+    <Resource Include="Okna\Icons\light\appbar.people.arrow.left.png" />
+    <Resource Include="Okna\Icons\light\appbar.people.arrow.right.png" />
+    <Resource Include="Okna\Icons\light\appbar.people.checkbox.png" />
+    <Resource Include="Okna\Icons\light\appbar.people.down.png" />
+    <Resource Include="Okna\Icons\light\appbar.people.left.png" />
+    <Resource Include="Okna\Icons\light\appbar.people.magnify.png" />
+    <Resource Include="Okna\Icons\light\appbar.people.multiple.magnify.png" />
+    <Resource Include="Okna\Icons\light\appbar.people.multiple.png" />
+    <Resource Include="Okna\Icons\light\appbar.people.png" />
+    <Resource Include="Okna\Icons\light\appbar.people.profile.png" />
+    <Resource Include="Okna\Icons\light\appbar.people.right.png" />
+    <Resource Include="Okna\Icons\light\appbar.people.sensor.png" />
+    <Resource Include="Okna\Icons\light\appbar.people.sensor.variant.png" />
+    <Resource Include="Okna\Icons\light\appbar.people.status.png" />
+    <Resource Include="Okna\Icons\light\appbar.people.up.png" />
+    <Resource Include="Okna\Icons\light\appbar.percent.off.png" />
+    <Resource Include="Okna\Icons\light\appbar.phone.hangup.png" />
+    <Resource Include="Okna\Icons\light\appbar.phone.png" />
+    <Resource Include="Okna\Icons\light\appbar.phone.voicemail.png" />
+    <Resource Include="Okna\Icons\light\appbar.pie.png" />
+    <Resource Include="Okna\Icons\light\appbar.pie.quarter.png" />
+    <Resource Include="Okna\Icons\light\appbar.pin.png" />
+    <Resource Include="Okna\Icons\light\appbar.pin.remove.png" />
+    <Resource Include="Okna\Icons\light\appbar.places.png" />
+    <Resource Include="Okna\Icons\light\appbar.plane.png" />
+    <Resource Include="Okna\Icons\light\appbar.plane.rotated.135.png" />
+    <Resource Include="Okna\Icons\light\appbar.plane.rotated.45.png" />
+    <Resource Include="Okna\Icons\light\appbar.plant.png" />
+    <Resource Include="Okna\Icons\light\appbar.pokeball.png" />
+    <Resource Include="Okna\Icons\light\appbar.potion.png" />
+    <Resource Include="Okna\Icons\light\appbar.power.png" />
+    <Resource Include="Okna\Icons\light\appbar.present.png" />
+    <Resource Include="Okna\Icons\light\appbar.printer.blank.png" />
+    <Resource Include="Okna\Icons\light\appbar.printer.png" />
+    <Resource Include="Okna\Icons\light\appbar.printer.text.png" />
+    <Resource Include="Okna\Icons\light\appbar.progress.png" />
+    <Resource Include="Okna\Icons\light\appbar.projector.png" />
+    <Resource Include="Okna\Icons\light\appbar.projector.screen.png" />
+    <Resource Include="Okna\Icons\light\appbar.protractor.png" />
+    <Resource Include="Okna\Icons\light\appbar.puzzle.png" />
+    <Resource Include="Okna\Icons\light\appbar.puzzle.round.png" />
+    <Resource Include="Okna\Icons\light\appbar.qr.png" />
+    <Resource Include="Okna\Icons\light\appbar.question.png" />
+    <Resource Include="Okna\Icons\light\appbar.quill.png" />
+    <Resource Include="Okna\Icons\light\appbar.quote.left.png" />
+    <Resource Include="Okna\Icons\light\appbar.quote.right.png" />
+    <Resource Include="Okna\Icons\light\appbar.radar.png" />
+    <Resource Include="Okna\Icons\light\appbar.radar.screen.png" />
+    <Resource Include="Okna\Icons\light\appbar.radioactive.png" />
+    <Resource Include="Okna\Icons\light\appbar.redo.curve.png" />
+    <Resource Include="Okna\Icons\light\appbar.redo.png" />
+    <Resource Include="Okna\Icons\light\appbar.redo.point.png" />
+    <Resource Include="Okna\Icons\light\appbar.refresh.clockwise.down.png" />
+    <Resource Include="Okna\Icons\light\appbar.refresh.clockwise.up.png" />
+    <Resource Include="Okna\Icons\light\appbar.refresh.counterclockwise.down.png" />
+    <Resource Include="Okna\Icons\light\appbar.refresh.counterclockwise.up.png" />
+    <Resource Include="Okna\Icons\light\appbar.refresh.png" />
+    <Resource Include="Okna\Icons\light\appbar.religion.christianity.png" />
+    <Resource Include="Okna\Icons\light\appbar.religion.islamic.png" />
+    <Resource Include="Okna\Icons\light\appbar.religion.judaism.png" />
+    <Resource Include="Okna\Icons\light\appbar.repeat.png" />
+    <Resource Include="Okna\Icons\light\appbar.reply.calendar.png" />
+    <Resource Include="Okna\Icons\light\appbar.reply.email.png" />
+    <Resource Include="Okna\Icons\light\appbar.reply.people.png" />
+    <Resource Include="Okna\Icons\light\appbar.reset.png" />
+    <Resource Include="Okna\Icons\light\appbar.resource.group.png" />
+    <Resource Include="Okna\Icons\light\appbar.resource.png" />
+    <Resource Include="Okna\Icons\light\appbar.return.png" />
+    <Resource Include="Okna\Icons\light\appbar.ribbon.png" />
+    <Resource Include="Okna\Icons\light\appbar.ribbon.wave.png" />
+    <Resource Include="Okna\Icons\light\appbar.ring.png" />
+    <Resource Include="Okna\Icons\light\appbar.rocket.png" />
+    <Resource Include="Okna\Icons\light\appbar.rocket.rotated.45.png" />
+    <Resource Include="Okna\Icons\light\appbar.rss.png" />
+    <Resource Include="Okna\Icons\light\appbar.ruler.png" />
+    <Resource Include="Okna\Icons\light\appbar.sailboat.png" />
+    <Resource Include="Okna\Icons\light\appbar.save.png" />
+    <Resource Include="Okna\Icons\light\appbar.scale.png" />
+    <Resource Include="Okna\Icons\light\appbar.scale.unbalanced.png" />
+    <Resource Include="Okna\Icons\light\appbar.scissor.png" />
+    <Resource Include="Okna\Icons\light\appbar.scrabble.a.png" />
+    <Resource Include="Okna\Icons\light\appbar.scrabble.b.png" />
+    <Resource Include="Okna\Icons\light\appbar.scrabble.c.png" />
+    <Resource Include="Okna\Icons\light\appbar.scrabble.d.png" />
+    <Resource Include="Okna\Icons\light\appbar.scrabble.e.png" />
+    <Resource Include="Okna\Icons\light\appbar.scrabble.f.png" />
+    <Resource Include="Okna\Icons\light\appbar.scrabble.g.png" />
+    <Resource Include="Okna\Icons\light\appbar.scrabble.h.png" />
+    <Resource Include="Okna\Icons\light\appbar.scrabble.i.png" />
+    <Resource Include="Okna\Icons\light\appbar.scrabble.j.png" />
+    <Resource Include="Okna\Icons\light\appbar.scrabble.k.png" />
+    <Resource Include="Okna\Icons\light\appbar.scrabble.l.png" />
+    <Resource Include="Okna\Icons\light\appbar.scrabble.m.png" />
+    <Resource Include="Okna\Icons\light\appbar.scrabble.n.png" />
+    <Resource Include="Okna\Icons\light\appbar.scrabble.o.png" />
+    <Resource Include="Okna\Icons\light\appbar.scrabble.p.png" />
+    <Resource Include="Okna\Icons\light\appbar.scrabble.q.png" />
+    <Resource Include="Okna\Icons\light\appbar.scrabble.r.png" />
+    <Resource Include="Okna\Icons\light\appbar.scrabble.s.png" />
+    <Resource Include="Okna\Icons\light\appbar.scrabble.t.png" />
+    <Resource Include="Okna\Icons\light\appbar.scrabble.u.png" />
+    <Resource Include="Okna\Icons\light\appbar.scrabble.v.png" />
+    <Resource Include="Okna\Icons\light\appbar.scrabble.w.png" />
+    <Resource Include="Okna\Icons\light\appbar.scrabble.x.png" />
+    <Resource Include="Okna\Icons\light\appbar.scrabble.y.png" />
+    <Resource Include="Okna\Icons\light\appbar.scrabble.z.png" />
+    <Resource Include="Okna\Icons\light\appbar.sd.micro.png" />
+    <Resource Include="Okna\Icons\light\appbar.sd.png" />
+    <Resource Include="Okna\Icons\light\appbar.section.collapse.all.png" />
+    <Resource Include="Okna\Icons\light\appbar.section.collapse.png" />
+    <Resource Include="Okna\Icons\light\appbar.section.expand.all.png" />
+    <Resource Include="Okna\Icons\light\appbar.section.expand.png" />
+    <Resource Include="Okna\Icons\light\appbar.server.png" />
+    <Resource Include="Okna\Icons\light\appbar.settings.png" />
+    <Resource Include="Okna\Icons\light\appbar.share.open.png" />
+    <Resource Include="Okna\Icons\light\appbar.share.png" />
+    <Resource Include="Okna\Icons\light\appbar.shield.alert.png" />
+    <Resource Include="Okna\Icons\light\appbar.shield.png" />
+    <Resource Include="Okna\Icons\light\appbar.shopping.png" />
+    <Resource Include="Okna\Icons\light\appbar.shotglass.png" />
+    <Resource Include="Okna\Icons\light\appbar.shuffle.png" />
+    <Resource Include="Okna\Icons\light\appbar.sidebar.left.collapse.png" />
+    <Resource Include="Okna\Icons\light\appbar.sidebar.left.expand.png" />
+    <Resource Include="Okna\Icons\light\appbar.sidebar.right.collapse.png" />
+    <Resource Include="Okna\Icons\light\appbar.sidebar.right.expand.png" />
+    <Resource Include="Okna\Icons\light\appbar.sign.caution.png" />
+    <Resource Include="Okna\Icons\light\appbar.sign.interstate.75.png" />
+    <Resource Include="Okna\Icons\light\appbar.sign.interstate.94.png" />
+    <Resource Include="Okna\Icons\light\appbar.sign.interstate.95.png" />
+    <Resource Include="Okna\Icons\light\appbar.sign.interstate.png" />
+    <Resource Include="Okna\Icons\light\appbar.sign.parking.png" />
+    <Resource Include="Okna\Icons\light\appbar.sign.stop.png" />
+    <Resource Include="Okna\Icons\light\appbar.simcard.micro.png" />
+    <Resource Include="Okna\Icons\light\appbar.simcard.png" />
+    <Resource Include="Okna\Icons\light\appbar.skydrive.download.png" />
+    <Resource Include="Okna\Icons\light\appbar.skydrive.png" />
+    <Resource Include="Okna\Icons\light\appbar.skydrive.upload.png" />
+    <Resource Include="Okna\Icons\light\appbar.sleep.png" />
+    <Resource Include="Okna\Icons\light\appbar.slice.png" />
+    <Resource Include="Okna\Icons\light\appbar.smiley.angry.png" />
+    <Resource Include="Okna\Icons\light\appbar.smiley.cry.png" />
+    <Resource Include="Okna\Icons\light\appbar.smiley.frown.png" />
+    <Resource Include="Okna\Icons\light\appbar.smiley.glasses.png" />
+    <Resource Include="Okna\Icons\light\appbar.smiley.grin.png" />
+    <Resource Include="Okna\Icons\light\appbar.smiley.grumpy.png" />
+    <Resource Include="Okna\Icons\light\appbar.smiley.happy.png" />
+    <Resource Include="Okna\Icons\light\appbar.smiley.kiki.png" />
+    <Resource Include="Okna\Icons\light\appbar.smiley.squint.png" />
+    <Resource Include="Okna\Icons\light\appbar.smiley.tounge.png" />
+    <Resource Include="Okna\Icons\light\appbar.smiley.what.png" />
+    <Resource Include="Okna\Icons\light\appbar.snowflake.png" />
+    <Resource Include="Okna\Icons\light\appbar.snowman.png" />
+    <Resource Include="Okna\Icons\light\appbar.social.aim.png" />
+    <Resource Include="Okna\Icons\light\appbar.social.aim.variant.png" />
+    <Resource Include="Okna\Icons\light\appbar.social.amazon.appstore.png" />
+    <Resource Include="Okna\Icons\light\appbar.social.amazon.png" />
+    <Resource Include="Okna\Icons\light\appbar.social.apple.appstore.png" />
+    <Resource Include="Okna\Icons\light\appbar.social.apple.mobileme.png" />
+    <Resource Include="Okna\Icons\light\appbar.social.apple.png" />
+    <Resource Include="Okna\Icons\light\appbar.social.appnet.png" />
+    <Resource Include="Okna\Icons\light\appbar.social.artcom.png" />
+    <Resource Include="Okna\Icons\light\appbar.social.arto.png" />
+    <Resource Include="Okna\Icons\light\appbar.social.aws.png" />
+    <Resource Include="Okna\Icons\light\appbar.social.baidu.png" />
+    <Resource Include="Okna\Icons\light\appbar.social.basecamp.png" />
+    <Resource Include="Okna\Icons\light\appbar.social.bebo.png" />
+    <Resource Include="Okna\Icons\light\appbar.social.behance.png" />
+    <Resource Include="Okna\Icons\light\appbar.social.blogger.png" />
+    <Resource Include="Okna\Icons\light\appbar.social.cloudapp.png" />
+    <Resource Include="Okna\Icons\light\appbar.social.coding4fun.png" />
+    <Resource Include="Okna\Icons\light\appbar.social.delicious.png" />
+    <Resource Include="Okna\Icons\light\appbar.social.deviantart.png" />
+    <Resource Include="Okna\Icons\light\appbar.social.digg.png" />
+    <Resource Include="Okna\Icons\light\appbar.social.digg.variant.png" />
+    <Resource Include="Okna\Icons\light\appbar.social.disqus.png" />
+    <Resource Include="Okna\Icons\light\appbar.social.dribbble.png" />
+    <Resource Include="Okna\Icons\light\appbar.social.dropbox.download.png" />
+    <Resource Include="Okna\Icons\light\appbar.social.dropbox.png" />
+    <Resource Include="Okna\Icons\light\appbar.social.dropbox.upload.png" />
+    <Resource Include="Okna\Icons\light\appbar.social.drupal.png" />
+    <Resource Include="Okna\Icons\light\appbar.social.engadget.png" />
+    <Resource Include="Okna\Icons\light\appbar.social.etsy.png" />
+    <Resource Include="Okna\Icons\light\appbar.social.evernote.png" />
+    <Resource Include="Okna\Icons\light\appbar.social.facebook.heart.break.png" />
+    <Resource Include="Okna\Icons\light\appbar.social.facebook.heart.png" />
+    <Resource Include="Okna\Icons\light\appbar.social.facebook.png" />
+    <Resource Include="Okna\Icons\light\appbar.social.facebook.variant.png" />
+    <Resource Include="Okna\Icons\light\appbar.social.foursquare.png" />
+    <Resource Include="Okna\Icons\light\appbar.social.gdgt.png" />
+    <Resource Include="Okna\Icons\light\appbar.social.github.octocat.png" />
+    <Resource Include="Okna\Icons\light\appbar.social.github.octocat.solid.png" />
+    <Resource Include="Okna\Icons\light\appbar.social.github.png" />
+    <Resource Include="Okna\Icons\light\appbar.social.grooveshark.png" />
+    <Resource Include="Okna\Icons\light\appbar.social.indiegogo.png" />
+    <Resource Include="Okna\Icons\light\appbar.social.instapaper.png" />
+    <Resource Include="Okna\Icons\light\appbar.social.jira.png" />
+    <Resource Include="Okna\Icons\light\appbar.social.kickstarter.png" />
+    <Resource Include="Okna\Icons\light\appbar.social.lastfm.png" />
+    <Resource Include="Okna\Icons\light\appbar.social.line.png" />
+    <Resource Include="Okna\Icons\light\appbar.social.linkedin.png" />
+    <Resource Include="Okna\Icons\light\appbar.social.linkedin.variant.png" />
+    <Resource Include="Okna\Icons\light\appbar.social.microsoft.png" />
+    <Resource Include="Okna\Icons\light\appbar.social.nuget.png" />
+    <Resource Include="Okna\Icons\light\appbar.social.openid.png" />
+    <Resource Include="Okna\Icons\light\appbar.social.picasa.png" />
+    <Resource Include="Okna\Icons\light\appbar.social.pinterest.png" />
+    <Resource Include="Okna\Icons\light\appbar.social.playstation.png" />
+    <Resource Include="Okna\Icons\light\appbar.social.pocket.png" />
+    <Resource Include="Okna\Icons\light\appbar.social.rdio.png" />
+    <Resource Include="Okna\Icons\light\appbar.social.readability.png" />
+    <Resource Include="Okna\Icons\light\appbar.social.reddit.png" />
+    <Resource Include="Okna\Icons\light\appbar.social.sharethis.png" />
+    <Resource Include="Okna\Icons\light\appbar.social.skype.png" />
+    <Resource Include="Okna\Icons\light\appbar.social.slashdot.png" />
+    <Resource Include="Okna\Icons\light\appbar.social.soundcloud.png" />
+    <Resource Include="Okna\Icons\light\appbar.social.spotify.png" />
+    <Resource Include="Okna\Icons\light\appbar.social.stackoverflow.png" />
+    <Resource Include="Okna\Icons\light\appbar.social.theverge.png" />
+    <Resource Include="Okna\Icons\light\appbar.social.trello.png" />
+    <Resource Include="Okna\Icons\light\appbar.social.tumblr.png" />
+    <Resource Include="Okna\Icons\light\appbar.social.twitter.hashtag.png" />
+    <Resource Include="Okna\Icons\light\appbar.social.twitter.png" />
+    <Resource Include="Okna\Icons\light\appbar.social.twitter.retweet.png" />
+    <Resource Include="Okna\Icons\light\appbar.social.unity.png" />
+    <Resource Include="Okna\Icons\light\appbar.social.untapped.png" />
+    <Resource Include="Okna\Icons\light\appbar.social.uservoice.png" />
+    <Resource Include="Okna\Icons\light\appbar.social.vimeo.png" />
+    <Resource Include="Okna\Icons\light\appbar.social.whatsapp.png" />
+    <Resource Include="Okna\Icons\light\appbar.social.wikipedia.png" />
+    <Resource Include="Okna\Icons\light\appbar.social.wordpress.png" />
+    <Resource Include="Okna\Icons\light\appbar.social.wordpress.variant.png" />
+    <Resource Include="Okna\Icons\light\appbar.social.xing.png" />
+    <Resource Include="Okna\Icons\light\appbar.social.yahoo.png" />
+    <Resource Include="Okna\Icons\light\appbar.social.ycombinator.png" />
+    <Resource Include="Okna\Icons\light\appbar.social.yelp.png" />
+    <Resource Include="Okna\Icons\light\appbar.social.zappos.png" />
+    <Resource Include="Okna\Icons\light\appbar.sort.alphabetical.ascending.png" />
+    <Resource Include="Okna\Icons\light\appbar.sort.alphabetical.descending.png" />
+    <Resource Include="Okna\Icons\light\appbar.sort.alphabetical.png" />
+    <Resource Include="Okna\Icons\light\appbar.sort.numeric.ascending.png" />
+    <Resource Include="Okna\Icons\light\appbar.sort.numeric.descending.png" />
+    <Resource Include="Okna\Icons\light\appbar.sort.numeric.png" />
+    <Resource Include="Okna\Icons\light\appbar.sort.png" />
+    <Resource Include="Okna\Icons\light\appbar.sound.0.png" />
+    <Resource Include="Okna\Icons\light\appbar.sound.1.png" />
+    <Resource Include="Okna\Icons\light\appbar.sound.2.png" />
+    <Resource Include="Okna\Icons\light\appbar.sound.3.png" />
+    <Resource Include="Okna\Icons\light\appbar.sound.left.right.png" />
+    <Resource Include="Okna\Icons\light\appbar.sound.mute.png" />
+    <Resource Include="Okna\Icons\light\appbar.sound.stereo.png" />
+    <Resource Include="Okna\Icons\light\appbar.sound.stereo.stack.png" />
+    <Resource Include="Okna\Icons\light\appbar.source.fork.png" />
+    <Resource Include="Okna\Icons\light\appbar.source.pull.png" />
+    <Resource Include="Okna\Icons\light\appbar.speakerphone.png" />
+    <Resource Include="Okna\Icons\light\appbar.sport.football.png" />
+    <Resource Include="Okna\Icons\light\appbar.stairs.down.png" />
+    <Resource Include="Okna\Icons\light\appbar.stairs.down.reflect.horizontal.png" />
+    <Resource Include="Okna\Icons\light\appbar.stairs.up.png" />
+    <Resource Include="Okna\Icons\light\appbar.stairs.up.reflect.horizontal.png" />
+    <Resource Include="Okna\Icons\light\appbar.stamp.at.png" />
+    <Resource Include="Okna\Icons\light\appbar.stamp.empty.png" />
+    <Resource Include="Okna\Icons\light\appbar.stamp.png" />
+    <Resource Include="Okna\Icons\light\appbar.star.add.png" />
+    <Resource Include="Okna\Icons\light\appbar.star.delete.png" />
+    <Resource Include="Okna\Icons\light\appbar.star.invincible.png" />
+    <Resource Include="Okna\Icons\light\appbar.star.minus.png" />
+    <Resource Include="Okna\Icons\light\appbar.star.png" />
+    <Resource Include="Okna\Icons\light\appbar.star.remove.png" />
+    <Resource Include="Okna\Icons\light\appbar.starwars.jedi.png" />
+    <Resource Include="Okna\Icons\light\appbar.starwars.rebel.png" />
+    <Resource Include="Okna\Icons\light\appbar.starwars.sith.png" />
+    <Resource Include="Okna\Icons\light\appbar.steam.png" />
+    <Resource Include="Okna\Icons\light\appbar.stock.down.png" />
+    <Resource Include="Okna\Icons\light\appbar.stock.png" />
+    <Resource Include="Okna\Icons\light\appbar.stock.up.png" />
+    <Resource Include="Okna\Icons\light\appbar.stocking.png" />
+    <Resource Include="Okna\Icons\light\appbar.stop.png" />
+    <Resource Include="Okna\Icons\light\appbar.store.png" />
+    <Resource Include="Okna\Icons\light\appbar.stream.png" />
+    <Resource Include="Okna\Icons\light\appbar.suitcase.png" />
+    <Resource Include="Okna\Icons\light\appbar.swap.png" />
+    <Resource Include="Okna\Icons\light\appbar.switch.off.png" />
+    <Resource Include="Okna\Icons\light\appbar.symbol.braces.png" />
+    <Resource Include="Okna\Icons\light\appbar.symbol.bracket.png" />
+    <Resource Include="Okna\Icons\light\appbar.table.add.png" />
+    <Resource Include="Okna\Icons\light\appbar.table.delete.png" />
+    <Resource Include="Okna\Icons\light\appbar.table.png" />
+    <Resource Include="Okna\Icons\light\appbar.table.select.png" />
+    <Resource Include="Okna\Icons\light\appbar.table.unselect.png" />
+    <Resource Include="Okna\Icons\light\appbar.tablet.windows.png" />
+    <Resource Include="Okna\Icons\light\appbar.tag.label.png" />
+    <Resource Include="Okna\Icons\light\appbar.tag.png" />
+    <Resource Include="Okna\Icons\light\appbar.tardis.png" />
+    <Resource Include="Okna\Icons\light\appbar.team.png" />
+    <Resource Include="Okna\Icons\light\appbar.text.align.center.png" />
+    <Resource Include="Okna\Icons\light\appbar.text.align.justify.png" />
+    <Resource Include="Okna\Icons\light\appbar.text.align.left.png" />
+    <Resource Include="Okna\Icons\light\appbar.text.align.right.png" />
+    <Resource Include="Okna\Icons\light\appbar.text.bold.png" />
+    <Resource Include="Okna\Icons\light\appbar.text.italic.png" />
+    <Resource Include="Okna\Icons\light\appbar.text.overline.png" />
+    <Resource Include="Okna\Icons\light\appbar.text.sans.png" />
+    <Resource Include="Okna\Icons\light\appbar.text.script.png" />
+    <Resource Include="Okna\Icons\light\appbar.text.serif.png" />
+    <Resource Include="Okna\Icons\light\appbar.text.size.down.png" />
+    <Resource Include="Okna\Icons\light\appbar.text.size.minus.png" />
+    <Resource Include="Okna\Icons\light\appbar.text.size.plus.png" />
+    <Resource Include="Okna\Icons\light\appbar.text.size.png" />
+    <Resource Include="Okna\Icons\light\appbar.text.size.up.png" />
+    <Resource Include="Okna\Icons\light\appbar.text.strikethrough.png" />
+    <Resource Include="Okna\Icons\light\appbar.text.underline.png" />
+    <Resource Include="Okna\Icons\light\appbar.thermometer.celcius.png" />
+    <Resource Include="Okna\Icons\light\appbar.thermometer.digital.png" />
+    <Resource Include="Okna\Icons\light\appbar.thermometer.fahrenheit.png" />
+    <Resource Include="Okna\Icons\light\appbar.thermometer.honeywell.png" />
+    <Resource Include="Okna\Icons\light\appbar.thermometer.kelvin.png" />
+    <Resource Include="Okna\Icons\light\appbar.thermometer.png" />
+    <Resource Include="Okna\Icons\light\appbar.thermometer.signs.png" />
+    <Resource Include="Okna\Icons\light\appbar.thumb.up.add.png" />
+    <Resource Include="Okna\Icons\light\appbar.thumb.up.delete.png" />
+    <Resource Include="Okna\Icons\light\appbar.thumb.up.minus.png" />
+    <Resource Include="Okna\Icons\light\appbar.thumbs.down.png" />
+    <Resource Include="Okna\Icons\light\appbar.thumbs.up.png" />
+    <Resource Include="Okna\Icons\light\appbar.ticket.png" />
+    <Resource Include="Okna\Icons\light\appbar.tiles.four.png" />
+    <Resource Include="Okna\Icons\light\appbar.tiles.minus.png" />
+    <Resource Include="Okna\Icons\light\appbar.tiles.nine.png" />
+    <Resource Include="Okna\Icons\light\appbar.tiles.plus.png" />
+    <Resource Include="Okna\Icons\light\appbar.tiles.sixteen.png" />
+    <Resource Include="Okna\Icons\light\appbar.timer.1.png" />
+    <Resource Include="Okna\Icons\light\appbar.timer.2.png" />
+    <Resource Include="Okna\Icons\light\appbar.timer.3.png" />
+    <Resource Include="Okna\Icons\light\appbar.timer.4.png" />
+    <Resource Include="Okna\Icons\light\appbar.timer.5.png" />
+    <Resource Include="Okna\Icons\light\appbar.timer.alert.png" />
+    <Resource Include="Okna\Icons\light\appbar.timer.check.png" />
+    <Resource Include="Okna\Icons\light\appbar.timer.forward.png" />
+    <Resource Include="Okna\Icons\light\appbar.timer.pause.png" />
+    <Resource Include="Okna\Icons\light\appbar.timer.play.png" />
+    <Resource Include="Okna\Icons\light\appbar.timer.png" />
+    <Resource Include="Okna\Icons\light\appbar.timer.record.png" />
+    <Resource Include="Okna\Icons\light\appbar.timer.resume.png" />
+    <Resource Include="Okna\Icons\light\appbar.timer.rewind.png" />
+    <Resource Include="Okna\Icons\light\appbar.timer.stop.png" />
+    <Resource Include="Okna\Icons\light\appbar.tools.png" />
+    <Resource Include="Okna\Icons\light\appbar.tournament.bracket.down.png" />
+    <Resource Include="Okna\Icons\light\appbar.tournament.bracket.left.png" />
+    <Resource Include="Okna\Icons\light\appbar.tournament.bracket.png" />
+    <Resource Include="Okna\Icons\light\appbar.tournament.bracket.right.png" />
+    <Resource Include="Okna\Icons\light\appbar.tournament.bracket.up.png" />
+    <Resource Include="Okna\Icons\light\appbar.tower.png" />
+    <Resource Include="Okna\Icons\light\appbar.train.png" />
+    <Resource Include="Okna\Icons\light\appbar.train.track.png" />
+    <Resource Include="Okna\Icons\light\appbar.train.tunnel.png" />
+    <Resource Include="Okna\Icons\light\appbar.transform.flip.horizontal.png" />
+    <Resource Include="Okna\Icons\light\appbar.transform.flip.vertical.png" />
+    <Resource Include="Okna\Icons\light\appbar.transform.rotate.clockwise.png" />
+    <Resource Include="Okna\Icons\light\appbar.transform.rotate.counterclockwise.png" />
+    <Resource Include="Okna\Icons\light\appbar.transform.rotate.left.png" />
+    <Resource Include="Okna\Icons\light\appbar.transform.rotate.right.png" />
+    <Resource Include="Okna\Icons\light\appbar.transit.arrive.png" />
+    <Resource Include="Okna\Icons\light\appbar.transit.bus.png" />
+    <Resource Include="Okna\Icons\light\appbar.transit.car.accident.png" />
+    <Resource Include="Okna\Icons\light\appbar.transit.car.png" />
+    <Resource Include="Okna\Icons\light\appbar.transit.congestion.png" />
+    <Resource Include="Okna\Icons\light\appbar.transit.connection.departure.png" />
+    <Resource Include="Okna\Icons\light\appbar.transit.connection.png" />
+    <Resource Include="Okna\Icons\light\appbar.transit.construction.png" />
+    <Resource Include="Okna\Icons\light\appbar.transit.depart.png" />
+    <Resource Include="Okna\Icons\light\appbar.transit.distance.from.png" />
+    <Resource Include="Okna\Icons\light\appbar.transit.distance.to.png" />
+    <Resource Include="Okna\Icons\light\appbar.transit.hazard.png" />
+    <Resource Include="Okna\Icons\light\appbar.tree.leaf.png" />
+    <Resource Include="Okna\Icons\light\appbar.tree.leaf.three.png" />
+    <Resource Include="Okna\Icons\light\appbar.tree.pine.png" />
+    <Resource Include="Okna\Icons\light\appbar.tree.png" />
+    <Resource Include="Okna\Icons\light\appbar.trophy.png" />
+    <Resource Include="Okna\Icons\light\appbar.truck.png" />
+    <Resource Include="Okna\Icons\light\appbar.tux.png" />
+    <Resource Include="Okna\Icons\light\appbar.tv.news.png" />
+    <Resource Include="Okna\Icons\light\appbar.tv.png" />
+    <Resource Include="Okna\Icons\light\appbar.tv.remote.png" />
+    <Resource Include="Okna\Icons\light\appbar.tv.syfy.png" />
+    <Resource Include="Okna\Icons\light\appbar.type.bit.png" />
+    <Resource Include="Okna\Icons\light\appbar.type.boolean.png" />
+    <Resource Include="Okna\Icons\light\appbar.type.null.png" />
+    <Resource Include="Okna\Icons\light\appbar.undo.curve.png" />
+    <Resource Include="Okna\Icons\light\appbar.undo.png" />
+    <Resource Include="Okna\Icons\light\appbar.undo.point.png" />
+    <Resource Include="Okna\Icons\light\appbar.unlock.keyhole.png" />
+    <Resource Include="Okna\Icons\light\appbar.unlock.png" />
+    <Resource Include="Okna\Icons\light\appbar.upload.png" />
+    <Resource Include="Okna\Icons\light\appbar.usb.drive.png" />
+    <Resource Include="Okna\Icons\light\appbar.usb.png" />
+    <Resource Include="Okna\Icons\light\appbar.user.add.png" />
+    <Resource Include="Okna\Icons\light\appbar.user.delete.png" />
+    <Resource Include="Okna\Icons\light\appbar.user.minus.png" />
+    <Resource Include="Okna\Icons\light\appbar.user.png" />
+    <Resource Include="Okna\Icons\light\appbar.user.tie.png" />
+    <Resource Include="Okna\Icons\light\appbar.vector.circle.png" />
+    <Resource Include="Okna\Icons\light\appbar.vector.group.png" />
+    <Resource Include="Okna\Icons\light\appbar.vector.group.removed.png" />
+    <Resource Include="Okna\Icons\light\appbar.vector.line.curve.png" />
+    <Resource Include="Okna\Icons\light\appbar.vector.line.png" />
+    <Resource Include="Okna\Icons\light\appbar.vector.line.spline.png" />
+    <Resource Include="Okna\Icons\light\appbar.vector.pen.add.png" />
+    <Resource Include="Okna\Icons\light\appbar.vector.pen.convert.png" />
+    <Resource Include="Okna\Icons\light\appbar.vector.pen.minus.png" />
+    <Resource Include="Okna\Icons\light\appbar.vector.pen.png" />
+    <Resource Include="Okna\Icons\light\appbar.vector.polygon.png" />
+    <Resource Include="Okna\Icons\light\appbar.vector.rectangle.png" />
+    <Resource Include="Okna\Icons\light\appbar.vector.star.png" />
+    <Resource Include="Okna\Icons\light\appbar.video.basic.png" />
+    <Resource Include="Okna\Icons\light\appbar.video.gallery.png" />
+    <Resource Include="Okna\Icons\light\appbar.video.highdefinition.png" />
+    <Resource Include="Okna\Icons\light\appbar.video.png" />
+    <Resource Include="Okna\Icons\light\appbar.video.send.png" />
+    <Resource Include="Okna\Icons\light\appbar.video.standarddefinition.png" />
+    <Resource Include="Okna\Icons\light\appbar.vip.lowercase.png" />
+    <Resource Include="Okna\Icons\light\appbar.vip.png" />
+    <Resource Include="Okna\Icons\light\appbar.visualstudio.news.png" />
+    <Resource Include="Okna\Icons\light\appbar.visualstudio.png" />
+    <Resource Include="Okna\Icons\light\appbar.warning.circle.png" />
+    <Resource Include="Okna\Icons\light\appbar.warning.png" />
+    <Resource Include="Okna\Icons\light\appbar.water.droplet.alert.png" />
+    <Resource Include="Okna\Icons\light\appbar.water.droplet.png" />
+    <Resource Include="Okna\Icons\light\appbar.water.droplet.reflection.png" />
+    <Resource Include="Okna\Icons\light\appbar.weather.chance.png" />
+    <Resource Include="Okna\Icons\light\appbar.weather.overcast.png" />
+    <Resource Include="Okna\Icons\light\appbar.weather.rain.png" />
+    <Resource Include="Okna\Icons\light\appbar.weather.snow.png" />
+    <Resource Include="Okna\Icons\light\appbar.weather.station.png" />
+    <Resource Include="Okna\Icons\light\appbar.weather.sun.png" />
+    <Resource Include="Okna\Icons\light\appbar.weather.sun.rise.png" />
+    <Resource Include="Okna\Icons\light\appbar.weather.sun.set.png" />
+    <Resource Include="Okna\Icons\light\appbar.weather.symbol.png" />
+    <Resource Include="Okna\Icons\light\appbar.weather.thunder.png" />
+    <Resource Include="Okna\Icons\light\appbar.webcam.png" />
+    <Resource Include="Okna\Icons\light\appbar.window.casement.closed.png" />
+    <Resource Include="Okna\Icons\light\appbar.window.casement.png" />
+    <Resource Include="Okna\Icons\light\appbar.window.closed.png" />
+    <Resource Include="Okna\Icons\light\appbar.window.maximize.png" />
+    <Resource Include="Okna\Icons\light\appbar.window.minimize.png" />
+    <Resource Include="Okna\Icons\light\appbar.window.png" />
+    <Resource Include="Okna\Icons\light\appbar.window.restore.png" />
+    <Resource Include="Okna\Icons\light\appbar.window.simple.png" />
+    <Resource Include="Okna\Icons\light\appbar.windowsphone.png" />
+    <Resource Include="Okna\Icons\light\appbar.xbox.png" />
+    <Resource Include="Okna\Icons\light\appbar.youtube.play.png" />
+    <Resource Include="Okna\Icons\light\appbar.youtube.png" />
+    <Resource Include="Okna\Icons\light\appbar.zune.png" />
+    <Resource Include="Okna\Logowanie.png" />
+    <Resource Include="Okna\Img\slajder_dol_2.png" />
+    <Resource Include="Okna\Img\ikona_w_prawo.png" />
+    <Resource Include="Okna\Img\ikona_w_lewo.png" />
+    <Resource Include="Okna\Img\slajder_zd_1.png" />
+    <Resource Include="Okna\Img\slajder_dol_1.png" />
+    <Content Include="Exe\jpegoptim.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Exe\optipng.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Okna\Img\Zgłoś.png" />
+    <Resource Include="Okna\Img\NowaFunkcja.png" />
+    <Resource Include="Okna\Img\FB.png" />
+    <Resource Include="Okna\Img\polub.png" />
+    <Resource Include="zamknij.png" />
+    <Resource Include="Okna\Img\aktualizacja.png" />
+    <Resource Include="Okna\Img\dodaj.png" />
+    <Resource Include="Okna\Img\ikona_gazeta.png" />
+    <Resource Include="Okna\Img\ikona_i.png" />
+    <Resource Include="Okna\Img\ikona_info.png" />
+    <Resource Include="Okna\Img\ikona_love.png" />
+    <Resource Include="Okna\Img\ikona_monitor.png" />
+    <Resource Include="Okna\Img\instalacja.png" />
+    <Resource Include="Okna\Img\logo_programu.png" />
+    <Resource Include="Okna\Img\polaczenie.png" />
+    <Resource Include="Okna\Img\polaczenie_z_internetem.png" />
+    <Resource Include="Okna\Img\strzalka_w_dol.png" />
+    <Resource Include="Okna\Img\ustawienia.png" />
+    <Resource Include="Okna\Img\zamknij.png" />
+    <Resource Include="Okna\Img\Logo.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Okna\Stare\Add_icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Okna\Stare\Alarm _icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Okna\Stare\Anchor_icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Okna\Stare\Attachment_icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Okna\Stare\Award_icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Okna\Stare\Bell_icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Okna\Stare\Brightness_icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Okna\Stare\Calendar_icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Okna\Stare\Camera_icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Okna\Stare\Chat_icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Okna\Stare\Cloud_icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Okna\Stare\Cofee_icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Okna\Stare\Contact_book_icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Okna\Stare\Delete_icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Okna\Stare\Dislike_icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Okna\Stare\Drop_icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Okna\Stare\Full_screen_icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Okna\Stare\Gear_icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Okna\Stare\Gift_icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Okna\Stare\Hidel_icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Okna\Stare\In_icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Okna\Stare\label_icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Okna\Stare\Like_icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Okna\Stare\Lock_icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Okna\Stare\Love_icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Okna\Stare\Map_pin_icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Okna\Stare\Message_icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Okna\Stare\Mic_icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Okna\Stare\Moon_icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Okna\Stare\Navigation_icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Okna\Stare\next_icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Okna\Stare\No_icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Okna\Stare\Out_icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Okna\Stare\Page_icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Okna\Stare\Prev_icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Okna\Stare\Protection_icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Okna\Stare\refresh_icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Okna\Stare\Search_icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Okna\Stare\Settings_icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Okna\Stare\Shopping_bag_icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Okna\Stare\Star_icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Okna\Stare\Subtract_icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Okna\Stare\Tick_icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Okna\Stare\Time_icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Okna\Stare\User_icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Okna\Stare\Video_icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Okna\Stare\View_icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Okna\Stare\Wifi_icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Okna\Stare\Yes_icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Biblioteka\Biblioteka.csproj">
+      <Project>{ce49c0b7-6188-451b-9573-0d1ebc439e58}</Project>
+      <Name>Biblioteka</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6 %28x86 i x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
