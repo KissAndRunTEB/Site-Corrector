@@ -1,0 +1,327 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="etap_BAZA_DANYCH_nazwa" xml:space="preserve">
+    <value>Optymalizacja bazy danych</value>
+  </data>
+  <data name="etap_BAZA_DANYCH_opis" xml:space="preserve">
+    <value>Polecenia ...</value>
+  </data>
+  <data name="etap_BAZA_DANYCH_rez" xml:space="preserve">
+    <value />
+  </data>
+  <data name="etap_CDN_nazwa" xml:space="preserve">
+    <value>Wprowadzenie CDN</value>
+  </data>
+  <data name="etap_CDN_opis" xml:space="preserve">
+    <value>Zamienie styli CSS i plików JS odpowiednikami z znaznych i damrowych CDN</value>
+  </data>
+  <data name="etap_CDN_rez" xml:space="preserve">
+    <value />
+  </data>
+  <data name="etap_CSS_nazwa" xml:space="preserve">
+    <value>Minifikacja plików CSS</value>
+  </data>
+  <data name="etap_CSS_opis" xml:space="preserve">
+    <value>Zmniejszanie rozmiaru plików CSS, między innymi usuwanie komentarzy i niepotrzebnych białych znaków.</value>
+  </data>
+  <data name="etap_CSS_rez" xml:space="preserve">
+    <value />
+  </data>
+  <data name="etap_FB_nazwa" xml:space="preserve">
+    <value>Optymalizacja Facebook Open Graph Tags</value>
+  </data>
+  <data name="etap_FB_opis" xml:space="preserve">
+    <value>wkrótce...</value>
+  </data>
+  <data name="etap_FB_rez" xml:space="preserve">
+    <value />
+  </data>
+  <data name="etap_HTACCESS_nazwa" xml:space="preserve">
+    <value>Optymalizacja ustawień serwera</value>
+  </data>
+  <data name="etap_HTACCESS_opis" xml:space="preserve">
+    <value>Optymalizacja pliku .htaccess</value>
+  </data>
+  <data name="etap_HTACCESS_rez" xml:space="preserve">
+    <value />
+  </data>
+  <data name="etap_HTML_nazwa" xml:space="preserve">
+    <value>Minifikacja plików HTML</value>
+  </data>
+  <data name="etap_HTML_opis" xml:space="preserve">
+    <value>Zmniejszanie rozmiaru plików HTML, między innymi usuwanie komentarzy i niepotrzebnych białych znaków.</value>
+  </data>
+  <data name="etap_HTML_rez" xml:space="preserve">
+    <value />
+  </data>
+  <data name="etap_IMG_nazwa" xml:space="preserve">
+    <value>Optymalizacja tagu zdjęć</value>
+  </data>
+  <data name="etap_IMG_opis" xml:space="preserve">
+    <value>Wstawianie domyślnych altów</value>
+  </data>
+  <data name="etap_IMG_rez" xml:space="preserve">
+    <value />
+  </data>
+  <data name="etap_JPG_nazwa" xml:space="preserve">
+    <value>Kompresja zdjęć JPG</value>
+  </data>
+  <data name="etap_JPG_opis" xml:space="preserve">
+    <value>Bezstratna lub stratna kompresja plików JPG, zgodnie z ustawieniami poziomu kompresji.</value>
+  </data>
+  <data name="etap_JPG_rez" xml:space="preserve">
+    <value />
+  </data>
+  <data name="etap_JS_nazwa" xml:space="preserve">
+    <value>Minifikacja plików JS</value>
+  </data>
+  <data name="etap_JS_opis" xml:space="preserve">
+    <value>Zmniejszanie rozmiaru plików JS, między innymi usuwanie komentarzy i niepotrzebnych białych znaków.</value>
+  </data>
+  <data name="etap_JS_rez" xml:space="preserve">
+    <value />
+  </data>
+  <data name="etap_KEYWORDS_nazwa" xml:space="preserve">
+    <value>Optymalizacja tagu keywords</value>
+  </data>
+  <data name="etap_KEYWORDS_opis" xml:space="preserve">
+    <value>Usówania lub wypełnianie tagu kewords w zależności od ustawień</value>
+  </data>
+  <data name="etap_KEYWORDS_rez" xml:space="preserve">
+    <value />
+  </data>
+  <data name="etap_LINKI_404_nazwa" xml:space="preserve">
+    <value>Optymalizacja linków</value>
+  </data>
+  <data name="etap_LINKI_404_opis" xml:space="preserve">
+    <value>Usówanie linków 404 lub wstawianie domyślnych linków w zależności od ustawień</value>
+  </data>
+  <data name="etap_LINKI_404_rez" xml:space="preserve">
+    <value />
+  </data>
+  <data name="etap_MAPA_nazwa" xml:space="preserve">
+    <value>Generowanie mapy witryny</value>
+  </data>
+  <data name="etap_MAPA_opis" xml:space="preserve">
+    <value>Uaktualnienie mapy witryny</value>
+  </data>
+  <data name="etap_MAPA_rez" xml:space="preserve">
+    <value />
+  </data>
+  <data name="etap_NAPRAWY_HTML_nazwa" xml:space="preserve">
+    <value>Nieproblematyczne naprawy html</value>
+  </data>
+  <data name="etap_NAPRAWY_HTML_opis" xml:space="preserve">
+    <value>Naprawy typowych błędów HTML, które nie spowodują problemów</value>
+  </data>
+  <data name="etap_NAPRAWY_HTML_rez" xml:space="preserve">
+    <value />
+  </data>
+  <data name="etap_PNG_nazwa" xml:space="preserve">
+    <value>Kompresja grafik PNG</value>
+  </data>
+  <data name="etap_PNG_opis" xml:space="preserve">
+    <value>Bezstratna kompresja plików PNG, zgodnie z ustawieniami szybkości kompresji.</value>
+  </data>
+  <data name="etap_PNG_rez" xml:space="preserve">
+    <value />
+  </data>
+  <data name="etap_ROBOTS_TXT_nazwa" xml:space="preserve">
+    <value>Optymalizacja pliku robots.txt</value>
+  </data>
+  <data name="etap_ROBOTS_TXT_opis" xml:space="preserve">
+    <value>Optymalizacja pliku robots.txt</value>
+  </data>
+  <data name="etap_ROBOTS_TXT_res" xml:space="preserve">
+    <value />
+  </data>
+  <data name="etap_TWITTER_nazwa" xml:space="preserve">
+    <value>Optymalizacja Twitter Cards Tags</value>
+  </data>
+  <data name="etap_TWITTER_opis" xml:space="preserve">
+    <value>wkrótce...</value>
+  </data>
+  <data name="etap_TWITTER_rez" xml:space="preserve">
+    <value />
+  </data>
+  <data name="etap_VIEWPORT_nazwa" xml:space="preserve">
+    <value>Skonfigurowanie viewport</value>
+  </data>
+  <data name="etap_VIEWPORT_opis" xml:space="preserve">
+    <value>Skonfigurowanie viewport</value>
+  </data>
+  <data name="etap_VIEWPORT_rez" xml:space="preserve">
+    <value />
+  </data>
+  <data name="etykieta_etap1" xml:space="preserve">
+    <value>Tworzenie projektu</value>
+  </data>
+  <data name="etykieta_etap2" xml:space="preserve">
+    <value>Proces optymalizacji</value>
+  </data>
+  <data name="etykieta_etap3" xml:space="preserve">
+    <value>Zapisywanie zmian</value>
+  </data>
+  <data name="etykieta_naglowek1" xml:space="preserve">
+    <value>Projekt</value>
+  </data>
+  <data name="etykieta_naglowek2" xml:space="preserve">
+    <value>Etapy optymalizacji</value>
+  </data>
+  <data name="etykieta_naglowek3" xml:space="preserve">
+    <value>Więcej ...</value>
+  </data>
+  <data name="etykieta_user1" xml:space="preserve">
+    <value>Witaj,</value>
+  </data>
+  <data name="etykieta_user2" xml:space="preserve">
+    <value>Testowy Użytkowniku</value>
+  </data>
+  <data name="etykieta_user3" xml:space="preserve">
+    <value>Konto </value>
+  </data>
+  <data name="etykieta_user4" xml:space="preserve">
+    <value>STANDARDOWE</value>
+  </data>
+  <data name="stopka_pre_alfa" xml:space="preserve">
+    <value>WCZESNA WERSJA TESTOWA - NIE ZAWIERA WSZYSTKICH FUNKCJI FINALNEGO PRODUKTU</value>
+  </data>
+  <data name="test" xml:space="preserve">
+    <value>Język: PL</value>
+  </data>
+  <data name="tooltip_ikon_na_pasku1" xml:space="preserve">
+    <value>Wsparcie</value>
+  </data>
+  <data name="tooltip_ikon_na_pasku2" xml:space="preserve">
+    <value>Tryb zaawansowany</value>
+  </data>
+  <data name="tooltip_ikon_na_pasku3" xml:space="preserve">
+    <value>Połączenie z internetem</value>
+  </data>
+  <data name="tooltip_ikon_na_pasku4" xml:space="preserve">
+    <value>Ustawienia</value>
+  </data>
+  <data name="tooltip_ikon_na_pasku5" xml:space="preserve">
+    <value>Minimalizuj</value>
+  </data>
+  <data name="tooltip_ikon_na_pasku6" xml:space="preserve">
+    <value>Zamknij</value>
+  </data>
+</root>
